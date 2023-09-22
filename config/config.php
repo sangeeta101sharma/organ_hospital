@@ -18,9 +18,9 @@ $contact_2="9450807093";
 $address="Devri Kalan, Mirzapur Road
 Karchhana, Allahabad.";
 $marqee="We Offer Chief & Best Medical Serices For Outbound And Inbound Patients.";
-/* 
-$sql= "SELECT * FROM site_setting";
+
+$sql= "SELECT * FROM site_setting_tbl";
 $result= mysqli_query($connection, $sql) or die("Query Failed.");
-$row = mysqli_fetch_array($result);   */ 
+$row = mysqli_fetch_array($result);  
 
 ?>

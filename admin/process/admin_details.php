@@ -1,13 +1,27 @@
 <?php
 include("connection.php");
-$adimn_name = $_POST['admin_name'];
+
+
+$id=$_POST['id'];
+$admin_name = $_POST['admin_name'];
 //echo $adimn_name;
 $contact = $_POST['contact'];
 $email = $_POST['email'];
 $qualification = $_POST['qualification'];
 $address = $_POST['address'];
 
-$sql = "INSERT INTO `admin_details_tbl` (`admin_name`, `contact`, `email`, `address`, `qualification`) VALUES ('$adimn_name ', '$contact', '$email', '$address', '$qualification ')";
+
+if($_POST['action'] == "INSERT"){
+  $sql="INSERT INTO `admin_details_tbl` set
+                                    `admin_name`'$admin_name ',
+                                    `contact`='$contact',
+                                    `email`='$email',
+                                    `address`='$address',
+                                    `qualification`='$qualification'";
+}else
+if($_POST['action'] == "UPDATE"){
+    $sql="UPDATE `admin_details_tbl` SET `admin_name`='$admin_name ',`contact`='$contact',`email`='$email',`address`='$address',`qualification`='$qualification' WHERE id=$id";                 
+}
 
 $result= mysqli_query($connection,$sql) or die("Query Failed.");
 if ($result)
@@ -19,4 +33,8 @@ else{
 $arr = array("status"=>2,"msg"=>"Try again");
 echo json_encode($arr);
 }
+
+
+
+
 ?>

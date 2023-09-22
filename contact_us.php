@@ -1,4 +1,5 @@
 <?php include_once('config/config.php');?>
+
 <!DOCTYPE html>
 
 <html lang="en-US">
@@ -617,16 +618,12 @@
 
     </section>
 
-
-    <!---->
-
-
-
-    <!---->
     <section>
         <div class="div-mtb">
             <div class="container">
-
+            <div class="text-center">
+                 <h1 class="title-1">Welcome To <u><i>Main</i></u> Organ Hospital</h1>
+            </div>
                 <div class="contact-us">
                     <div class="contact-us-1">
                         <div class="contact-us-2">
@@ -663,153 +660,154 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
+                
+            </div>
+
+        </div>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+    <section>
+        <div class="div-mtb">
+            <div class="container">
+            <div class="text-center">
+                 <h1 class="title-1">Welcome To <u><i>branch</i></u> Organ Hospital</h1>
+            </div>
                 <div class="contact-us">
-                    <div class="contactus_new">
-                        <h2 class="title-3">Enquiry Now</h2>
-                        <div class="">
-                            <form name="contactus" method="POST" >
-                                <div class="">
-                                    <div class="row">
-                                        <div class=" col-xs-12  col-sm-12 col-md-6 col-lg-6 col-xl-6">
-
-                                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="name">Your
-                                                    Name:</label> <input class="contact_text_1" placeholder=""
-                                                    name="name" id="name" value="" type="text" required>
-                                            </div>
-
-                                            <!--<div class="col-md-6"><input placeholder="Last Name" name="lastname" value="" type="text"></div>
-	<div class="col-xs-12 col-sm-12 form-item form-group"><input placeholder="Company *" type="text" name="company" value=""  class="contact_text_2">
-	</div>-->
-
-                                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label
-                                                    for="emailid">Your E-mail:</label>
-                                                <input placeholder="" class="contact_text_1" type="text" name="email" id="email"
-                                                    value="" required>
-                                            </div>
-
-                                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="phone">Your
-                                                    Phone Number:</label>
-                                                <input class="contact_text_1" placeholder="" type="tel" minlength="10"
-                                                    maxlength="10" name="phone"   id="phone"    value="" required>
-                                            </div>
-
-                                            <!--<div class="col-md-6"><input placeholder="Address" type="text" name="address" value="" ></div>
-	<div class="col-md-6"><input placeholder="Pin Code" type="text" name="pincode" value=""  class="contact_text_2">
-	</div>-->
-
-                                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                                <select name="medicine" id="medicine" class="contact_text_1">
-                                                    <option value="">--- Choose Speciality---</option>
-                                                    <option value="Institute of Bariatric and Metabolic Surgery">
-                                                        Institute of Bariatric and Metabolic Surgery</option>
-                                                    <option value="Minimal Access, Bariatric &amp; General Surgery">
-                                                        Minimal Access, Bariatric &amp; General Surgery</option>
-                                                    <option value="Gynaecology">Gynaecology</option>
-                                                    <option
-                                                        value="Maternity Services &amp; Luxurious Labour Delivery Room (LDR)">
-                                                        Maternity Services &amp; Luxurious Labour Delivery Room (LDR)
-                                                    </option>
-                                                    <option value="Paediatrics &amp; Neonatology">Paediatrics &amp;
-                                                        Neonatology</option>
-                                                    <option value="Peadiatric Surgery">Peadiatric Surgery</option>
-                                                    <option value="New Born Intensive Care (NICU)">New Born Intensive
-                                                        Care (NICU)</option>
-                                                    <option value="Orthopaedics">Orthopaedics</option>
-                                                    <option value="Internal Medicine">Internal Medicine</option>
-                                                    <option value="IVF Clinic managed by Southend Fertility &amp; IVF">
-                                                        IVF Clinic managed by Southend Fertility &amp; IVF</option>
-                                                    <option value="Endocrinology &amp; Diabetes">Endocrinology &amp;
-                                                        Diabetes</option>
-                                                    <option value="Urology">Urology</option>
-                                                    <option value="ENT">ENT</option>
-                                                    <option value="Pulmonology &amp; Sleep Disorders">Pulmonology &amp;
-                                                        Sleep Disorders</option>
-                                                    <option value="Nephrology">Nephrology</option>
-                                                    <option value="Neurosurgery">Neurosurgery</option>
-                                                    <option value="Ophthalmology">Ophthalmology</option>
-                                                    <option value="Cardiology">Cardiology</option>
-                                                    <option value="Anaesthesia">Anaesthesia</option>
-                                                    <option value="Oncology">Oncology</option>
-                                                    <option value="Hematologist">Hematologist</option>
-                                                    <option value="Psychiatry">Psychiatry</option>
-                                                    <option value="Physiotherapy">Physiotherapy</option>
-                                                    <option value="Neurology">Neurology</option>
-                                                    <option value="Interventional Pain Management">Interventional Pain
-                                                        Management</option>
-                                                    <option
-                                                        value="Dental Clinic managed by Aashray Green Dental Practice">
-                                                        Dental Clinic managed by Aashray Green Dental Practice</option>
-                                                    <option value="Rheumatology">Rheumatology</option>
-                                                    <option value="Vein Clinic">Vein Clinic</option>
-                                                    <option
-                                                        value="Department of Dermatology, Plastic, Reconstructive, Aesthetic Surgery &amp; Hair Transplant Surgery">
-                                                        Department of Dermatology, Plastic, Reconstructive, Aesthetic
-                                                        Surgery &amp; Hair Transplant Surgery</option>
-                                                    <option value="Gastroenterology">Gastroenterology</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class=" col-xs-12  col-sm-12 col-md-6 col-lg-6 col-xl-6"><label
-                                                for="message">Your Query:</label> <textarea
-                                                placeholder="Type the text here" class="contact_text_3"
-                                                style="resize: none;" name="query" id="query" ></textarea></div>
-                                    </div>
-                                    <!--<div class="col-md-6"><input placeholder="What is the value of 20 + 16?" type="text" name="captchacode" value=""  class="contact_text_2"></div>-->
-                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                        <button value="Submit"
-                                           class="submit"  id="submit" onclick="submitform()" >Submit</button>
-
-                                </div>
+                    <div class="contact-us-1">
+                        <div class="contact-us-2">
+                            <div class="contact-us-2a"><i class="fa fa-map-marker"></i></div>
+                            <div class="contact-us-2con">
+                                <h3>Address</h3>
+                                <p><?php echo $row['address'] ;?></p>
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
-
-
-                        </form>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
-<!-- Backend for contact_us form -->
-
-<script>
- 
-function submitform()
-{
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var phone = document.getElementById("phone").value;
-  var medicine = document.getElementById("medicine").value;
-  var query = document.getElementById("query").value;
-
-  var dataStringr = 'name=' + name  + 
-                   '&email=' + email + 
-                     '&phone=' + phone +  
-                   '&medicine=' + medicine+
-                   '&query=' + query; 
-                    
-                         $.ajax({
-                            type: "POST",
-                            url: "process/contact_us.php",
-                            data: dataStringr,
-                            cache: false,
-                            success: function(result){
-                             //alert(result);
-                                 var d = $.parseJSON(result);
-                                if(d.status == 1){
-                                   swal('', d.msg, 'success'); 
-                                   // location.reload();
-                                }else{
-                                    swal('', d.msg, 'error');  
-                                } 
-                            }
-                        });   
-                      }
-
- </script>  
-
-
+                    </div>
+                    <div class="contact-us-1">
+                        <div class="contact-us-2">
+                            <div class="contact-us-2a"><i class="fa fa-phone"></i></div>
+                            <div class="contact-us-2con">
+                                <h3>Phone</h3>
+                                <p><strong>Telphone No:</strong> 
+                                <a href="tel:011-25372227"><?php echo $contact_1;?></a> 
+                                <a href="tel:011-25372229"><?php echo $contact_2;?></a>
+                                </p>
+                                <p><strong>Mobile No:</strong> <a href="tel:+91-9555-059-059"><?php echo $row['contact'] ;?></a> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-us-1">
+                        <div class="contact-us-2">
+                            <div class="contact-us-2a"><i class="fa fa-envelope-o"></i></div>
+                            <div class="contact-us-2con">
+                                <h3>Email</h3>
+                                <p><a href="mailto:info@organhospital.com"><?php echo $row['email'] ;?></a> </p>
+                                <p><strong>Fax No:</strong> <a href="fax:011-25372228">9450807093</a> </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="clearfix"></div>
+                
+            </div>
+
+        </div>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+    <section>
+        <div class="div-mtb">
+            <div class="container">
+            <div class="text-center">
+                 <h1 class="title-1">Welcome To <u><i>branch</i></u> Organ Hospital</h1>
+            </div>
+                <div class="contact-us">
+                    <div class="contact-us-1">
+                        <div class="contact-us-2">
+                            <div class="contact-us-2a"><i class="fa fa-map-marker"></i></div>
+                            <div class="contact-us-2con">
+                                <h3>Address</h3>
+                                <p><?php echo $row['address'] ;?></p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="contact-us-1">
+                        <div class="contact-us-2">
+                            <div class="contact-us-2a"><i class="fa fa-phone"></i></div>
+                            <div class="contact-us-2con">
+                                <h3>Phone</h3>
+                                <p><strong>Telphone No:</strong> 
+                                <a href="tel:011-25372227"><?php echo $contact_1;?></a> 
+                                <a href="tel:011-25372229"><?php echo $contact_2;?></a>
+                                </p>
+                                <p><strong>Mobile No:</strong> <a href="tel:+91-9555-059-059"><?php echo $row['contact'] ;?></a> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-us-1">
+                        <div class="contact-us-2">
+                            <div class="contact-us-2a"><i class="fa fa-envelope-o"></i></div>
+                            <div class="contact-us-2con">
+                                <h3>Email</h3>
+                                <p><a href="mailto:info@organhospital.com"><?php echo $row['email'] ;?></a> </p>
+                                <p><strong>Fax No:</strong> <a href="fax:011-25372228">9450807093</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                
+            </div>
+
+        </div>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+    <section>
+        <div class="div-mtb">
+            <div class="container">
+            <div class="text-center">
+                 <h1 class="title-1">Welcome To <u><i>branch</i></u> Organ Hospital</h1>
+            </div>
+                <div class="contact-us">
+                    <div class="contact-us-1">
+                        <div class="contact-us-2">
+                            <div class="contact-us-2a"><i class="fa fa-map-marker"></i></div>
+                            <div class="contact-us-2con">
+                                <h3>Address</h3>
+                                <p><?php echo $row['address'] ;?></p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="contact-us-1">
+                        <div class="contact-us-2">
+                            <div class="contact-us-2a"><i class="fa fa-phone"></i></div>
+                            <div class="contact-us-2con">
+                                <h3>Phone</h3>
+                                <p><strong>Telphone No:</strong> 
+                                <a href="tel:011-25372227"><?php echo $contact_1;?></a> 
+                                <a href="tel:011-25372229"><?php echo $contact_2;?></a>
+                                </p>
+                                <p><strong>Mobile No:</strong> <a href="tel:+91-9555-059-059"><?php echo $row['contact'] ;?></a> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-us-1">
+                        <div class="contact-us-2">
+                            <div class="contact-us-2a"><i class="fa fa-envelope-o"></i></div>
+                            <div class="contact-us-2con">
+                                <h3>Email</h3>
+                                <p><a href="mailto:info@organhospital.com"><?php echo $row['email'] ;?></a> </p>
+                                <p><strong>Fax No:</strong> <a href="fax:011-25372228">9450807093</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                
             </div>
 
         </div>
@@ -821,11 +819,6 @@ function submitform()
     <?php include_once('include/footer.php');?>
     <!-- Footer End -->
 
- 
-
-    <!-- Enquiry Modal -->
-    
-    <!-- Enquiry Modal -->
 
     <!-- back to top -->
     <a href="#" id="back-to-top" title="Back to top" class="show"><i class="fa fa-chevron-up"></i></a>

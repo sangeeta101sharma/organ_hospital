@@ -1,6 +1,6 @@
 
 <?php include("include/config.php");?>
-
+<?php include("process/connection.php");?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -82,7 +82,7 @@
                         <div class="col-xxl-6">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Manage Slider</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">Manage Video</h4>
                                   
                                 </div><!-- end card header -->
                         <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){
@@ -136,35 +136,17 @@
                     </div>
 
                     <!-- Show table Start -->
-                    
-                         <!-- start page title -->
-                         <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0"> View Video Details</h4>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end page title -->
 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">Add, Edit & Remove</h4>
+                                    <h4 class="card-title mb-0">VIEW VIDEO DETAILS</h4>
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
                                     <div class="listjs-table" id="customerList">
                                         <div class="row g-4 mb-3">
-                                            <div class="col-sm-auto">
-                                                <div>
-                                                    <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add</button>
-                                                    <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
-                                                </div>
-                                            </div>
                                             <div class="col-sm">
                                                 <div class="d-flex justify-content-sm-end">
                                                     <div class="search-box ms-2">
@@ -188,12 +170,18 @@
                                                         Upload Video</th>
                                                         <th class="sort" data-sort="customer_name">
                                                         Remarks </th>
-                                                        <th class="sort" data-sort="customer_name">
-                                                        Status </th>
+                                                        
                                                         <th class="sort" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">
+                                                <?php
+$sql= "SELECT * FROM video_tbl";
+$result= mysqli_query($connection, $sql) or die("Query Failed.");
+while($row = mysqli_fetch_array($result)){
+
+
+?>
                                                     <tr>
                                                         <th scope="row">
                                                             <div class="form-check">
@@ -201,22 +189,22 @@
                                                             </div>
                                                         </th>
                                                         <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary"></a></td>
-                                                        <td class="customer_name">  Video</td>
-                                                        <td class="customer_name">Organ Hospital
+                                                        <td class="customer_name">  <a href="process/<?php echo $row['video'];?>" target="_blank"><img src="process/<?php echo $row['video'];?>" style="width:50px;height:50px;border-radius:50px;" alt=""></a>  </td>
+                                                        <td class="customer_name">
+                                                        <?php echo $row['remark'];?>
                                                         </td>
-
-                                                        <td class="status"><span class="badge badge-soft-success text-uppercase">Active</span></td>
                                                         <td>
                                                             <div class="d-flex gap-2">
-                                                                <div class="edit">
-                                                                    <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                                                </div>
+                                                               
                                                                 <div class="remove">
-                                                                    <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
+                                                                <a href="process/remove_video.php?id=<?php echo $row['id'];?>" class="btn btn-sm btn-danger remove-item-btn">Remove</a>
                                                                 </div>
                                                             </div>
                                                         </td>
                                                     </tr>
+                                                    <?php
+}
+                                                    ?>
                                                 </tbody>
                                             </table>
                                             <div class="noresult" style="display: none">

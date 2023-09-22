@@ -2,6 +2,7 @@
 include("connection.php");
 if($_SERVER["REQUEST_METHOD"]="POST"){
     //upload logo
+    $id=$_POST['id'];
     $logo=$_FILES['logo']['name'];
     $logofile_tmpname=($_FILES['logo']['tmp_name']);
     
@@ -19,10 +20,29 @@ if($_SERVER["REQUEST_METHOD"]="POST"){
     $contact = $_POST['contact'];
     $email = $_POST['email'];
     $address = $_POST['address'];
+   
+if($_POST['action']=="UPDATE"){
+    $sql = "UPDATE `site_setting_tbl` SET 
+    `logo`='$LOGO',
+    `favicon`='$FAVICON',
+     `web_name`='$website',
+     `contact`=$contact,
+     `email`='$email',
+     `address`='$address'
+     WHERE id=$id";
+}
+if($_POST['action']=="INSERT"){
+    $sql = "INSERT INTO `site_setting_tbl` SET 
+    `logo`='$LOGO',
+    `favicon`='$FAVICON',
+     `web_name`='$website',
+     `contact`=$contact,
+     `email`='$email',
+     `address`='$address'";
+}
+  
  
-
-    $sql = "UPDATE `site_setting` SET `logo`=' $LOGO',`favicon`=' $FAVICON',`web_name`='$website',`contact`='$contact',`email`='$email',`address`='$address' WHERE id=1 " ;
-    $result=mysqli_query($connection,$sql) or die("Query Failed.");
+$result=mysqli_query($connection,$sql) or die("Query Failed.");
     if ($result){
         $status = 1;
         $message = "Updated successfully...";

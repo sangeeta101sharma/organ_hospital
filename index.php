@@ -579,106 +579,45 @@
 
 <body class="home page-template-default page page-id-5">
 
-
-    <!--page loader -->
-
-    <div id="pageloader"></div>
-
-
-
-
-
-
-
     <!-- Header Start -->
     <?php
-include_once('include/header.php');
-?>
-
+        include_once('include/header.php');
+    ?>
     <!-- Header End-->
-
-
-
- 
-
-
+    <?php
+    $sql= "SELECT * FROM slider_tbl";
+    $result= mysqli_query($connection, $sql) or die("Query Failed.");
+    while($row = mysqli_fetch_array($result)){
+    ?> 
     <section class="bannersec">
 
+
         <div class="container-fluid">
-
             <div class="row">
-
                 <div class="homebannercarousel owl-carousel owl-theme">
-
-    
                     <div class="item">
-
-                        <img alt="" src="images/sl1.jpg" width="1595" height="200" class="img-fluid" />
-
+                        <img alt="" src="process/<?php echo $row['slider'];?>" " width="1595" height="200" class="img-fluid" />
                     </div>
-
-
-
-
-
-
-                    <div class="item">
-
+                   <!--  <div class="item">
                         <img alt="" src="images/slider_img4.jpg" width="1595" height="200"
                             class="img-fluid" />
-
                     </div>
-
-
-
-
                     <div class="item">
-
                         <img alt="" src="images/sl3.jpg" width="1595" height="200" class="img-fluid" />
-
                     </div>
-
-
-
-
                     <div class="item">
-
                         <img alt="" src="images/org_img1.jpg" width="1595" height="200" class="img-fluid" />
-
                     </div>
-
-
-
-
                     <div class="item">
-
-                        <img alt="" src="images/department_2.jpg"
-                            width="1595" height="200" class="img-fluid" />
-
-                    </div>
- 
-
-
-
+                        <img alt="" src="images/department_2.jpg" width="1595" height="200" class="img-fluid" /></div>
                     <div class="item">
-
-                        <img alt="" src="images/department_1.jpg"
-                            width="1595" height="200" class="img-fluid" />
-
-                    </div>
-
-
-
-
+                        <img alt="" src="images/department_1.jpg" width="1595" height="200" class="img-fluid" />
+                    </div> -->
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-
+        <?php }?>
 
     <section class="uspsec">
 
@@ -704,9 +643,8 @@ include_once('include/header.php');
                         </ul>
 
                         <a data-toggle="modal" data-target="#AppoModal" class="book_btn_usp">Book your appointment
-                            today</a>
-
-
+                            today
+                        </a>
 
                     </div>
 
@@ -737,10 +675,6 @@ include_once('include/header.php');
 
     </section>
 
-
-
-
-
     <section class="guidelinesec">
 
         <div class="guide_background"></div>
@@ -748,29 +682,18 @@ include_once('include/header.php');
         <div class="container">
 
             <div class="row">
-
                 <div class="col-md-12">
-
-                    <h2 class="guide-title clearfix"><span>Quick Guide</span></h2>
-
+                 <h2 class="guide-title clearfix"><span>Quick Guide</span></h2>
                 </div>
-
                 <div class="col-md-12">
-
                     <div class="row">
-
                         <div class="col-md-4 col-sm-12 col-xs-12 margin-bottom-20 wow fadeInUp" data-wow-duration="0.8s"
                             data-wow-delay="0.5s">
-
                             <div class="box_guide">
-
                                 <div class="guidebed-ico guideico"></div>
-
                                 <h2>Book an Appointment</h2>
                                 <p>For a detailed consultation or planned health check-ups, you can book an appointment
                                     in advance (if required).</p>
-
-
                             </div>
 
                         </div>

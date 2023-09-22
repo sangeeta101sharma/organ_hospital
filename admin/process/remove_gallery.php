@@ -14,7 +14,7 @@ $id=$_GET['id'];
      $result=mysqli_query($connection,$sql)or die("Query Failed.");
     if ($result){
         $status = 1;
-        $message = "Picture Deleted Successfully...";
+        $message = " Deleted Successfully...";
         header('location:../manage_gallery.php?status='.$status.'&msg='.$message);
         exit();
     }else{

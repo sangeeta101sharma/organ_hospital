@@ -10,9 +10,7 @@ if($_SERVER["REQUEST_METHOD"]="POST"){
     
     $remark = $_POST['remark'];
 
- 
-
-    $sql = "INSERT INTO `manage_slider_tbl` (`slider`, `remark`) VALUES ('$SLIDER', '$remark')";
+    $sql = "INSERT INTO `slider_tbl` (`slider`, `remark`) VALUES ('$SLIDER', '$remark')";
     $result=mysqli_query($connection,$sql) or die("Query Failed.");
     if ($result){
         $status = 1;
