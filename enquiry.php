@@ -549,83 +549,36 @@
 
     gtag('config', 'UA-130194101-1');
     </script>
-
-    <meta name="google-site-verification" content="i5maJIlXl7_tH3Elk3nf25mWmcjDSfPFO4govDmMyQo" />
-
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            '../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-WLCMZ35');
-    </script>
-    <!-- End Google Tag Manager -->
-
 </head>
 
 <body class="page-template page-template-tpl-contact-us page-template-tpl-contact-us-php page page-id-19">
-
-
-    <!--page loader -->
-
-    <div id="pageloader"></div>
-
-    <!-- Header Start -->
+    <!-- Header  -->
     <?php include_once('include/header.php');?>
-    <!-- Header End -->
-
     <section>
-
         <div class="inner-banner">
-
             <img src="wp-content/uploads/2019/10/inner-banner.jpg" alt="Contact Us" title="organ Hospital">
-
-            <!-- <div class="inner-banner-con"></div> -->
-
         </div>
-
-
-
         <div class="breadcrumb_outer">
-
             <div class="container">
-
                 <ol class="breadcrumb">
-
-                    <li><a href="index.html">Home</a></li>
-
+                    <li><a href="index.php">Home</a></li>
                     <li>Enquiry</li>
-
                 </ol>
-
             </div>
-
         </div>
-
         <div class="clearfix"></div>
-
-
-
     </section>
-
     <section>
         <div class="div-mtb">
             <div class="container">
-
-            
                 <div class="clearfix"></div>
                 <div class="contact-us">
                     <div class="contactus_new">
+                    <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
+                                <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>" role="alert">
+                                   <?php echo $_GET['msg'];?>
+                                </div>
+                                <?php } ?>
                         <h2 class="title-3">Enquiry Now</h2>
                         <div class="">
                             <form action="admin/process/enquiry.php" method="POST" >
@@ -641,11 +594,6 @@
                                                     Address:</label> <input class="contact_text_1" placeholder=""
                                                     name="address" id="address" value="" type="text" required>
                                             </div>
-
-                                            <!--<div class="col-md-6"><input placeholder="Last Name" name="lastname" value="" type="text"></div>
-	<div class="col-xs-12 col-sm-12 form-item form-group"><input placeholder="Company *" type="text" name="company" value=""  class="contact_text_2">
-	</div>-->
-
                                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label
                                                     for="emailid">Your E-mail:</label>
                                                 <input placeholder="" class="contact_text_1" type="text" name="email" id="email"
@@ -657,11 +605,6 @@
                                                 <input class="contact_text_1" placeholder="" type="tel" minlength="10"
                                                     maxlength="10" name="phone"   id="phone"    value="" required>
                                             </div>
-
-                                            <!--<div class="col-md-6"><input placeholder="Address" type="text" name="address" value="" ></div>
-	<div class="col-md-6"><input placeholder="Pin Code" type="text" name="pincode" value=""  class="contact_text_2">
-	</div>-->
-
                                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                                 <select name="medicine" id="medicine" class="contact_text_1">
                                                     <option value="">--- Choose Speciality---</option>
@@ -720,34 +663,22 @@
                                                 placeholder="Type the text here" class="contact_text_3"
                                                 style="resize: none;" name="query" id="query" ></textarea></div>
                                     </div>
-                                    <!--<div class="col-md-6"><input placeholder="What is the value of 20 + 16?" type="text" name="captchacode" value=""  class="contact_text_2"></div>-->
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <button value="Submit"
                                            class="submit"  id="submit" >Submit</button>
-
                                 </div>
                         </div>
                     </form>
-
                     </div>
                 </div>
             </div>
-
         </div>
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <!-- Footer Start -->
+    <!-- Footer  -->
     <?php include_once('include/footer.php');?>
-    <!-- Footer End -->
-
- 
-
-    <!-- Enquiry Modal -->
-    
-    <!-- Enquiry Modal -->
-
     <!-- back to top -->
     <a href="#" id="back-to-top" title="Back to top" class="show"><i class="fa fa-chevron-up"></i></a>
     <!-- jq -->

@@ -1,6 +1,17 @@
 
 <?php include("include/config.php");?>
 <?php include("process/connection.php");?>
+<?php include("include/function.php");?>
+<?php
+session_start();
+
+if(!isLoggedIn()){
+    
+    header("location:login.php?status=2&msg=Login First");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -100,7 +111,8 @@
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="uploadVedio" class="form-label"> Upload Video</label>
-                                                        <input type="file" class="form-control" id="video" name="video">
+                                                        <textarea   class="form-control" name="video" id="video" cols="50" rows="6"></textarea>
+                                                        <!-- <input type="file" class="form-control" id="video" name="video"> -->
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -161,10 +173,8 @@
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
                                                     <tr>
-                                                        <th scope="col" style="width: 50px;">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                            </div>
+                                                    <th class="sort" data-sort="customer_name">
+                                                        Sr.no
                                                         </th>
                                                         <th class="sort" data-sort="customer_name">
                                                         Upload Video</th>
@@ -183,11 +193,9 @@ while($row = mysqli_fetch_array($result)){
 
 ?>
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
+                                                    <td scope="row">
+                                                        <?php echo $row['id'];?>
+                                                        </td>
                                                         <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary"></a></td>
                                                         <td class="customer_name">  <a href="process/<?php echo $row['video'];?>" target="_blank"><img src="process/<?php echo $row['video'];?>" style="width:50px;height:50px;border-radius:50px;" alt=""></a>  </td>
                                                         <td class="customer_name">
@@ -197,7 +205,7 @@ while($row = mysqli_fetch_array($result)){
                                                             <div class="d-flex gap-2">
                                                                
                                                                 <div class="remove">
-                                                                <a href="process/remove_video.php?id=<?php echo $row['id'];?>" class="btn btn-sm btn-danger remove-item-btn">Remove</a>
+                                                                <a href="process/remove_video.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure you want to delete?')";  class="btn btn-sm btn-danger remove-item-btn">Remove</a>
                                                                 </div>
                                                             </div>
                                                         </td>

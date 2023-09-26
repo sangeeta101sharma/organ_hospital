@@ -1,5 +1,16 @@
 
 <?php include("include/config.php");?>
+<?php include("include/function.php");?>
+<?php
+session_start();
+
+if(!isLoggedIn()){
+    
+    header("location:login.php?status=2&msg=Login First");
+    exit();
+}
+
+?>
 
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">

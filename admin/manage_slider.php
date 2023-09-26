@@ -1,6 +1,17 @@
 
 <?php include("include/config.php");?>
 <?php include("process/connection.php");?>
+<?php include("include/function.php");?>
+<?php
+session_start();
+
+if(!isLoggedIn()){
+    
+    header("location:login.php?status=2&msg=Login First");
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -126,10 +137,8 @@
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
                                                     <tr>
-                                                        <th scope="col" style="width: 50px;">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                            </div>
+                                                    <th class="sort" data-sort="customer_name">
+                                                        Sr.no
                                                         </th>
                                                         <th class="sort" data-sort="customer_name">
                                                         Upload Slider</th>
@@ -145,12 +154,9 @@
                                                     $result= mysqli_query($connection, $sql) or die("Query Failed.");
                                                     while($row = mysqli_fetch_array($result)){
                                                 ?>  
-                                                <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
+                                                <tr><td scope="row">
+                                                        <?php echo $row['id'];?>
+                                                        </td>
                                                         <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary"></a></td>
                                                         <td class="customer_name"> <a href="process/<?php echo $row['slider'];?>" target="_blank"><img src="process/<?php echo $row['slider'];?>" style="width:50px;height:50px;border-radius:50px;" alt=""></a>  </td>
                                                         <td class="customer_name">
@@ -165,7 +171,7 @@
                                                                 </div> -->
                                                                 <div class="remove">
                                                                 
-                                                                    <a href="process/remove_slider.php?id=<?php echo $row['id'];?>" class="btn btn-sm btn-danger remove-item-btn">Remove</a>
+                                                                    <a href="process/remove_slider.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure you want to delete?')";  class="btn btn-sm btn-danger remove-item-btn">Remove</a>
                                                                 </div>
                                                             </div>
                                                         </td>

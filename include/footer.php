@@ -1,3 +1,4 @@
+
 <footer class="clearfix">
     <div class="container-fluid">
         <div class="row">
@@ -6,13 +7,13 @@
                 <ul>
                     <li class="loca_ico_usp"><img alt="Organ Hospital"
                             src="wp-content/themes/organhospital/images/placeholder_white.svg" width="38"
-                            height="38"><strong>Address</strong> <?php  echo $row['address'];?></li>
+                            height="38"><strong>Address</strong> <?php  echo $line['address'];?></li>
                     <li class="call_ico_usp"><img alt="organ Hospital"
                             src="wp-content/themes/organhospital/images/24-hours_white.svg" width="28" height="28">
-                        <strong>Emergengy Call</strong> <a href="tel:+91-9415235157"><?php  echo $row['contact'];?></a></li>
+                        <strong>Emergency Call</strong> <a href="tel:+91-9415235157"><?php  echo $line['emergency'];?></a></li>
                     <li class="call_ico_usp"><img alt="organ Hospital"
                             src="wp-content/themes/organhospital/images/email.png" width="28" height="28"> <strong>Email
-                        </strong> <a href="mailto:info@organhospital.com"><?php echo $row['email'];?></a></li>
+                        </strong> <a href="mailto:<?php echo $line['email'];?>"><?php echo $line['email'];?></a></li>
                 </ul>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 ftr_add_b wow fadeInDown" data-wow-duration="0.5s"
@@ -36,9 +37,16 @@
                             <li id="menu-item-190"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-190"><a
                                     href="gallery.php">Gallery</a></li>
+                            <li id="menu-item-190"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-190"><a
+                                    href="video.php">Video</a></li>
+                                    
                             <li id="menu-item-139"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139"><a
                                     href="contact_us.php">Contact Us</a></li>
+                            <li id="menu-item-139"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139"><a
+                                    href="enquiry.php">Enquiry</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -46,19 +54,19 @@
                         <ul id="menu-medical_services_footer" class="menu">
                             <li id="menu-item-283"
                                 class="menu-item menu-item-type-post_type menu-item-object-services menu-item-283"><a
-                                    href="https://en.wikipedia.org/wiki/Ultrasound">Ultrasound</a></li>
+                                    href="">Ultrasound</a></li>
                             <li id="menu-item-284"
                                 class="menu-item menu-item-type-post_type menu-item-object-services menu-item-284"><a
-                                    href="https://en.wikipedia.org/wiki/X-ray">Digital X-Ray</a></li>
+                                    href="">Digital X-Ray</a></li>
                             <li id="menu-item-285"
                                 class="menu-item menu-item-type-post_type menu-item-object-services menu-item-285"><a
-                                    href="https://en.wikipedia.org/wiki/Pathology"> Pathology - Autoanalizer</a></li>
+                                    href=""> Pathology - Autoanalizer</a></li>
                             <li id="menu-item-286"
                                 class="menu-item menu-item-type-post_type menu-item-object-services menu-item-286"><a
-                                    href="https://en.wikipedia.org/wiki/Operating_theater"> Operation Theator</a></li>
+                                    href=""> Operation Theator</a></li>
                             <li id="menu-item-287"
                                 class="menu-item menu-item-type-post_type menu-item-object-services menu-item-287"><a
-                                    href="https://en.wikipedia.org/wiki/Allergy_test">Allergy clinic</a></li>
+                                    href="">Allergy clinic</a></li>
                         </ul>
                     </div>
 
@@ -70,7 +78,7 @@
                     <div class="ind-map">
                        <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.2749503580985!2d81.8798905742653!3d25.362100025003908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39854bd8d9751161%3A0xe0425c3caf0f8b0c!2sOrgan%20Health%20Welfare%20Trust!5e0!3m2!1sen!2sin!4v1693827243652!5m2!1sen!2sin"
-                            width="600"   style="height: 296px !important;border:0;" allowfullscreen="" loading="lazy"
+                            width="600"   style="height: 353px !important;border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe> 
                     </div>

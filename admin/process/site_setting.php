@@ -18,17 +18,23 @@ if($_SERVER["REQUEST_METHOD"]="POST"){
     
     $website = $_POST['website'];
     $contact = $_POST['contact'];
+    $alt_contact = $_POST['alt_contact'];
     $email = $_POST['email'];
     $address = $_POST['address'];
+    $emergency = $_POST['emergency'];
+     $marquee = $_POST['marquee'];
    
 if($_POST['action']=="UPDATE"){
-    $sql = "UPDATE `site_setting_tbl` SET 
+   echo $sql = "UPDATE `site_setting_tbl` SET 
     `logo`='$LOGO',
     `favicon`='$FAVICON',
      `web_name`='$website',
      `contact`=$contact,
+     `alt_contact`=$alt_contact,
      `email`='$email',
-     `address`='$address'
+     `address`='$address',
+     `emergency`='$emergency',
+     `marquee`='$marquee'
      WHERE id=$id";
 }
 if($_POST['action']=="INSERT"){
@@ -37,8 +43,11 @@ if($_POST['action']=="INSERT"){
     `favicon`='$FAVICON',
      `web_name`='$website',
      `contact`=$contact,
+     `alt_contact`=$alt_contact,
      `email`='$email',
-     `address`='$address'";
+     `address`='$address',
+     `emergency`='$emergency',
+     `marquee`='$marquee'";
 }
   
  
@@ -54,6 +63,7 @@ $result=mysqli_query($connection,$sql) or die("Query Failed.");
         header('location:../site_setting.php?status='.$status.'&msg='.$message);
         exit();
     }
+    location.reload();
 }
 
 ?>

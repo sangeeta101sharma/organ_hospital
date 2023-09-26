@@ -1,4 +1,10 @@
 <?php include_once('config/config.php');?>
+<?php
+$sql= "SELECT * FROM contact_us_tbl";
+$result= mysqli_query($connection, $sql) or die("Query Failed.");
+ $queue  = mysqli_fetch_array($result);
+
+?>
 
 <!DOCTYPE html>
 
@@ -552,77 +558,42 @@
 
     <meta name="google-site-verification" content="i5maJIlXl7_tH3Elk3nf25mWmcjDSfPFO4govDmMyQo" />
 
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            '../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-WLCMZ35');
-    </script>
-    <!-- End Google Tag Manager -->
-
 </head>
 
 <body class="page-template page-template-tpl-contact-us page-template-tpl-contact-us-php page page-id-19">
 
 
-    <!--page loader -->
-
-    <div id="pageloader"></div>
-
-    <!-- Header Start -->
+    <!-- Header  -->
     <?php include_once('include/header.php');?>
-    <!-- Header End -->
-
     <section>
-
         <div class="inner-banner">
-
             <img src="wp-content/uploads/2019/10/inner-banner.jpg" alt="Contact Us" title="organ Hospital">
-
-            <!-- <div class="inner-banner-con"></div> -->
-
         </div>
-
-
-
         <div class="breadcrumb_outer">
-
             <div class="container">
-
                 <ol class="breadcrumb">
-
-                    <li><a href="index.html">Home</a></li>
-
+                    <li><a href="index.php">Home</a></li>
                     <li>Contact Us</li>
-
                 </ol>
-
             </div>
-
         </div>
-
         <div class="clearfix"></div>
-
-
-
     </section>
+
+    <?php
+$sql= "SELECT * FROM contact_us_tbl";
+$result= mysqli_query($connection, $sql) or die("Query Failed.");
+while($queue = mysqli_fetch_array($result)){
+
+
+?>
+
 
     <section>
         <div class="div-mtb">
             <div class="container">
             <div class="text-center">
-                 <h1 class="title-1">Welcome To <u><i>Main</i></u> Organ Hospital</h1>
+                 <h1 class="title-1"><?php echo $queue['office_location'];?></h1>
             </div>
                 <div class="contact-us">
                     <div class="contact-us-1">
@@ -630,7 +601,7 @@
                             <div class="contact-us-2a"><i class="fa fa-map-marker"></i></div>
                             <div class="contact-us-2con">
                                 <h3>Address</h3>
-                                <p><?php echo $row['address'] ;?></p>
+                                <p><?php echo $queue['address'] ;?></p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -640,11 +611,12 @@
                             <div class="contact-us-2a"><i class="fa fa-phone"></i></div>
                             <div class="contact-us-2con">
                                 <h3>Phone</h3>
-                                <p><strong>Telphone No:</strong> 
-                                <a href="tel:011-25372227"><?php echo $contact_1;?></a> 
-                                <a href="tel:011-25372229"><?php echo $contact_2;?></a>
+                                <p><strong>Mobile No:</strong> 
+                                <a href=" <?php echo $queue['contact'];?>"> <?php echo $queue['contact'];?></a>
                                 </p>
-                                <p><strong>Mobile No:</strong> <a href="tel:+91-9555-059-059"><?php echo $row['contact'] ;?></a> </p>
+                                <!-- <p><strong>Mobile No:</strong>
+                                 <a href=""></a>
+                                 </p> -->
                             </div>
                         </div>
                     </div>
@@ -653,8 +625,7 @@
                             <div class="contact-us-2a"><i class="fa fa-envelope-o"></i></div>
                             <div class="contact-us-2con">
                                 <h3>Email</h3>
-                                <p><a href="mailto:info@organhospital.com"><?php echo $row['email'] ;?></a> </p>
-                                <p><strong>Fax No:</strong> <a href="fax:011-25372228">9450807093</a> </p>
+                                <p><a href="<?php echo $queue['email'];?>"><?php echo $queue['email'] ;?></a> </p>
                             </div>
                         </div>
                     </div>
@@ -667,153 +638,9 @@
         </div>
         <div class="clearfix"></div>
     </section>
-    <section>
-        <div class="div-mtb">
-            <div class="container">
-            <div class="text-center">
-                 <h1 class="title-1">Welcome To <u><i>branch</i></u> Organ Hospital</h1>
-            </div>
-                <div class="contact-us">
-                    <div class="contact-us-1">
-                        <div class="contact-us-2">
-                            <div class="contact-us-2a"><i class="fa fa-map-marker"></i></div>
-                            <div class="contact-us-2con">
-                                <h3>Address</h3>
-                                <p><?php echo $row['address'] ;?></p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="contact-us-1">
-                        <div class="contact-us-2">
-                            <div class="contact-us-2a"><i class="fa fa-phone"></i></div>
-                            <div class="contact-us-2con">
-                                <h3>Phone</h3>
-                                <p><strong>Telphone No:</strong> 
-                                <a href="tel:011-25372227"><?php echo $contact_1;?></a> 
-                                <a href="tel:011-25372229"><?php echo $contact_2;?></a>
-                                </p>
-                                <p><strong>Mobile No:</strong> <a href="tel:+91-9555-059-059"><?php echo $row['contact'] ;?></a> </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-us-1">
-                        <div class="contact-us-2">
-                            <div class="contact-us-2a"><i class="fa fa-envelope-o"></i></div>
-                            <div class="contact-us-2con">
-                                <h3>Email</h3>
-                                <p><a href="mailto:info@organhospital.com"><?php echo $row['email'] ;?></a> </p>
-                                <p><strong>Fax No:</strong> <a href="fax:011-25372228">9450807093</a> </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-                
-            </div>
-
-        </div>
-        </div>
-        <div class="clearfix"></div>
-    </section>
-    <section>
-        <div class="div-mtb">
-            <div class="container">
-            <div class="text-center">
-                 <h1 class="title-1">Welcome To <u><i>branch</i></u> Organ Hospital</h1>
-            </div>
-                <div class="contact-us">
-                    <div class="contact-us-1">
-                        <div class="contact-us-2">
-                            <div class="contact-us-2a"><i class="fa fa-map-marker"></i></div>
-                            <div class="contact-us-2con">
-                                <h3>Address</h3>
-                                <p><?php echo $row['address'] ;?></p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="contact-us-1">
-                        <div class="contact-us-2">
-                            <div class="contact-us-2a"><i class="fa fa-phone"></i></div>
-                            <div class="contact-us-2con">
-                                <h3>Phone</h3>
-                                <p><strong>Telphone No:</strong> 
-                                <a href="tel:011-25372227"><?php echo $contact_1;?></a> 
-                                <a href="tel:011-25372229"><?php echo $contact_2;?></a>
-                                </p>
-                                <p><strong>Mobile No:</strong> <a href="tel:+91-9555-059-059"><?php echo $row['contact'] ;?></a> </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-us-1">
-                        <div class="contact-us-2">
-                            <div class="contact-us-2a"><i class="fa fa-envelope-o"></i></div>
-                            <div class="contact-us-2con">
-                                <h3>Email</h3>
-                                <p><a href="mailto:info@organhospital.com"><?php echo $row['email'] ;?></a> </p>
-                                <p><strong>Fax No:</strong> <a href="fax:011-25372228">9450807093</a> </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-                
-            </div>
-
-        </div>
-        </div>
-        <div class="clearfix"></div>
-    </section>
-    <section>
-        <div class="div-mtb">
-            <div class="container">
-            <div class="text-center">
-                 <h1 class="title-1">Welcome To <u><i>branch</i></u> Organ Hospital</h1>
-            </div>
-                <div class="contact-us">
-                    <div class="contact-us-1">
-                        <div class="contact-us-2">
-                            <div class="contact-us-2a"><i class="fa fa-map-marker"></i></div>
-                            <div class="contact-us-2con">
-                                <h3>Address</h3>
-                                <p><?php echo $row['address'] ;?></p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="contact-us-1">
-                        <div class="contact-us-2">
-                            <div class="contact-us-2a"><i class="fa fa-phone"></i></div>
-                            <div class="contact-us-2con">
-                                <h3>Phone</h3>
-                                <p><strong>Telphone No:</strong> 
-                                <a href="tel:011-25372227"><?php echo $contact_1;?></a> 
-                                <a href="tel:011-25372229"><?php echo $contact_2;?></a>
-                                </p>
-                                <p><strong>Mobile No:</strong> <a href="tel:+91-9555-059-059"><?php echo $row['contact'] ;?></a> </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-us-1">
-                        <div class="contact-us-2">
-                            <div class="contact-us-2a"><i class="fa fa-envelope-o"></i></div>
-                            <div class="contact-us-2con">
-                                <h3>Email</h3>
-                                <p><a href="mailto:info@organhospital.com"><?php echo $row['email'] ;?></a> </p>
-                                <p><strong>Fax No:</strong> <a href="fax:011-25372228">9450807093</a> </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-                
-            </div>
-
-        </div>
-        </div>
-        <div class="clearfix"></div>
-    </section>
+   
+   
+   <?php }?>
 
     <!-- Footer Start -->
     <?php include_once('include/footer.php');?>
@@ -837,7 +664,4 @@
     <script type='text/javascript' src='wp-content/themes/organhospital/js/script68c3.js?ver=20151811'
         id='custom-script-js'></script>
 </body>
-
-
-
 </html>

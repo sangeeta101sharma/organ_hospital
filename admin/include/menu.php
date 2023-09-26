@@ -75,6 +75,10 @@
                             <a href="download.php" class="nav-link" data-key="t-analytics">
                             <i class="ri-arrow-down-circle-fill"></i> Download </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="log_out.php" class="nav-link" data-key="t-analytics">
+                            <i class="ri-logout-circle-line"></i> Log Out </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- Sidebar -->

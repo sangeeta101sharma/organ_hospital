@@ -13,7 +13,7 @@ $address = $_POST['address'];
 
 if($_POST['action'] == "INSERT"){
   $sql="INSERT INTO `admin_details_tbl` set
-                                    `admin_name`'$admin_name ',
+                                    `admin_name`='$admin_name ',
                                     `contact`='$contact',
                                     `email`='$email',
                                     `address`='$address',

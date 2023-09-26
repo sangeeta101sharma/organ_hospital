@@ -1,105 +1,15 @@
 <?php include("config/config.php");?>
 
 <!DOCTYPE html>
-
 <html lang="en-US">
-
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-    <!-- <title>organ Hospital</title> -->
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" href="<?php echo $row['favicon'];?>" type="image/x-icon">
-
-    <link rel="icon" href="<?php echo $row['favicon'] ;?>" type="image/x-icon">
-
-    <!-- css -->
-
-    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-
-
+    <link rel="shortcut icon" href="<?php echo $line['favicon'];?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo $line['favicon'] ;?>" type="image/x-icon">
     <title><?php echo $title ;?></title>
-    <meta name="description" content="" />
-    <link rel="canonical" href="index.html" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="index.html" />
-    <meta property="og:site_name" content="Organ Hospital" />
-    <meta property="article:publisher" content="https://www.facebook.com/mrrmhospital" />
-    <meta property="article:modified_time" content="2022-07-02T15:42:51+00:00" />
-    <meta property="og:image" content="wp-content/uploads/2022/03/Logo-PNG.png" />
-    <meta property="og:image:width" content="213" />
-    <meta property="og:image:height" content="47" />
-    <meta property="og:image:type" content="image/png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json" class="yoast-schema-graph">
-   
-    </script>
-    <!-- / Yoast SEO plugin. -->
-
-
+    <script type="application/ld+json" class="yoast-schema-graph"></script>
     <link rel='dns-prefetch' href='http://www.googletagmanager.com/' />
-    <script type="text/javascript">
-    window._wpemojiSettings = {
-        "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/",
-        "ext": ".png",
-        "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/",
-        "svgExt": ".svg",
-        "source": {
-            "concatemoji": "https:\/\/organhospital.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2.2"
-        }
-    };
-    /*! This file is auto-generated */
-    ! function(e, a, t) {
-        var n, r, o, i = a.createElement("canvas"),
-            p = i.getContext && i.getContext("2d");
-
-        function s(e, t) {
-            p.clearRect(0, 0, i.width, i.height), p.fillText(e, 0, 0);
-            e = i.toDataURL();
-            return p.clearRect(0, 0, i.width, i.height), p.fillText(t, 0, 0), e === i.toDataURL()
-        }
-
-        function c(e) {
-            var t = a.createElement("script");
-            t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)
-        }
-        for (o = Array("flag", "emoji"), t.supports = {
-                everything: !0,
-                everythingExceptFlag: !0
-            }, r = 0; r < o.length; r++) t.supports[o[r]] = function(e) {
-            if (p && p.fillText) switch (p.textBaseline = "top", p.font = "600 32px Arial", e) {
-                case "flag":
-                    return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", "\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f") ? !
-                        1 : !s("\ud83c\uddfa\ud83c\uddf3", "\ud83c\uddfa\u200b\ud83c\uddf3") && !s(
-                            "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f",
-                            "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"
-                            );
-                case "emoji":
-                    return !s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff",
-                        "\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")
-            }
-            return !1
-        }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports
-            .everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]);
-        t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t
-            .readyCallback = function() {
-                t.DOMReady = !0
-            }, t.supports.everything || (n = function() {
-                t.readyCallback()
-            }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !
-                1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function() {
-                "complete" === a.readyState && t.readyCallback()
-            })), (e = t.source || {}).concatemoji ? c(e.concatemoji) : e.wpemoji && e.twemoji && (c(e.twemoji), c(e
-                .wpemoji)))
-    }(window, document, window._wpemojiSettings);
-    </script>
     <style type="text/css">
     img.wp-smiley,
     img.emoji {
@@ -113,6 +23,16 @@
         background: none !important;
         padding: 0 !important;
     }
+     .content {
+  position: absolute !important;
+  top: 150px !important;
+  background: rgb(0, 0, 0) !important; /* Fallback color */
+  background: rgba(0, 0, 0, 0.01) !important; /* Black background with 0.5 opacity */
+  color: blue !important;
+  width: 100% !important;
+  padding: 20px !important;
+  margin-top:50px !important;
+}
     </style>
     <link rel='stylesheet' id='wp-block-library-css'
         href='wp-includes/css/dist/block-library/style.min3781.css?ver=6.2.2' type='text/css' media='all' />
@@ -499,28 +419,6 @@
         id='contactpage-handle-js'></script>
     <script type='text/javascript' src='wp-content/plugins/cuscontactusnew/js/fromvalidations3781.js?ver=6.2.2'
         id='contactpage-frmvalidation-js'></script>
-
-    <!-- Google Analytics snippet added by Site Kit -->
-    <script type='text/javascript' src='https://www.googletagmanager.com/gtag/js?id=UA-236833799-1'
-        id='google_gtagjs-js' async></script>
-    <script type='text/javascript' id='google_gtagjs-js-after'>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('set', 'linker', {
-        "domains": ["organhospital.com"]
-    });
-    gtag("js", new Date());
-    gtag("set", "developer_id.dZTNiMT", true);
-    gtag("config", "UA-236833799-1", {
-        "anonymize_ip": true
-    });
-    gtag("config", "G-K4GRHNQQM8");
-    </script>
-
-    <!-- End Google Analytics snippet added by Site Kit -->
     <link rel="https://api.w.org/" href="wp-json/index.html" />
     <link rel="alternate" type="application/json" href="wp-json/wp/v2/pages/5.json" />
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
@@ -533,11 +431,11 @@
         href="wp-json/oembed/1.0/embed87fb?url=https%3A%2F%2Forganhospital.com%2F&amp;format=xml" />
     <meta name="generator" content="Site Kit by Google 1.108.0" />
     <link rel="apple-touch-icon" sizes="180x180" href="wp-content/uploads/fbrfg/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $row['logo'];?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $row['logo'];?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $line['logo'];?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $line['logo'];?>">
     <link rel="manifest" href="wp-content/uploads/fbrfg/site.webmanifest">
     <link rel="mask-icon" href="wp-content/uploads/fbrfg/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="<?php echo $row['logo'];?>">
+    <link rel="shortcut icon" href="<?php echo $line['logo'];?>">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/wp-content/uploads/fbrfg/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
@@ -553,134 +451,81 @@
 
     gtag('config', 'UA-130194101-1');
     </script>
-
     <meta name="google-site-verification" content="i5maJIlXl7_tH3Elk3nf25mWmcjDSfPFO4govDmMyQo" />
-
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            '../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-WLCMZ35');
-    </script>
-    <!-- End Google Tag Manager -->
-
 </head>
 
 <body class="home page-template-default page page-id-5">
 
-    <!-- Header Start -->
+    <!-- Header  -->
     <?php
         include_once('include/header.php');
     ?>
-    <!-- Header End-->
-    <?php
-    $sql= "SELECT * FROM slider_tbl";
-    $result= mysqli_query($connection, $sql) or die("Query Failed.");
-    while($row = mysqli_fetch_array($result)){
-    ?> 
     <section class="bannersec">
-
-
         <div class="container-fluid">
             <div class="row">
                 <div class="homebannercarousel owl-carousel owl-theme">
-                    <div class="item">
-                        <img alt="" src="process/<?php echo $row['slider'];?>" " width="1595" height="200" class="img-fluid" />
+                <?php
+                    $sql= "SELECT * FROM slider_tbl ";
+                    $result= mysqli_query($connection, $sql) or die("Query Failed.");
+                    while($row = mysqli_fetch_array($result)){
+                ?> 
+                <div class="item">
+                    <img alt="" src="admin/process/<?php echo $row['slider'];?>"  width="1595" height="200" class="img-fluid" />
+                    <div class="content">
+                        <h1 style="color:darkorange;text-align:center;font-size:25px;"> <?php echo $row['remark'];?></h1>
                     </div>
-                   <!--  <div class="item">
-                        <img alt="" src="images/slider_img4.jpg" width="1595" height="200"
-                            class="img-fluid" />
-                    </div>
-                    <div class="item">
-                        <img alt="" src="images/sl3.jpg" width="1595" height="200" class="img-fluid" />
-                    </div>
-                    <div class="item">
-                        <img alt="" src="images/org_img1.jpg" width="1595" height="200" class="img-fluid" />
-                    </div>
-                    <div class="item">
-                        <img alt="" src="images/department_2.jpg" width="1595" height="200" class="img-fluid" /></div>
-                    <div class="item">
-                        <img alt="" src="images/department_1.jpg" width="1595" height="200" class="img-fluid" />
-                    </div> -->
+                </div>
+                <?php }?>
                 </div>
             </div>
         </div>
+       
     </section>
-        <?php }?>
-
     <section class="uspsec">
-
         <div class="container">
-
             <div class="row">
-
                 <div class="uspcont_inner wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-
                     <div class="left_usparea">
 
                         <ul>
-
-                            <li class="loca_ico_usp"><img alt="Organ Hospital"
-                                    src="wp-content/themes/organhospital/images/placeholder_white.svg" width="38"
-                                    height="38" /><strong>Address</strong><?php echo $row['address'];?></li>
-
-                            <li class="call_ico_usp"><img alt="Organ Hospital"
-                                    src="wp-content/themes/organhospital/images/24-hours_white.svg" width="28"
-                                    height="28" /> <a href="tel:+91-9415235157">+91-9415235157</a>
-                                <strong>Emergengy</strong></li>
-
+                            <li class="loca_ico_usp"><strong><u style="color:yellow;">Latest News</u></strong></li>
+                            <?php
+$sql= "SELECT * FROM latest_news_tbl";
+$result= mysqli_query($connection, $sql) or die("Query Failed.");
+while($row = mysqli_fetch_array($result)){
+?>
+                            <marquee behavior="up" direction="up" scrollamount="2">
+                            <li class="loca_ico_usp">
+                            <h6 style="color:lightgreen;"><?php echo $row['title'];?></h6>
+                            <p style="color:white;">*&nbsp;&nbsp;<?php echo $row['description'];?><br>
+                            *&nbsp;&nbsp;<b><?php echo $row['date'];?></b></p>
+                            </li>
+                            </marquee>
+                            <?php } ?>
                         </ul>
-
+                        
                         <a data-toggle="modal" data-target="#AppoModal" class="book_btn_usp">Book your appointment
                             today
                         </a>
-
                     </div>
-
                     <div class="right_usp_area">
-
                         <h1 class="usptitle">Organ Hospital is provide many more services on affordable price.</h1>
-
                         <ul>
-
                             <li><img alt="organ Hospital" src="wp-content/uploads/2019/10/first-aid-kit.svg" width="50"
                                     height="50" /> Medical<br />Excellence</li>
-
                             <li><img alt="organ Hospital" src="wp-content/uploads/2019/10/nurse.svg" width="50"
                                     height="50" /> Friendly<br />Staff</li>
-
                             <li><img alt="organ Hospital" src="wp-content/uploads/2019/10/ambulance-1.svg" width="50"
                                     height="50" /> 24x7<br />Support</li>
-
                         </ul>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
     <section class="guidelinesec">
-
         <div class="guide_background"></div>
-
         <div class="container">
-
             <div class="row">
                 <div class="col-md-12">
                  <h2 class="guide-title clearfix"><span>Quick Guide</span></h2>
@@ -695,102 +540,64 @@
                                 <p>For a detailed consultation or planned health check-ups, you can book an appointment
                                     in advance (if required).</p>
                             </div>
-
                         </div>
-
                         <div class="col-md-4 col-sm-12 col-xs-12 margin-bottom-20 wow fadeInUp" data-wow-duration="0.8s"
                             data-wow-delay="0.7s">
-
                             <div class="box_guide">
-
                                 <div class="guideboard-ico guideico"></div>
-
                                 <h2>Find a Doctor</h2>
                                 <p>To find the suitable doctor that you want to consult with, you can just scroll the
                                     department list and fix an appointment according to their OPD timings.</p>
                             </div>
-
                         </div>
-
                         <div class="col-md-4 col-sm-12 col-xs-12 margin-bottom-20 wow fadeInUp" data-wow-duration="0.8s"
                             data-wow-delay="0.9s">
-
                             <div class="box_guide">
-
                                 <div class="guidepatient-ico guideico"></div>
-
                                 <h2>Book a Health-Package</h2>
                                 <p>Taking care of your own-self or your loved one's was never so easy. We have a choice
                                     of heal-checkup packages which are affordable too.</p>
-
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-
-
-
-
     <section class="whyorgansec">
-
         <div class="container-fluid">
-
             <div class="row">
-
                 <div class="col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0 ">
-
                     <div class="row">
-
                         <div class="whypoints_outer">
-
                             <ul>
-
                                 <li class="wow zoomIn" data-wow-duration="0.8s" data-wow-delay="0.4s">
                                     <span class="num">01</span>
                                     <h3>Cost<br />Effective</h3>
                                     <span class="why-ico whyico_a"></span>
                                 </li>
-
                                 <li class="wow zoomIn" data-wow-duration="0.8s" data-wow-delay="0.6s">
                                     <span class="num">02</span>
                                     <h3>Advanced<br />Medical<br />Facilities</h3>
                                     <span class="why-ico whyico_b"></span>
                                 </li>
-
                                 <li class="wow zoomIn" data-wow-duration="0.8s" data-wow-delay="0.8s">
                                     <span class="num">03</span>
                                     <h3>Qualified & <br />Experienced Doctors</h3>
                                     <span class="why-ico whyico_c"></span>
                                 </li>
-
                                 <li class="wow zoomIn" data-wow-duration="0.8s" data-wow-delay="1s">
                                     <span class="num">04</span>
                                     <h3>24x7 Dedicated<br />Support</h3>
                                     <span class="why-ico whyico_d"></span>
                                 </li>
                             </ul>
-
                         </div>
-
                         <div class="whypoints_desc">
-
                             <div class="content_why wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
-
                                 <h3>Why Organ Hospital</h3>
                                 <p>People recommend us, because we have:</p>
                                 <ul>
-
                                     <li>Equipped with World-Class facilities and dedicated medical professionals, our
                                         patients call us one of the best hospital in West Delhi.</li>
                                     <li>Our prime focus lies in bringing the highest standards of healthcare to every
@@ -799,27 +606,15 @@
                                     <li>Supported with expertise and cutting edge technology, we are one of the leading
                                         hospital in Delhi, with all the facilities, under one roof.</li>
                                 </ul>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-
-
     <section class="quotesec">
-
         <div class="container-fluid">
-
             <div class="quote_inner  wow zoomInUp" data-wow-duration="1s" data-wow-delay="0.3s">
 
                 <h2>AT THE TIME OF EMERGENCY, FOR APPOINTMENTS OR FOR ANY QUERY,</h2>
@@ -1187,18 +982,10 @@
         </div>
 
     </section>
-
-
-
-
-
-
-    <!-- Footer Start  -->
+    <!-- Footer -->
     <?php
-include_once('include/footer.php');
-?>
-    <!-- Footer End -->
-
+        include_once('include/footer.php');
+    ?>
     <!-- Appointment Modal -->
     <div class="modal fade" id="AppoModal">
         <div class="modal-dialog modal-dialog-centered">
@@ -1225,13 +1012,6 @@ include_once('include/footer.php');
                             <div class="col-md-12">
 
                                 <div class="row">
-
-
-
-                                    <!--<div id="Customer" class="tabcontent">-->
-
-
-
                                     <div class="col-xs-12 col-sm-6 form-item form-group">
 
                                         <label class="control-label" for="">Name <span class="form-required"
@@ -1241,15 +1021,6 @@ include_once('include/footer.php');
                                             class="form-control" pattern="[A-Za-z ]{1,32}" required>
 
                                     </div>
-
-
-
-                                    <!--<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><input name="lastname" value="" type="text" class="contact_text_2" pattern="[A-Za-z ]{1,32}" required></div>-->
-
-                                    <!--<div class="col-md-6"><input placeholder="Company" type="text" name="company" value=""></div>-->
-
-
-
                                     <div class="col-xs-12 col-sm-6 form-item form-group">
 
                                         <label class="control-label" for="">Email <span class="form-required"
@@ -1475,116 +1246,55 @@ include_once('include/footer.php');
                                             <option value="Myanmar">Myanmar</option>
 
                                             <option value="Nepal">Nepal</option>
-
                                             <option value="Nigeria">Nigeria</option>
-
                                             <option value="Oman">Oman</option>
-
                                             <option value="Pakistan">Pakistan</option>
-
                                             <option value="Philipines">Philipines</option>
-
                                             <option value="Rwanda">Rwanda</option>
-
                                             <option value="Saudi Arabia">Saudi Arabia</option>
-
                                             <option value="Sierra Leone">Sierra Leone</option>
-
                                             <option value="South Africa">South Africa</option>
-
                                             <option value="Srilanka">Srilanka</option>
-
                                             <option value="Sudan">Sudan</option>
-
                                             <option value="Tanzania">Tanzania</option>
-
                                             <option value="UAE">UAE</option>
-
                                             <option value="Uganda">Uganda</option>
-
                                             <option value="UK">UK</option>
-
                                             <option value="US">US</option>
-
                                             <option value="Uzbekistan">Uzbekistan</option>
-
                                             <option value="Yemen">Yemen</option>
-
                                             <option value="Zimbabwe">Zimbabwe</option>
-
                                             <option value="OTHERS">OTHERS</option>
-
                                         </select>
-
                                     </div>
-
-
-
-
                                     <div class="col-xs-12 col-sm-12 form-item form-group">
-
                                         <label class="control-label" for="">Query </label>
-
                                         <textarea name="query" placeholder="Enter Your Query"
                                             class="form-control form-textarea" cols="60" rows="5"
                                             style="resize: none;"></textarea>
-
                                     </div>
-
-
-
                                     <div class="col-sm-12 form-item form-group">
-
                                         <div class="termscondifrm">
-
                                             <input type="checkbox" name="pvc" value="" required> By clicking Submit, you
                                             agreed to <a href="#" target="_blank">Terms & Conditions</a> and <a href="#"
                                                 target="_blank">Privacy Policy</a> of Organ Hospital website.
-
                                         </div>
-
                                     </div>
-
-
-
-                                    <!--<div class="col-md-6"><input placeholder="What is the value of 94 + 16?" type="text" name="captchacode" value="" ></div>-->
-
-
-
-                                    <!--</div>-->
-
                                 </div>
-
                             </div>
-
                         </div>
-
-
-
                         <div class="modal-footer">
-
                             <input type="submit" value="Submit" class="btn btn-primary">
-
                         </div>
-
-
-
                     </form>
-
                 </div>
-                <!--form start-->
-
-                <!--form end-->
             </div>
         </div>
     </div>
     <!-- Appointment Modal -->
-
-    <!-- Enquiry Modal -->
     <div class="modal fade" id="enquiryModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content enquiry_form_modal">
-                <!-- Modal Header -->
                 <div class="modal-header">
                     <div class="col-md-12">
                         <div class="row">
@@ -1600,15 +1310,11 @@ include_once('include/footer.php');
                         <div class="">
                             <div class="row">
                                 <div class=" col-xs-12  col-sm-12 col-md-6 col-lg-6 col-xl-6">
-
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="name">Your
                                             Name:</label> <input class="contact_text_1" placeholder="Sujit Kumar"
                                             name="firstname" id="name" value="" type="text" required>
                                     </div>
-
-                                    <!--<div class="col-md-6"><input placeholder="Last Name" name="lastname" value="" type="text"></div>
-	<div class="col-xs-12 col-sm-12 form-item form-group"><input placeholder="Company *" type="text" name="company" value=""  class="contact_text_2">
-	</div>-->
+                                </div>
 
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="emailid">Your
                                             E-mail:</label>
@@ -1621,8 +1327,7 @@ include_once('include/footer.php');
                                         <input class="contact_text_1" placeholder="+91 90*** ***52" type="tel"
                                             minlength="10" maxlength="10" name="phone" value="" required>
                                     </div>
-	</div>-->
-
+                                </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <select name="speciality" class="contact_text_1">
                                             <option value="">--- Choose Speciality---</option>
@@ -1678,25 +1383,19 @@ include_once('include/footer.php');
                                         Query:</label> <textarea placeholder="Type the text here" class="contact_text_3"
                                         style="resize: none;" name="query"></textarea></div>
                             </div>
-                            <!--<div class="col-md-6"><input placeholder="What is the value of 15 + 16?" type="text" name="captchacode" value=""  class="contact_text_2"></div>-->
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><input value="Submit" type="submit"
                                     class="submit"></div>
 
                         </div>
-                </div>
-
-
+                    </div>
                 </form>
             </div>
         </div>
     </div>
     </div>
-    <!-- Enquiry Modal -->
-
     <!-- back to top -->
     <a href="#" id="back-to-top" title="Back to top" class="show"><i class="fa fa-chevron-up"></i></a>
     <!-- jq -->
-
     <script type='text/javascript' src='wp-content/themes/organhospital/js/bootstrap.min68c3.js?ver=20151811'
         id='custom-bootstrap-min-js'></script>
     <script type='text/javascript' src='wp-content/themes/organhospital/js/owl.carousel.min68c3.js?ver=20151811'
@@ -1710,7 +1409,4 @@ include_once('include/footer.php');
     <script type='text/javascript' src='wp-content/themes/organhospital/js/script68c3.js?ver=20151811'
         id='custom-script-js'></script>
 </body>
-
-<!-- Mirrored from organhospital.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Sep 2023 14:08:45 GMT -->
-
 </html>

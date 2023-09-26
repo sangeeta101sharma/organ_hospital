@@ -1,6 +1,17 @@
 
 <?php include("include/config.php");?>
 <?php include("process/connection.php");?>
+<?php include("include/function.php");?>
+<?php
+session_start();
+
+if(!isLoggedIn()){
+    
+    header("location:login.php?status=2&msg=Login First");
+    exit();
+}
+
+?>
 
 <?php
 if(isset($_GET['id']) && !empty($_GET['id'])){
@@ -100,17 +111,16 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Site Setting</h4>
-                                  
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
-                                <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
+                                    <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
                                 <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>" role="alert">
                                     
                                         <?php echo $_GET['msg'];?>
                                     
                                 </div>
-                           <?php } ?>
+                                <?php } ?>
                                     <div class="live-preview">
                                         <form method="POST" action="process/site_setting.php" enctype="multipart/form-data"> 
                                             <div class="row">
@@ -135,29 +145,48 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     </div>
                                                 </div>
                                                 <!--end col-->
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="mb-3">
                                                         <label for="phonenumberInput" class="form-label">Contact Number</label>
                                                         <input type="tel" class="form-control"  id="contact" name="contact" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['contact'] : "";?>">
                                                     </div>
                                                 </div>
                                                 <!--end col-->
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
+                                                    <div class="mb-3">
+                                                        <label for="alternatenumberInput" class="form-label">Alternate Contact number</label>
+                                                        <input type="tel" class="form-control"  id="alt_contact" name="alt_contact" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['alt_contact'] : "";?>">
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-md-4">
                                                     <div class="mb-3">
                                                         <label for="emailidInput" class="form-label">Email ID</label>
                                                         <input type="email" class="form-control" placeholder="example@gamil.com" id="email" name="email" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['email'] : "";?>">
                                                     </div>
                                                 </div>
                                                 <!--end col-->
-                                                <div class="col-md-12">
+                                                <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="address1ControlTextarea" class="form-label">Address</label>
                                                         <input type="text" class="form-control"  id="address" name="address" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['address'] : "";?>">
                                                     </div>
                                                 </div>
                                                 <!--end col-->
-                                               
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="emergencynumberInput" class="form-label">Emergency Number</label>
+                                                        <input type="tel" class="form-control"  id="emergency" name="emergency" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['emergency'] : "";?>">
+                                                    </div>
                                                 </div>
+                                                <!--end col-->
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="phonenumberInput" class="form-label">Headlines</label>
+                                                        <textarea class="form-control" name="marquee" id="marquee" cols="70" rows="6"><?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['marquee'] : "";?></textarea>
+                                                   </div>
+                                                </div>
+                                                
                                                 <!--end col-->
                                                 <div class="col-lg-12">
                                                     <div class="text-end">
@@ -179,9 +208,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                 </div>
                             </div>
                         </div> <!-- end col -->
-
-
-                    </div>
+                </div>
                   
                     
                     <!-- Show table Start -->
@@ -210,25 +237,29 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
                                                     <tr>
-                                                        <th scope="col" style="width: 50px;">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                            </div>
+                                                    <th class="sort" data-sort="customer_name">
+                                                        Sr.no
                                                         </th>
                                                         <th class="sort" data-sort="customer_name">
-                                                         Logo</th>
+                                                         Logo &nbsp;&nbsp;&nbsp;</th>
                                                         <th class="sort" data-sort="customer_name">
-                                                         Favicon</th>
+                                                         Favicon &nbsp;&nbsp;&nbsp;</th>
                                                         <th class="sort" data-sort="customer_name">
-                                                        Website Name </th>
+                                                        Website Name &nbsp;&nbsp;&nbsp;</th>
                                                         <th class="sort" data-sort="customer_name">
-                                                        Contact Number </th>
+                                                        Contact &nbsp;&nbsp;&nbsp;</th>
                                                         <th class="sort" data-sort="customer_name">
-                                                        Email ID </th>
+                                                         Alternate Contact &nbsp;&nbsp;&nbsp; </th>
                                                         <th class="sort" data-sort="customer_name">
-                                                        Address </th>
+                                                        Email ID &nbsp;&nbsp;&nbsp;</th>
+                                                        <th class="sort" data-sort="customer_name">
+                                                        Address &nbsp;&nbsp;&nbsp;</th>
+                                                        <th class="sort" data-sort="customer_name">
+                                                        Emergency Number &nbsp;&nbsp;&nbsp;</th>
+                                                        <th class="sort" data-sort="customer_name">
+                                                        Headlines &nbsp;&nbsp;&nbsp; </th>
                                                         <!-- <th class="sort" data-sort="action">Action</th> -->
-                                                        <th class="sort" data-sort="action">Action</th>
+                                                        <th class="sort" data-sort="action">Action &nbsp;&nbsp;&nbsp;</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">
@@ -241,11 +272,9 @@ while($row = mysqli_fetch_array($result)){
 ?>
 
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
+                                                    <td scope="row">
+                                                        <?php echo $row['id'];?>
+                                                        </td>
                                                         <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary"></a></td>
                                                         <td class="customer_name"><a href="process/<?php echo $row['logo'];?>" target="_blank"><img src="process/<?php echo $row['logo'];?>" style="width:50px;height:50px;border-radius:50px;" alt=""></a>  </td>
                                                         <td class="customer_name"><a href="process/<?php echo $row['favicon'];?>" target="_blank"><img src="process/<?php echo $row['favicon'];?>" style="width:50px;height:50px;border-radius:50px;" alt=""></a>  </td>
@@ -256,10 +285,19 @@ while($row = mysqli_fetch_array($result)){
                                                         <?php echo $row['contact'];?>
                                                         </td>
                                                         <td class="customer_name"> 
+                                                        <?php echo $row['alt_contact'];?>
+                                                        </td>
+                                                        <td class="customer_name"> 
                                                         <?php echo $row['email'];?>
                                                         </td>
                                                         <td class="customer_name"> 
                                                         <?php echo $row['address'];?>
+                                                        </td>
+                                                        <td class="customer_name"> 
+                                                        <?php echo $row['emergency'];?>
+                                                        </td>
+                                                        <td class="customer_name"> 
+                                                        <?php echo $row['marquee'];?>
                                                         </td>
 
                                                   
@@ -269,7 +307,7 @@ while($row = mysqli_fetch_array($result)){
                                                                     <a class="btn btn-sm btn-success edit-item-btn" href="site_setting.php?id=<?php echo $row['id'];?>" >Update</a>
                                                                  </div> 
                                                                <div class="remove">
-                                                                    <a href="process/remove_sitesetting.php?id=<?php echo $row['id'];?>" class="btn btn-sm btn-danger remove-item-btn">Remove</a>
+                                                                    <a href="process/remove_sitesetting.php?id=<?php echo $row['id'];?>"onclick="return confirm('Are you sure you want to delete?')";  class="btn btn-sm btn-danger remove-item-btn">Remove</a>
                                                                 </div> 
                                                             </div>
                                                         </td>

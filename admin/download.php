@@ -1,6 +1,27 @@
 
 <?php include("include/config.php");?>
 <?php include("process/connection.php");?>
+<?php include("include/function.php");?>
+<?php
+session_start();
+
+if(!isLoggedIn()){
+    
+    header("location:login.php?status=2&msg=Login First");
+    exit();
+}
+
+?>
+<?php
+ if(isset($_GET['id']) && !empty($_GET['id'])){
+    $id=$_GET['id'];
+    $sql="SELECT * FROM download_tbl where id=$id";
+    $result=mysqli_query($connection,$sql) or die("Query Failed.");
+    if(mysqli_num_rows($result)>0){
+        $row= mysqli_fetch_array($result);
+    }
+ }
+ ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -87,11 +108,11 @@
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
-                                <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
-                                    <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>"
+                                <?php if(isset($_SESSION['msg']) && !empty($_SESSION['msg'])){?>
+                                    <div class="alert <?php echo ($_SESSION['status']== 1) ? 'alert-success' : 'alert-danger' ?>"
                                         role="alert">
 
-                                        <?php echo $_GET['msg'];?>
+                                        <?php echo $_SESSION['msg'];?>
 
                                     </div>
                                     <?php } ?>
@@ -102,14 +123,14 @@
                                             <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="lastNameinput" class="form-label">Title</label>
-                                                        <input type="text" class="form-control" id="title" name="title">
+                                                        <input type="text" class="form-control" id="title" name="title"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['title'] : ""; ?>">
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="firstNameinput" class="form-label"> PDF Upload </label>
-                                                        <input type="file" class="form-control" id="file" name="file">
+                                                        <input type="file" class="form-control" id="file" name="file"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['file'] : ""; ?>">
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -118,6 +139,8 @@
                                                 <!--end col-->
                                                 <div class="col-lg-12">
                                                     <div class="text-end">
+                                                    <input type="hidden" id="action" name="action" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? "UPDATE" : "INSERT" ;?>">
+                                                    <input type="hidden" id="id" name="id" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $_GET['id'] :0 ;?>">
                                                         <button type="submit" class="btn btn-primary">Upload</button>
                                                     </div>
                                                 </div>
@@ -166,10 +189,8 @@
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
                                                     <tr>
-                                                        <th scope="col" style="width: 50px;">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                            </div>
+                                                    <th class="sort" data-sort="customer_name">
+                                                        Sr.no
                                                         </th>
                                                         <th class="sort" data-sort="customer_name">
                                                     Title </th>
@@ -190,11 +211,9 @@ while($row = mysqli_fetch_array($result)){
 ?>
 
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
+                                                    <td scope="row">
+                                                        <?php echo $row['id'];?>
+                                                        </td>
                                                         <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary"></a></td>
                                                         <td class="customer_name"> 
                                                         <?php echo $row['title'];?>
@@ -206,10 +225,10 @@ while($row = mysqli_fetch_array($result)){
                                                         <td>
                                                             <div class="d-flex gap-2">
                                                                 <div class="edit">
-                                                                    <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
+                                                                    <a href="download.php?id=<?php echo $row['id']?>" class="btn btn-sm btn-success edit-item-btn" >Update</a>
                                                                 </div> 
                                                                 <div class="remove">
-                                                                    <a href="process/remove_download.php?id=<?php echo $row['id'];?>" class="btn btn-sm btn-danger remove-item-btn">Delete</a>
+                                                                    <a href="process/remove_download.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure you want to delete?')";  class="btn btn-sm btn-danger remove-item-btn">Delete</a>
                                                                 </div>
                                                             </div>
                                                         </td>

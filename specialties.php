@@ -139,48 +139,22 @@ gtag("config", "G-K4GRHNQQM8");
 </head>
 
 <body class="page-template page-template-tpl-medical-services page-template-tpl-medical-services-php page page-id-9">
-
-	 
-	<!--page loader -->
-
-	<div id="pageloader"></div>
-<!-- Header Start -->
+<!-- Header  -->
 <?php include_once("include/header.php");?>
-<!-- Header End -->
 <section>
-
 	<div class="inner-banner">  
-
   		<img src="wp-content/uploads/2019/11/medical_banner.jpg" alt="Medical Services" title="Organ Hospital">
-
-  		<!-- <div class="inner-banner-con"></div> -->
-
 	</div>
-
-
-
 	<div class="breadcrumb_outer">
-
         <div class="container">
-
             <ol class="breadcrumb">
-
-                  <li><a href="index.html">Home</a></li>
-
-                  <li>Medical Services</li>
-
+                  <li><a href="index.php">Home</a></li>
+                  <li>Specialities</li>
             </ol>
-
         </div>
-
     </div>
-
 	<div class="clearfix"></div>
-
-
-
 </section>
-
 <section>
 <div class="div-mtb">
 <div class="container">
@@ -259,12 +233,8 @@ gtag("config", "G-K4GRHNQQM8");
 </div>    
 </section>
 <div class="clearfix"></div>
-<!-- Footer Start  -->
+<!-- Footer   -->
 <?php include_once('include/footer.php');?>
-<!-- Footer End  -->
-
-
-
 		<!-- Appointment Modal -->
         <div class="modal fade" id="AppoModal">
            <div class="modal-dialog modal-dialog-centered">
@@ -282,61 +252,23 @@ gtag("config", "G-K4GRHNQQM8");
                  <div class="">
 
 <form name="contactus" action="#" id="contactpageForm">
-
-
-
 <div class="modal-body">
-
       <div class="col-md-12">
-
          <div class="row">
-
-
-
-<!--<div id="Customer" class="tabcontent">-->
-
-
-
 	<div class="col-xs-12 col-sm-6 form-item form-group">
-
 	<label class="control-label" for="">Name <span class="form-required" title="This field is required.">*</span></label>
-
 	<input name="firstname" value="" type="text" placeholder="Enter Your Full Name" class="form-control" pattern="[A-Za-z ]{1,32}" required>
-
 	</div>
-
-
-
-	<!--<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><input name="lastname" value="" type="text" class="contact_text_2" pattern="[A-Za-z ]{1,32}" required></div>-->
-
-	<!--<div class="col-md-6"><input placeholder="Company" type="text" name="company" value=""></div>-->
-
-
-
 	<div class="col-xs-12 col-sm-6 form-item form-group">
-
 	<label class="control-label" for="">Email <span class="form-required" title="This field is required.">*</span></label>
-
 	<input type="text" name="email" value="" placeholder="email@xyz.com" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-
 	</div>
-
-
-
 	<div class="col-xs-12 col-sm-6 form-item form-group">
-
 	<label class="control-label" for="">Contact Number <span class="form-required" title="This field is required.">*</span></label>
-
 	<input type="text" name="phone" value="" placeholder="+91 95*** ***78" class="form-control required" pattern="^([0|\+[0-9]{1,5})?([1-9][0-9]{9})$" maxlength="10" minlength="10" required>
-
 	</div>
-
-
-
 	<div class="col-xs-12 col-sm-6 form-item form-group">
-
 	<label class="control-label" for="">Select Specialist Type <span class="form-required" title="This field is required.">*</span></label>
-
 	<select name="specialist" class="hospital-dropdown form-control">
 
 		<option value="">- Select Specialist -</option>
@@ -621,26 +553,14 @@ gtag("config", "G-K4GRHNQQM8");
  <div class="">
  	<div class="row">
     	<div class=" col-xs-12  col-sm-12 col-md-6 col-lg-6 col-xl-6">
-       
 	<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="name">Your Name:</label> <input class="contact_text_1" placeholder="Sujit Kumar" name="firstname" id="name" value="" type="text" required>
 	</div>
-
-	<!--<div class="col-md-6"><input placeholder="Last Name" name="lastname" value="" type="text"></div>
-	<div class="col-xs-12 col-sm-12 form-item form-group"><input placeholder="Company *" type="text" name="company" value=""  class="contact_text_2">
-	</div>-->
-
 	<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="emailid">Your E-mail:</label>
 	<input placeholder="xyz@email.com" class="contact_text_1" type="text" name="email" value="" required>
 	</div>
-
 	<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="phone">Your Phone Number:</label>
 	<input class="contact_text_1" placeholder="+91 90*** ***52" type="tel" minlength="10" maxlength="10" name="phone" value="" required>
 	</div>
-	
-	<!--<div class="col-md-6"><input placeholder="Address" type="text" name="address" value="" ></div>
-	<div class="col-md-6"><input placeholder="Pin Code" type="text" name="pincode" value=""  class="contact_text_2">
-	</div>-->
-
 	<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 		<select name="speciality"  class="contact_text_1">
 		<option value="">--- Choose Speciality---</option>
@@ -704,6 +624,4 @@ gtag("config", "G-K4GRHNQQM8");
 <script type='text/javascript' src='wp-content/themes/organhospital/js/scrollBar68c3.js?ver=20151811' id='scrollBar-wow-js'></script>
 <script type='text/javascript' src='wp-content/themes/organhospital/js/script68c3.js?ver=20151811' id='custom-script-js'></script>
 </body>
-
-<!-- Mirrored from organhospital.com/medical-services/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Sep 2023 14:13:08 GMT -->
 </html>

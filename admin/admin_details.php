@@ -1,5 +1,16 @@
 <?php include("include/config.php");?>
 <?php include("process/connection.php");?>
+<?php include("include/function.php");?>
+<?php
+session_start();
+
+if(!isLoggedIn()){
+    
+    header("location:login.php?status=2&msg=Login First");
+    exit();
+}
+
+?>
 <?php 
 if(isset($_GET['id']) && !empty($_GET['id'])){
     $id=$_GET['id'];
@@ -219,10 +230,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
                                                     <tr>
-                                                        <th scope="col" style="width: 50px;">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                            </div>
+                                                        <th class="sort" data-sort="customer_name">
+                                                        Sr.no
                                                         </th>
                                                         <th class="sort" data-sort="customer_name">
                                                        Admin &nbsp;&nbsp; </th>
@@ -248,11 +257,9 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                      ?>
 
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
+                                                        <td scope="row">
+                                                        <?php echo $row['id'];?>
+                                                        </td>
                                                         <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary"></a></td>
                                                         <td class="customer_name"><?php echo $row['admin_name'];?></td>
                                                         <td class="customer_name"> <?php echo $row['contact'];?></td>
@@ -264,7 +271,9 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                                   <div class="edit">
                                                                     <a class="btn btn-sm btn-success edit-item-btn" href="admin_details.php?id=<?php echo $row['id'];?>">Edit</a>
                                                                 </div>  
-                                                                <!-- s -->
+                                                                <div class="remove">
+                                                                    <a href="process/remove_admindetails.php?id=<?php echo $row['id'];?>"onclick="return confirm('Are you sure you want to delete?')";  class="btn btn-sm btn-danger remove-item-btn">Remove</a>
+                                                                </div> 
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -357,7 +366,4 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>
-
-
-<!-- Mirrored from themesbrand.com/velzon/html/default/dashboard-crypto.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 May 2023 08:45:13 GMT -->
 </html>

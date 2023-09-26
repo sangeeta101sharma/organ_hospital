@@ -30,6 +30,7 @@ if($_POST['action']=="UPDATE"){
         header('location:../contact_us.php?status='.$status.'&msg='.$message);
         exit();
     } 
+    location.reload();
 }
 
 ?>

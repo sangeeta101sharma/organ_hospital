@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("connection.php");
 if($_SERVER["REQUEST_METHOD"]="POST"){
     $name = $_POST['name'];
@@ -16,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"]="POST"){
      $result=mysqli_query($connection,$sql)or die("Query Failed.");
     if ($result){
         $status = 1;
-        $message = "Picture Inserted Successfully...";
+        $message = "Thanks for Contact Us.";
         header('location:../../enquiry.php?status='.$status.'&msg='.$message);
         exit();
     }else{
