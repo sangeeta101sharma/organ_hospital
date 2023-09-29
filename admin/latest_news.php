@@ -126,7 +126,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="title" class="form-label">Title</label>
                                                         <input type="text" class="form-control" id="title"
-                                                            name="title" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ?$row['title']:"";?>">
+                                                            name="title" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ?$row['title']:"";?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -134,7 +134,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="description" class="form-label">Description</label>
                                                         <input type="text" class="form-control" id="description"
-                                                            name="description" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ?$row['description']:"";?>">
+                                                            name="description" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ?$row['description']:"";?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -142,7 +142,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="date" class="form-label">Date</label>
                                                         <input type="date" class="form-control"
-                                                            id="date" name="date" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ?$row['date']:"";?>">
+                                                            id="date" name="date" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ?$row['date']:"";?>"required>
                                                     </div>
                                                 </div>
 

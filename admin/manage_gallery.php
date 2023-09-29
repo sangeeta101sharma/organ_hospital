@@ -118,7 +118,8 @@ if(!isLoggedIn()){
                                                         <label for="photoUpload" class="form-label">Photo Upload
                                                         </label>
                                                         <input type="file" class="form-control" id="gallery"
-                                                            name="gallery">
+                                                            name="gallery" required>
+                                                            <p> Only JPG, JPEG and PNG type images are accepted.</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->

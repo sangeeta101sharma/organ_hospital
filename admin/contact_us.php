@@ -12,8 +12,8 @@ if(!isLoggedIn()){
 
 ?>
 <?php 
-if(isset($_GET['id']) && !empty($_GET['id'])){
-    $id=$_GET['id'];
+if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
+    $id=$_SESSION['id'];
     $sql= "SELECT * FROM contact_us_tbl where id=$id";
     $result= mysqli_query($connection, $sql) or die("Query Failed.");
     if(mysqli_num_rows($result)==0){
@@ -130,7 +130,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                         <label for="address1ControlTextarea" class="form-label">Office
                                                             Location</label>
                                                         <input type="text" class="form-control" id="office_location"
-                                                            name="office_location" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['office_location'] : ""; ?>">
+                                                            name="office_location" value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id'])) ? $row['office_location'] : ""; ?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -139,15 +139,15 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                         <label for="phonenumberInput" class="form-label">Contact
                                                             Number</label>
                                                         <input type="tel" class="form-control" id="contact"
-                                                            name="contact" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['contact'] : ""; ?>">
-                                                    </div>
+                                                            name="contact"  pattern="^([0|\+[0-9]{1,5})?([1-9][0-9]{9})$" value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id'])) ? $row['contact'] : ""; ?>" required>
+                                                        </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="emailidInput" class="form-label">Email ID</label>
                                                         <input type="email" class="form-control"
-                                                            placeholder="example@gamil.com" id="email" name="email" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['email'] : ""; ?>">
+                                                            placeholder="example@gamil.com" id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id'])) ? $row['email'] : ""; ?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -156,7 +156,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                         <label for="address1ControlTextarea"
                                                             class="form-label">Address</label>
                                                         <input type="text" class="form-control" id="address"
-                                                            name="address" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['address'] : ""; ?>">
+                                                            name="address"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id'])) ? $row['address'] : ""; ?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -165,9 +165,9 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                             <!--end col-->
                                             <div class="col-lg-12">
                                                 <div class="text-end">
-                                                    <input type="hidden" id="action" name="action" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? "UPDATE" : "INSERT" ;?>">
-                                                    <input type="hidden" id="id" name="id" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $_GET['id'] :0 ;?>">
-                                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                                    <input type="hidden" id="action" name="action" value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id']))? "UPDATE" : "INSERT" ;?>">
+                                                    <input type="hidden" id="id" name="id" value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id']))? $_SESSION['id'] :0 ;?>">
+                                                    <input type="submit" value="Submit"  onclick="errorMessage()" class="btn btn-primary">
                                                 </div>
                                             </div>
                                             <!--end col-->

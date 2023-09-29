@@ -3,11 +3,16 @@ include("connection.php");
 if($_SERVER["REQUEST_METHOD"]="POST"){
     //upload logo
     $slider=$_FILES['slider']['name'];
-    $sliderfile_tmpname=($_FILES['slider']['tmp_name']);
-    pathinfo($slider,PATHINFO_EXTENSION);
-    $SLIDER = "slider/".$slider;
-    move_uploaded_file($sliderfile_tmpname, $SLIDER);
+    $slider_tmpname=($_FILES['slider']['tmp_name']);
+    $SLIDER = "images/".$slider;
+    move_uploaded_file($slider_tmpname, $SLIDER);
     
+    $allowed = array('jpeg', 'png', 'jpg');
+    $ext = pathinfo($slider, PATHINFO_EXTENSION);
+    if (!in_array($ext, $allowed)) {
+    echo  'Invalid file type. Only JPG, JPEG and PNG types are accepted.';
+    exit();
+    }
     $remark = $_POST['remark'];
 
     $sql = "INSERT INTO `slider_tbl` (`slider`, `remark`) VALUES ('$SLIDER', '$remark')";

@@ -40,6 +40,10 @@
                             <i class="ri-dashboard-2-line"></i> Dashboard </a>
                         </li>
                         <li class="nav-item">
+                            <a href="appointment.php" class="nav-link" data-key="t-analytics">
+                            <i class="ri-archive-fill"></i> Appointment </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="site_setting.php" class="nav-link" data-key="t-analytics">
                             <i class="ri-pages-line"></i> Site Setting </a>
                         </li>

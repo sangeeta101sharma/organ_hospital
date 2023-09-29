@@ -108,11 +108,11 @@ if(!isLoggedIn()){
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
-                                <?php if(isset($_SESSION['msg']) && !empty($_SESSION['msg'])){?>
-                                    <div class="alert <?php echo ($_SESSION['status']== 1) ? 'alert-success' : 'alert-danger' ?>"
+                                <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
+                                    <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>"
                                         role="alert">
 
-                                        <?php echo $_SESSION['msg'];?>
+                                        <?php echo $_GET['msg'];?>
 
                                     </div>
                                     <?php } ?>
@@ -123,14 +123,16 @@ if(!isLoggedIn()){
                                             <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="lastNameinput" class="form-label">Title</label>
-                                                        <input type="text" class="form-control" id="title" name="title"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['title'] : ""; ?>">
+                                                        <input type="text" class="form-control" id="title" name="title"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['title'] : ""; ?>" required>
+                                                        
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="firstNameinput" class="form-label"> PDF Upload </label>
-                                                        <input type="file" class="form-control" id="file" name="file"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['file'] : ""; ?>">
+                                                        <input type="file" class="form-control" id="file" name="file"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['file'] : ""; ?>" required>
+                                                        <p>Only .DOC, .TXT,.ODT,.XLSX,.HTML and .PDF type files are accepted.</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->

@@ -127,56 +127,58 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="logoinput" class="form-label">Logo Upload</label>
-                                                        <input type="file" class="form-control" id="logo" name="logo" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['logo'] : "";?>">
+                                                        <input type="file" class="form-control" id="logo" name="logo" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['logo'] : "";?>" required>
+                                                        <p> Only JPG, JPEG and PNG type images are accepted.</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="faviconinput" class="form-label">favicon Upload</label>
-                                                        <input type="file" class="form-control" id="favicon" name="favicon" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['favicon'] : "";?>">
+                                                        <input type="file" class="form-control" id="favicon" name="favicon" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['favicon'] : "";?>" required>
+                                                        <p> Only JPG, JPEG and PNG type images are accepted.</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="websiteinput" class="form-label">Website Name</label>
-                                                        <input type="text" class="form-control" placeholder="Enter website name" id="website" name="website" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['web_name'] : "";?>">
+                                                        <input type="text" class="form-control" placeholder="Enter website name" id="website" name="website" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['web_name'] : "";?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-md-4">
                                                     <div class="mb-3">
                                                         <label for="phonenumberInput" class="form-label">Contact Number</label>
-                                                        <input type="tel" class="form-control"  id="contact" name="contact" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['contact'] : "";?>">
+                                                        <input type="tel" class="form-control"  id="contact" name="contact" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['contact'] : "";?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-md-4">
                                                     <div class="mb-3">
                                                         <label for="alternatenumberInput" class="form-label">Alternate Contact number</label>
-                                                        <input type="tel" class="form-control"  id="alt_contact" name="alt_contact" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['alt_contact'] : "";?>">
+                                                        <input type="tel" class="form-control"  id="alt_contact" name="alt_contact" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['alt_contact'] : "";?>" >
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-md-4">
                                                     <div class="mb-3">
                                                         <label for="emailidInput" class="form-label">Email ID</label>
-                                                        <input type="email" class="form-control" placeholder="example@gamil.com" id="email" name="email" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['email'] : "";?>">
+                                                        <input type="email" class="form-control" placeholder="example@gamil.com" id="email" name="email" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['email'] : "";?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="address1ControlTextarea" class="form-label">Address</label>
-                                                        <input type="text" class="form-control"  id="address" name="address" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['address'] : "";?>">
+                                                        <input type="text" class="form-control"  id="address" name="address" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['address'] : "";?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="emergencynumberInput" class="form-label">Emergency Number</label>
-                                                        <input type="tel" class="form-control"  id="emergency" name="emergency" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['emergency'] : "";?>">
+                                                        <input type="tel" class="form-control"  id="emergency" name="emergency" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['emergency'] : "";?>" >
                                                     </div>
                                                 </div>
                                                 <!--end col-->

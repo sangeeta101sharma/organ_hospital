@@ -531,7 +531,7 @@ header .container{
 	overflow: hidden;
 }
 .guide_background{
-	background:url(../images/bg_giudeline.jpg);
+	background:url(../../../../images/blur_img4.jpeg);
 	/*background-size:cover;
 	background-position:center center;
 	background-repeat:no-repeat !important;*/
@@ -755,7 +755,7 @@ header .container{
 	
 /*quote section*/
 .quotesec{
-	background:url(../images/quote_bg.jpg);
+	background:url(../../../../images/blur_img5.jpg);
 	background-size:cover;
 	background-attachment:fixed;
 	background-repeat:no-repeat;
@@ -798,7 +798,7 @@ header .container{
 	background-position:right bottom;
 	}
 .quote_inner h2{
-	color:black;
+	color:orange;
 	font-size:27px;	
 	font-family: 'Poppins-Bold';
 	text-transform:uppercase;
@@ -1063,7 +1063,7 @@ header .container{
 /*testimonial*/
 .testimonialsec{
     /*background: #0c79a5 url(../images/testimonial_bg.jpg);*/
-	background: #0c79a5 url(../images/testimonial_bg-1.jpg);
+	background:url(../../../../images/blur_img6.jpg);
 	background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

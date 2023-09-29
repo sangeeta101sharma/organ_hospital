@@ -111,7 +111,7 @@ if(!isLoggedIn()){
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="uploadVedio" class="form-label"> Upload Video</label>
-                                                        <textarea   class="form-control" name="video" id="video" cols="50" rows="6"></textarea>
+                                                        <textarea   class="form-control" name="video" id="video" cols="50" rows="6" required></textarea>
                                                         <!-- <input type="file" class="form-control" id="video" name="video"> -->
                                                     </div>
                                                 </div>
@@ -119,7 +119,7 @@ if(!isLoggedIn()){
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="remark" class="form-label">Remarks</label>
-                                                        <input type="text" class="form-control" id="remark" name="remark">
+                                                        <input type="text" class="form-control" id="remark" name="remark" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->

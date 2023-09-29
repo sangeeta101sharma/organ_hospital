@@ -567,7 +567,7 @@ $result= mysqli_query($connection, $sql) or die("Query Failed.");
     <?php include_once('include/header.php');?>
     <section>
         <div class="inner-banner">
-            <img src="wp-content/uploads/2019/10/inner-banner.jpg" alt="Contact Us" title="organ Hospital">
+            <img src="images/slider11.jpg" alt="Contact Us" title="organ Hospital">
         </div>
         <div class="breadcrumb_outer">
             <div class="container">
@@ -645,7 +645,11 @@ while($queue = mysqli_fetch_array($result)){
     <!-- Footer Start -->
     <?php include_once('include/footer.php');?>
     <!-- Footer End -->
-
+ <!-- Appointment Modal -->
+ <?php
+        include_once('include/appointment_form.php');
+    ?>
+    <!-- Appointment Modal -->
 
     <!-- back to top -->
     <a href="#" id="back-to-top" title="Back to top" class="show"><i class="fa fa-chevron-up"></i></a>

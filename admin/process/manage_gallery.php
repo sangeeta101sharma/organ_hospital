@@ -4,10 +4,16 @@ if($_SERVER["REQUEST_METHOD"]="POST"){
     //upload logo
     $gallery=$_FILES['gallery']['name'];
     $galleryfile_tmpname=($_FILES['gallery']['tmp_name']);
-    pathinfo($gallery,PATHINFO_EXTENSION);
     $GALLERY = "images/".$gallery;
     move_uploaded_file($galleryfile_tmpname, $GALLERY);
     
+    $allowed = array('jpeg', 'png', 'jpg');
+    $ext = pathinfo($gallery, PATHINFO_EXTENSION);
+    if (!in_array($ext, $allowed)) {
+    echo  'Invalid file type. Only JPG, JPEG and PNG types are accepted.';
+    exit();
+    }
+
     $remark = $_POST['remark'];
 
  

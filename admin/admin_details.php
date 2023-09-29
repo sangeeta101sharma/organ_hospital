@@ -95,7 +95,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="firstNameinput" class="form-label">Admin
                                                             Name</label>
-                                                        <input type="text" class="form-control" id="admin_name" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['admin_name'] : ""; ?>">
+                                                        <input type="text" class="form-control" id="admin_name" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['admin_name'] : ""; ?>"required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -103,7 +103,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="phonenumberInput" class="form-label">Contact
                                                             Number</label>
-                                                        <input type="tel" class="form-control" id="contact" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['contact'] : ""; ?>">
+                                                        <input type="tel" class="form-control" id="contact" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['contact'] : ""; ?>" required>
+                                                        <span id="error"></span>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -111,7 +112,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="emailidInput" class="form-label">Email ID</label>
                                                         <input type="email" class="form-control"
-                                                            placeholder="example@gamil.com" id="email" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['email'] : ""; ?>">
+                                                            placeholder="example@gamil.com" id="email" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['email'] : ""; ?>"required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -119,7 +120,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="firstNameinput"
                                                             class="form-label">Qualification</label>
-                                                        <input type="text" class="form-control" id="qualification" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['qualification'] : ""; ?>">
+                                                        <input type="text" class="form-control" id="qualification" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['qualification'] : ""; ?>"required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -202,8 +203,17 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                 }
                             }) ;
                         }
+                        var error = document.getElementById("error")
+        if (isNaN(document.getElementById("contact").value))
+        {
+             
+            // Changing content and color of content
+            error.textContent = "Please enter a valid number"
+            error.style.color = "red"
+        } else {
+            error.textContent = ""
+        }
                     </script>
-                    
                     <!-- Show table Start -->
                   
                     <div class="row">
