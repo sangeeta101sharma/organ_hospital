@@ -111,16 +111,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
-                                    <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
-                                    <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>"
-                                        role="alert">
-
-                                        <?php echo $_GET['msg'];?>
-
-                                    </div>
-                                    <?php } ?>
                                     <div class="live-preview">
-                                        <form action="process/latest_news.php" method="POST">
+                                        <form>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
@@ -151,8 +143,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                             <div class="col-lg-12">
                                                 <div class="text-end">
                                                 <input type="hidden" id="action" name="action" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ? "UPDATE":"INSERT";?>">
-                                                                <input type="hidden" id="id" name="id" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ? $_GET['id']:0 ;?>">
-                                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                                 <input type="hidden" id="id" name="id" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ? $_GET['id']:0 ;?>">
+                                                <button onclick="submitform()" class="btn btn-primary">Submit</button>
                                                 </div>
                                             </div>
                                             <!--end col-->
@@ -168,10 +160,45 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                             </div>
                         </div>         
                <!-- end col -->
-
-
                     </div>
-
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+                     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script  type="text/javascript" src="JQUERY.js"></script>
+                     <!-- form AJAX -->
+                    <script>
+                        function submitform(){
+                            event.preventDefault();                          
+                            var Title = document.getElementById("title").value;
+                            var Description = document.getElementById("description").value; 
+                            var Date = document.getElementById("date").value;
+                            var Action = document.getElementById("action").value;
+                            var Id = document.getElementById("id").value;
+                           
+                           var dataStringer = "title="+Title+
+                            "&description="+Description+
+                            "&date="+Date+
+                            "&action="+Action+
+                            "&id="+id;
+                            console.log(dataStringer);
+                             $.ajax({
+                                url:"process/latest_news.php",
+                                type:"POST",
+                                cache:false,
+                                data:dataStringer,
+                                success:function(result){
+                                    console.log(result);
+                                  var d = $.parseJSON(result);
+                                if(d.status == 1){
+                                   swal('', d.msg, 'success'); 
+                                   location.reload();
+                                }else{
+                                    swal('', d.msg, 'error');  
+                                } 
+                                }
+                            }) ;
+                        }
+                       
+                    </script>
                     
                     <!-- Show table Start -->
 

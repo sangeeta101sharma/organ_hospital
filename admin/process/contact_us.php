@@ -1,6 +1,6 @@
 <?php
 include("connection.php");
-if($_SERVER["REQUEST_METHOD"]="POST"){
+
     $id = $_POST['id'];
     $office_location = $_POST['office_location'];
     $contact = $_POST['contact'];
@@ -9,48 +9,42 @@ if($_SERVER["REQUEST_METHOD"]="POST"){
     
     /* Office_location validation */
 if(isset($office_location) && !empty($office_location)){  
-    if(!preg_match("/^['a-zA-Z-' ]*$/",$office_location)) {
-        $error = "Only letters and white space are allowed";
-        header("location:../contact_us.php?status = 2msg=".$error);
-        exit();    
+    if(!preg_match("/^['a-zA-Z0-9' ]*$/",$office_location)) {
+       $arr=array("status"=>2,"msg"=>"Only letters,numbers and white space are allowed."); 
+       echo json_encode($arr);
+       return;  
         }
-}else{
-    $error = "Name  field is required.";
-    header("location:../contact_us.php?status = 2msg=".$error);
-    exit();  
+}else{ 
+    $arr=array("status"=>2,"msg"=>"Office location  field is required."); 
+    echo json_encode($arr);
+    return;  
 }
 
 /* Contact validation */
 if(isset($contact) && !empty($contact)){
     if(!preg_match("/^([0-9]{10})$/",$contact)){
-        $contatErr = "Enter valid contact number. ";
-        $arr1 = array("status"=>2,"msg"=>$contatErr);
-        $str1 = implode(',', $arr1);
-    echo $str1;
+        $arr1 = array("status"=>2,"msg"=>"Enter valid contact number.");
+        echo json_encode($arr1);
         return;
     }
 }
 else{
     $arr1 = array("status"=>2,"msg"=>"Contact Number is Required.");
-    $str1 = implode(',', $arr1);
-    echo $str1;
+   echo json_encode($arr1);
     return;
 }
 /* Email validation */
 
 if(isset($email) && !empty($email)){
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-        $emailErr = "Enter valid  email.";
-        $arr2 = array("status"=>2, "msg"=>$emailErr);
-        $str2 = implode(',', $arr2);
-    echo $str2;
+        $arr2 = array("status"=>2, "msg"=>"Enter valid  email.");
+        echo json_encode($arr2);
         return;
     }
 }
 else{
     $arr2 = array("status"=>2, "msg"=>"Email field is required.");
-    $str2 = implode(',', $arr2);
-    echo $str2;
+   echo json_encode($arr2);
     return;
 }
 /* Message validation 
@@ -84,18 +78,15 @@ if($_POST['action']=="UPDATE"){
     `address`= '$address' where id= $id"; 
 }
     $result= mysqli_query($connection,$sql) or die("Query Failed.");
-    if ($result){
-        $status = 1;
-        $message = "Data Inserted...";
-        header('location:../contact_us.php?status='.$status.'&msg='.$message);
-        exit();
-    }else{
-        $status = 2;
-        $message = "Something went wrong!!!";
-        header('location:../contact_us.php?status='.$status.'&msg='.$message);
-        exit();
+    if($result){
+        $arry = array("status"=>1,"msg"=>"Your data has been Inserted.");
+        echo json_encode($arry);
+    }
+    else{
+    $arry = array("status"=>2,"msg"=>"Try again.");
+    echo json_encode($arry);
     } 
-    location.reload();
-}
+
+
 
 ?>

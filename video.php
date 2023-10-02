@@ -11,9 +11,9 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shortcut icon" href="<?php echo $row['favicon'] ;?>" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo $line['favicon'] ;?>" type="image/x-icon">
 
-	<link rel="icon" href="<?php echo $row['favicon']?>" type="image/x-icon">
+	<link rel="icon" href="<?php echo $line['favicon']?>" type="image/x-icon">
 
 	
 
@@ -35,10 +35,6 @@
 	<meta property="og:image:height" content="47" />
 	<meta property="og:image:type" content="image/png" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://organhospital.com/media/","url":"https://organhospital.com/media/","name":"Media - organ Hospital","isPartOf":{"@id":"https://organhospital.com/#website"},"datePublished":"2019-10-21T13:56:14+00:00","dateModified":"2019-11-08T07:50:27+00:00","breadcrumb":{"@id":"https://organhospital.com/media/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://organhospital.com/media/"]}]},{"@type":"BreadcrumbList","@id":"https://organhospital.com/media/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://organhospital.com/"},{"@type":"ListItem","position":2,"name":"Media"}]},{"@type":"WebSite","@id":"https://organhospital.com/#website","url":"https://organhospital.com/","name":"organ Hospital","description":"","publisher":{"@id":"https://organhospital.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://organhospital.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://organhospital.com/#organization","name":"organ Hospital","url":"https://organhospital.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://organhospital.com/#/schema/logo/image/","url":"https://organhospital.com/wp-content/uploads/2022/03/Mrrm-Logo-PNG.png","contentUrl":"https://organhospital.com/wp-content/uploads/2022/03/Mrrm-Logo-PNG.png","width":213,"height":47,"caption":"organ Hospital"},"image":{"@id":"https://organhospital.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/mrrmhospital","https://www.instagram.com/mrrmhospital/","https://www.linkedin.com/company/mrrmhospital/","https://www.youtube.com/channel/UCcBw2WgmXCYgrXiV78rY74Q"]}]}</script>
-	<!-- / Yoast SEO plugin. -->
-
-
 <link rel='dns-prefetch' href='http://www.googletagmanager.com/' />
 <script type="text/javascript">
 window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/organhospital.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2.2"}};
@@ -110,11 +106,9 @@ gtag("config", "G-K4GRHNQQM8");
 <link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embed378b.json?url=https%3A%2F%2Forganhospital.com%2Fmedia%2F" />
 <link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embeda170?url=https%3A%2F%2Forganhospital.com%2Fmedia%2F&amp;format=xml" />
 <meta name="generator" content="Site Kit by Google 1.108.0" /><link rel="apple-touch-icon" sizes="180x180" href="wp-content/uploads/fbrfg/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $row['logo'];?>">
-<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $row['logo'];?>">
 <link rel="manifest" href="wp-content/uploads/fbrfg/site.webmanifest">
 <link rel="mask-icon" href="wp-content/uploads/fbrfg/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="<?php echo $row['favicon'] ;?>">
+<link rel="shortcut icon" href="<?php echo $line['favicon'] ;?>">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/wp-content/uploads/fbrfg/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">    

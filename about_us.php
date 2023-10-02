@@ -12,9 +12,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="<?php echo $row['favicon'] ;?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $line['favicon'] ;?>" type="image/x-icon">
 
-    <link rel="icon" href="<?php echo $row['favicon'] ;?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo $line['favicon'] ;?>" type="image/x-icon">
 
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
@@ -39,10 +39,10 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:label1" content="Est. reading time" />
     <meta name="twitter:data1" content="1 minute" />
-    
 
 
- 
+
+
     <style type="text/css">
     img.wp-smiley,
     img.emoji {
@@ -403,11 +403,10 @@
         href='wp-content/themes/organhospital/css/bootstrap.min3781.css?ver=6.2.2' type='text/css' media='all' />
     <link rel='stylesheet' id='custom-font-awesome-css'
         href='wp-content/themes/organhospital/css/font-awesome.min3781.css?ver=6.2.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='custom-animate-css'
-        href='wp-content/themes/organhospital/css/animate3781.css?ver=6.2.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='custom-animate-css' href='wp-content/themes/organhospital/css/animate3781.css?ver=6.2.2'
+        type='text/css' media='all' />
     <link rel='stylesheet' id='custom-main-fancybox-css'
-        href='wp-content/themes/organhospital/css/jquery.fancybox.min3781.css?ver=6.2.2' type='text/css'
-        media='all' />
+        href='wp-content/themes/organhospital/css/jquery.fancybox.min3781.css?ver=6.2.2' type='text/css' media='all' />
     <link rel='stylesheet' id='custom-main-owl-css'
         href='wp-content/themes/organhospital/css/owl.carousel.min3781.css?ver=6.2.2' type='text/css' media='all' />
     <link rel='stylesheet' id='custom-owl-theme-css'
@@ -455,11 +454,8 @@
         href="wp-json/oembed/1.0/embededea?url=https%3A%2F%2Forganhospital.com%2Fabout-us%2F&amp;format=xml" />
     <meta name="generator" content="Site Kit by Google 1.108.0" />
     <link rel="apple-touch-icon" sizes="180x180" href="wp-content/uploads/fbrfg/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $hospital_logo;?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $hospital_logo;?>">
     <link rel="manifest" href="wp-content/uploads/fbrfg/site.webmanifest">
     <link rel="mask-icon" href="wp-content/uploads/fbrfg/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="<?php echo $hospital_logo;?>">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/wp-content/uploads/fbrfg/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
@@ -476,10 +472,11 @@
     gtag('config', 'UA-130194101-1');
     </script>
 </head>
+
 <body class="page-template page-template-tpl-about page-template-tpl-about-php page page-id-7">
-<!-- Header  -->
-<?php include_once('include/header.php');?>
-<section>
+    <!-- Header  -->
+    <?php include_once('include/header.php');?>
+    <section>
         <div class="inner-banner">
             <img src="images/top_img6.jpg" alt="About Us" title="Organ Hospital">
         </div>
@@ -531,70 +528,29 @@
                 <div class="clearfix"></div>
 
                 <div class="text-center">
+                <?php
+$sql= "SELECT * FROM doctor_list_tbl";
+$result= mysqli_query($connection, $sql) or die("Query Failed.");
+while($row = mysqli_fetch_array($result)){
 
+
+?>
                     <div class="about-organhospital">
                         <div class="about-organhospital-1">
                             <div class="about-organhospital-1a"><img
-                                    src="wp-content/themes/organhospital/images/doctors-icon-1.png"
-                                    alt="organ Hospital" title="organ Hospital"></div>
+                                    src="admin/process/<?php echo $row['image'];?>" alt="organ Hospital"
+                                    title="organ Hospital"></div>
                             <div class="about-organhospital-1b">
-                                <h3 class="title-2">DR. RAJESH SHARMA</h3>
-                                <p><strong>Director</strong></p>
+                                <h3 class="title-2"><?php echo $row['doctor'];?></h3>
+                                <p><strong><?php echo $row['specialist'];?></strong></p>
                             </div><br />
                             <p></p>
-                            <p>Monday to Saturday</p>
-                            <p>Morning: 10.00 am – 12.30 pm</p>
-                            <p>Evening: 6.00 pm - 8.00 pm</p>
+                            <p><strong>In Morning (Time) : </strong><?php echo $row['morning'];?></p>
+                            <p><strong>In Evening (Time) : </strong><?php echo $row['evening'];?></p>
+                            <p><strong>Weekly : </strong>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['weekly'];?></p>
                         </div>
                     </div>
-                    <div class="about-organhospital">
-                        <div class="about-organhospital-1">
-                            <div class="about-organhospital-1a"><img
-                                    src="wp-content/themes/organhospital/images/doctors-icon-1.png"
-                                    alt="organ Hospital" title="organ Hospital"></div>
-                            <div class="about-organhospital-1b">
-                                <h3 class="title-2">DR. K.K. SIGH</h3>
-                                <p><strong>M.S. </strong></p>
-                            </div><br/>
-                            <p>(SURGEON)</p>
-                            <p>Monday to Saturday</p>
-                            <p>Morning: 10.00 am – 12.30 pm</p>
-                            <p>Evening: 6.00 pm - 8.00 pm</p>
-                        </div>
-                    </div>
-                    <div class="about-organhospital">
-                        <div class="about-organhospital-1">
-                            <div class="about-organhospital-1a"><img
-                                    src="wp-content/themes/organhospital/images/doctors-icon-1.png"
-                                    alt="organ Hospital" title="organ Hospital"></div>
-                            <div class="about-organhospital-1b">
-                                <h3 class="title-2">DR. M.S. PANDEY</h3>
-                                <p><strong>Manager</strong></p>
-                            </div><br />
-                            <p></p>
-                            <p>Monday to Saturday</p>
-                            <p>Morning: 10.00 am – 12.30 pm</p>
-                            <p>Evening: 6.00 pm - 8.00 pm</p>
-                        </div>
-                    </div>
-
-                    <div class="about-organhospital">
-                        <div class="about-organhospital-1">
-                            <div class="about-organhospital-1a"><img
-                                    src="wp-content/themes/organhospital/images/doctors-icon-1.png"
-                                    alt="organ Hospital" title="organ Hospital"></div>
-                            <div class="about-organhospital-1b">
-                                <h3 class="title-2">DR. RAHUL SHARMA </h3>
-                                <p><strong>M.B.B.S </strong></p>
-                            </div><br />
-                            <p>(PHYSICIAN)</p>
-                            <p>Monday to Saturday</p>
-                            <p>Morning: 10.00 am – 12.30 pm</p>
-                            <p>Evening: 6.00 pm - 8.00 pm</p>
-                            <p>Sunday Morning: 12.00 pm – 1.30 pm</p>
-                        </div>
-                    </div>
-
+                    <?php } ?>
                 </div>
                 <div class="clearfix"></div><br />
                 <p>organ hospital in any location would offer a range of services related to organ transplantation and
@@ -720,15 +676,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <div class="images-1"><img src="images/sl1.jpg"
-                                    alt="organ Hospital" title="organ Hospital"></div>
+                            <div class="images-1"><img src="images/sl1.jpg" alt="organ Hospital" title="organ Hospital">
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <button class="accordion">
                                 <h6>Patient Satisfaction</h6>
                             </button>
                             <div class="panel">
-                                <p>Patient satisfaction in an organ hospital, specifically focused on the experiences of organ transplant recipients and donors, is of utmost importance Our supporting staff
+                                <p>Patient satisfaction in an organ hospital, specifically focused on the experiences of
+                                    organ transplant recipients and donors, is of utmost importance Our supporting staff
                                     takes complete care of the sufferer throughout his treatment and ensure about his
                                     health round the clock. Besides, even after the discharge of the patients, we
                                     maintain their track record for future, in case needed. Importantly, we use the
@@ -747,7 +704,7 @@
                                 <h6>Hospital Team</h6>
                             </button>
                             <div class="panel">
-                                <p>When you are a patient at  organ Hospital you may have multiple team
+                                <p>When you are a patient at organ Hospital you may have multiple team
                                     members providing care for you during your stay. We strive to provide compassionate
                                     care that focuses on the individual needs of patients and their families.</p>
                                 <p><strong>Hospitalists:</strong> A Hospitalist is a physician who specializes in
@@ -787,10 +744,10 @@
             </div>
             <div class="clearfix"></div>
     </section>
-    
-   <!-- Footer Start -->
-   <?php include_once('include/footer.php');?>
-   <!-- Footer End -->
+
+    <!-- Footer Start -->
+    <?php include_once('include/footer.php');?>
+    <!-- Footer End -->
 
     <!-- Appointment Modal -->
     <?php

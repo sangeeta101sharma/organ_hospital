@@ -415,7 +415,7 @@ header .container{
 	background:brown;
 	width:306px;
 	float:left;
-	height:auto;
+	height:50vh;
 	padding:57px 36px 77px 36px;
 	-webkit-box-shadow:0px 7px 12px 6px rgba(0, 0, 0, 0.2);
 	box-shadow:0px 7px 12px 6px rgba(0, 0, 0, 0.2);

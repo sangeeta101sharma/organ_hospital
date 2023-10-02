@@ -1,4 +1,3 @@
-
 <?php include("include/config.php");?>
 <?php include("process/connection.php");?>
 <?php include("include/function.php");?>
@@ -12,18 +11,21 @@ if(!isLoggedIn()){
 }
 
 ?>
-<?php
- if(isset($_GET['id']) && !empty($_GET['id'])){
+<?php 
+if(isset($_GET['id']) && !empty($_GET['id'])){
     $id=$_GET['id'];
-    $sql="SELECT * FROM download_tbl where id=$id";
-    $result=mysqli_query($connection,$sql) or die("Query Failed.");
-    if(mysqli_num_rows($result)>0){
-        $row= mysqli_fetch_array($result);
+    $sql= "SELECT * FROM doctor_list_tbl where id=$id";
+    $result= mysqli_query($connection, $sql) or die("Query Failed.");
+    if(mysqli_num_rows($result)==0){
+         header("location:doctor_list.php?status=2&msg=Oops! Record not found..");
     }
- }
- ?>
+    $row = mysqli_fetch_array($result);
+}
+
+?>
 <!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none" data-preloader="disable">
 
 <head>
 
@@ -48,43 +50,42 @@ if(!isLoggedIn()){
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script  type="text/javascript" src="process/JQUERY.js"></script>
 </head>
 
 <body>
 
     <!-- Begin page -->
     <div id="layout-wrapper">
-<!-- header start -->
-<?php include("include/header.php");?>
-<!-- header end -->
-<!-- removeNotificationModal -->
-<div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="NotificationModalbtn-close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mt-2 text-center">
-                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                        <h4>Are you sure ?</h4>
-                        <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+        <!-- header start -->
+        <?php include("include/header.php");?>
+        <!-- header end -->
+        <!-- removeNotificationModal -->
+        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="NotificationModalbtn-close"></button>
                     </div>
-                </div>
-                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                    <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete It!</button>
-                </div>
-            </div>
+                    <div class="modal-body">
+                        <div class="mt-2 text-center">
+                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                <h4>Are you sure ?</h4>
+                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
+                                It!</button>
+                        </div>
+                    </div>
 
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         <!-- ========== App Menu ========== -->
         <!-- menu start -->
         <?php include("include/menu.php");?>
@@ -101,96 +102,103 @@ if(!isLoggedIn()){
             <div class="page-content">
                 <div class="container-fluid">
 
-               <!-- content  start here -->
+                    <!-- content  start here -->
 
-               <div class="row">
+                    <div class="row">
                         <div class="col-xxl-6">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Download</h4>
-                                  
+                                    <h4 class="card-title mb-0 flex-grow-1">Doctor List </h4>
+
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
+                                    <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
+                                    <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>"
+                                        role="alert">
+
+                                        <?php echo $_GET['msg'];?>
+
+                                    </div>
+                                    <?php } ?>
                                     <div class="live-preview">
-                                        <form>
+                                        <form action="process/doctor_list.php" enctype="multipart/form-data"
+                                            method="POST">
                                             <div class="row">
-                                            <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="lastNameinput" class="form-label">Title</label>
-                                                        <input type="text" class="form-control" id="title" name="title"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['title'] : ""; ?>" required>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="firstNameinput" class="form-label"> PDF Upload </label>
-                                                        <input type="file" class="form-control" id="file" name="file"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['file'] : ""; ?>" required>
-                                                        <p style="color:red;">Only .DOC and .PDF type files are accepted.</p>
+                                                        <label for="photoUpload" class="form-label">Photo Upload(Dr.)
+                                                        </label>
+                                                        <input type="file" class="form-control" id="image"
+                                                            name="image" required>
+                                                            <p style="color:red;"> Only JPG, JPEG and PNG type images are accepted.</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
-                                               
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-lg-12">
-                                                    <div class="text-end">
-                                                    <input type="hidden" id="action" name="action" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? "UPDATE" : "INSERT" ;?>">
-                                                    <input type="hidden" id="id" name="id" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $_GET['id'] :0 ;?>">
-                                                        <button onclick="submitform()" class="btn btn-primary">Upload</button>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="dr_name" class="form-label">Dr. Name</label>
+                                                        <input type="text" class="form-control" id="doctor"
+                                                            name="doctor" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['doctor'] : ""; ?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="specialist" class="form-label">Specialist</label>
+                                                        <input type="text" class="form-control" id="specialist"
+                                                            name="specialist"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['specialist'] : ""; ?>" required>
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-md-4">
+                                                    <div class="mb-3">
+                                                        <label for="weekly" class="form-label">Weekly</label>
+                                                        <input type="text" class="form-control" id="weekly"
+                                                            name="weekly"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['weekly'] : ""; ?>" >
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-md-4">
+                                                    <div class="mb-3">
+                                                        <label for="morning" class="form-label">Morning</label>
+                                                        <input type="text" class="form-control" id="morning"
+                                                            name="morning"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['morning'] : ""; ?>" >
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-md-4">
+                                                    <div class="mb-3">
+                                                        <label for="evening" class="form-label">Evening</label>
+                                                        <input type="text" class="form-control" id="evening"
+                                                            name="evening"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['evening'] : ""; ?>" >
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+
                                             </div>
-                                            <!--end row-->
-                                        </form>
+                                            <!--end col-->
+                                            <div class="col-lg-12">
+                                                <div class="text-end">
+                                                    <button type="submit" class="btn btn-primary"
+                                                        value="submit">Submit</button>
+                                                </div>
+                                            </div>
+                                            <!--end col-->
                                     </div>
-                                    <div class="d-none code-view">
-                                        <pre class="language-markup" style="height: 375px;">
+                                    <!--end row-->
+                                    </form>
+                                </div>
+                                <div class="d-none code-view">
+                                    <pre class="language-markup" style="height: 375px;">
 
                                     </div>
                                 </div>
                             </div>
                         </div> <!-- end col -->
-                    </div>
 
-                     <!-- form AJAX -->
-                    <script>
-                        function submitform(){
-                            event.preventDefault();                            
-                            var Title = document.getElementById("title").value; 
-                            var File = document.getElementById("file").value;
-                            console.log(File);
-                            var Action = document.getElementById("action").value;
-                            var Id = document.getElementById("id").value;
-                           
-                           var dataStringer = 
-                            "&title="+Title+
-                            "&file="+File+
-                            "&action="+Action+
-                            "&id="+Id;
-//console.log(dataStringer);
-                             $.ajax({
-                                url:"process/download.php",
-                                type:"POST",
-                                enctype="multipart/form-data",
-                                cache:false,
-                                data:dataStringer,
-                                success:function(result){
-//console.log(result);
-                                  var d = $.parseJSON(result);
-                                if(d.status == 1){
-                                   swal('', d.msg, 'success'); 
-                                   location.reload();
-                                }else{
-                                    swal('', d.msg, 'error');  
-                                } 
-                                }
-                            }) ;
-                        }
-                       
-                    </script>
+
+                    </div>
 
                     
                     <!-- Show table Start -->
@@ -199,7 +207,7 @@ if(!isLoggedIn()){
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">VIEW DOWNLOAD DETAILS</h4>
+                                    <h4 class="card-title mb-0">VIEW DOCTOR LIST DETAILS</h4>
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
@@ -223,17 +231,24 @@ if(!isLoggedIn()){
                                                         Sr.no
                                                         </th>
                                                         <th class="sort" data-sort="customer_name">
-                                                    Title </th>
+                                                        Upload Images</th>
                                                         <th class="sort" data-sort="customer_name">
-                                                       Files</th>
-                                                        
+                                                        Doctor </th>
+                                                        <th class="sort" data-sort="customer_name">
+                                                        Specialist </th>
+                                                        <th class="sort" data-sort="customer_name">
+                                                        Weekly </th>
+                                                        <th class="sort" data-sort="customer_name">
+                                                        Morning </th>
+                                                        <th class="sort" data-sort="customer_name">
+                                                        Evening </th>
                                                         <!-- <th class="sort" data-sort="action">Action</th> -->
                                                         <th class="sort" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">
 <?php
-$sql= "SELECT * FROM download_tbl";
+$sql= "SELECT * FROM doctor_list_tbl";
 $result= mysqli_query($connection, $sql) or die("Query Failed.");
 while($row = mysqli_fetch_array($result)){
 
@@ -245,20 +260,29 @@ while($row = mysqli_fetch_array($result)){
                                                         <?php echo $row['id'];?>
                                                         </td>
                                                         <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary"></a></td>
+                                                        <td class="customer_name"><a href="process/<?php echo $row['image'];?>" target="_blank"><img src="process/<?php echo $row['image'];?>" style="width:50px;height:50px;border-radius:50px;" alt=""></a>  </td>
                                                         <td class="customer_name"> 
-                                                        <?php echo $row['title'];?>
+                                                        <?php echo $row['doctor'];?>
                                                         </td>
-                                                        <td class="customer_name"><a href="process/<?php echo $row['file'];?>" target="_blank"><img src="admin/process/<?php echo $row['file'];?>" style="width:50px;height:50px;border-radius:50px;" alt=""></a>  </td>
-                                                       
-
-                                                  
+                                                        <td class="customer_name"> 
+                                                        <?php echo $row['specialist'];?>
+                                                        </td>
+                                                        <td class="customer_name"> 
+                                                        <?php echo $row['weekly'];?>
+                                                        </td>
+                                                        <td class="customer_name"> 
+                                                        <?php echo $row['morning'];?>
+                                                        </td>
+                                                        <td class="customer_name"> 
+                                                        <?php echo $row['evening'];?>
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex gap-2">
                                                                 <div class="edit">
-                                                                    <a href="download.php?id=<?php echo $row['id']?>" class="btn btn-sm btn-success edit-item-btn" >Update</a>
+                                                                    <a class="btn btn-sm btn-success edit-item-btn" href="doctor_list.php?id=<?php echo $row['id']?>">Update</a>
                                                                 </div> 
                                                                 <div class="remove">
-                                                                    <a href="process/remove_download.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure you want to delete?')";  class="btn btn-sm btn-danger remove-item-btn">Delete</a>
+                                                                    <a href="process/remove_doctor_list.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure you want to delete?')";  class="btn btn-sm btn-danger remove-item-btn">Remove</a>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -297,7 +321,6 @@ while($row = mysqli_fetch_array($result)){
                     </div>
                     <!-- end row -->
                     <!-- Show table end -->
-
 <!-- content end here -->
                 </div>
                 <!-- container-fluid -->

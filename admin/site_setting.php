@@ -128,7 +128,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="logoinput" class="form-label">Logo Upload</label>
                                                         <input type="file" class="form-control" id="logo" name="logo" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['logo'] : "";?>" required>
-                                                        <p> Only JPG, JPEG and PNG type images are accepted.</p>
+                                                        <p style="color:red;"> Only JPG, JPEG and PNG type images are accepted.</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -136,7 +136,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="faviconinput" class="form-label">favicon Upload</label>
                                                         <input type="file" class="form-control" id="favicon" name="favicon" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $row['favicon'] : "";?>" required>
-                                                        <p> Only JPG, JPEG and PNG type images are accepted.</p>
+                                                        <p style="color:red;"> Only JPG, JPEG and PNG type images are accepted.</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->

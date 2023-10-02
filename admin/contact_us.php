@@ -12,8 +12,8 @@ if(!isLoggedIn()){
 
 ?>
 <?php 
-if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
-    $id=$_SESSION['id'];
+if(isset($_GET['id']) && !empty($_GET['id'])){
+    $id=$_GET['id'];
     $sql= "SELECT * FROM contact_us_tbl where id=$id";
     $result= mysqli_query($connection, $sql) or die("Query Failed.");
     if(mysqli_num_rows($result)==0){
@@ -114,23 +114,15 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
-                                    <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
-                                    <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>"
-                                        role="alert">
-
-                                        <?php echo $_GET['msg'];?>
-
-                                    </div>
-                                    <?php } ?>
                                     <div class="live-preview">
-                                        <form action="process/contact_us.php" method="POST">
+                                        <form>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="address1ControlTextarea" class="form-label">Office
                                                             Location</label>
                                                         <input type="text" class="form-control" id="office_location"
-                                                            name="office_location" value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id'])) ? $row['office_location'] : ""; ?>" required>
+                                                            name="office_location" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['office_location'] : ""; ?>"required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -139,7 +131,7 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
                                                         <label for="phonenumberInput" class="form-label">Contact
                                                             Number</label>
                                                         <input type="tel" class="form-control" id="contact"
-                                                            name="contact"  pattern="^([0|\+[0-9]{1,5})?([1-9][0-9]{9})$" value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id'])) ? $row['contact'] : ""; ?>" required>
+                                                            name="contact"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['contact'] : ""; ?>" required>
                                                         </div>
                                                 </div>
                                                 <!--end col-->
@@ -147,7 +139,7 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
                                                     <div class="mb-3">
                                                         <label for="emailidInput" class="form-label">Email ID</label>
                                                         <input type="email" class="form-control"
-                                                            placeholder="example@gamil.com" id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id'])) ? $row['email'] : ""; ?>" required>
+                                                            placeholder="example@gmail.com" id="email" name="email" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['email'] : ""; ?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -156,7 +148,7 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
                                                         <label for="address1ControlTextarea"
                                                             class="form-label">Address</label>
                                                         <input type="text" class="form-control" id="address"
-                                                            name="address"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id'])) ? $row['address'] : ""; ?>" required>
+                                                            name="address" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['address'] : ""; ?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -165,9 +157,9 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
                                             <!--end col-->
                                             <div class="col-lg-12">
                                                 <div class="text-end">
-                                                    <input type="hidden" id="action" name="action" value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id']))? "UPDATE" : "INSERT" ;?>">
-                                                    <input type="hidden" id="id" name="id" value="<?php echo (isset($_SESSION['id']) && !empty($_SESSION['id']))? $_SESSION['id'] :0 ;?>">
-                                                    <input type="submit" value="Submit"  onclick="errorMessage()" class="btn btn-primary">
+                                                    <input type="hidden" id="action" name="action" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? "UPDATE" : "INSERT" ;?>">
+                                                    <input type="hidden" id="id" name="id" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $_GET['id'] :0 ;?>">
+                                                    <button onclick="submitform()"  class="btn btn-primary">Submit</button>
                                                 </div>
                                             </div>
                                             <!--end col-->
@@ -184,10 +176,47 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
                             </div>
                         </div>         
                <!-- end col -->
-
-
                     </div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+                     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                     <script  type="text/javascript" src="process/JQUERY.js"></script>      
+                     <!-- form AJAX -->
+                    <script>
+                        function submitform(){
+                            event.preventDefault();
+                            var Office_location = document.getElementById("office_location").value;
+                            var Contact = document.getElementById("contact").value;
+                            var Email = document.getElementById("email").value;
+                            var Address = document.getElementById("address").value;
+                            var Action = document.getElementById("action").value;
+                            var Id = document.getElementById("id").value;
 
+                            var dataString = "office_location="+Office_location+
+                                            "&contact="+Contact+
+                                            "&email="+Email+
+                                            "&address="+Address+
+                                            "&action="+Action+
+                                            "&id="+Id;
+                                            console.log(dataString);
+
+                                            $.ajax({
+                                                url:"process/contact_us.php",
+                                                type:"POST",
+                                                data:dataString,
+                                                cache:false,
+                                                success:function(result){
+                                                    console.log(result);
+                                                    var d =JSON.parse(result);
+                                if(d.status == 1){
+                                   swal('', d.msg, 'success'); 
+                                   location.reload();
+                                }else{
+                                    swal('', d.msg, 'error');  
+                                } 
+                                                }
+                                            });
+                        }
+                        </script>
                     
                     <!-- Show table Start -->
 

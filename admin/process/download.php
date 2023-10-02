@@ -1,6 +1,5 @@
 <?php
 include("connection.php");
-if($_SERVER["REQUEST_METHOD"]="POST"){
 
     $id = $_POST['id'];
     $title = $_POST['title'];
@@ -10,27 +9,37 @@ if($_SERVER["REQUEST_METHOD"]="POST"){
     $FILE = "files/".$file;
     move_uploaded_file($file_tmpname, $FILE);
     
-    $allowed = array('.DOC', '.ODT', '.PDF','.TXT','.HTML','.XLSX');
+    $allowed = array('doc','pdf');
     $ext = pathinfo($file, PATHINFO_EXTENSION);
-    if (!in_array($ext, $allowed)) {
-    echo  'Invalid file type. Only .DOC, .TXT,.ODT and .PDF types are accepted.';
-    exit();
+
+    if(isset($FILE) && !empty($FILE)){
+        if (!in_array($ext, $allowed)) {
+            $fileErr= 'Invalid file type. Only .DOC and .PDF types are accepted.';
+            $arr=array("status"=>2, "msg"=>$fileErr);
+            echo json_encode($arr);
+            return;
     }
+}
+else{
+        $arr = array("status"=>2,"msg"=>"File  field is required.");
+        echo json_encode($arr);
+        return;
+    }
+   
+    
 
     /* title validation */
 
 if(isset($title) && !empty($title)){  
     if(!preg_match("/^['a-zA-Z-' ]*$/",$title)) {
         $titleErr = "Only letters and white space are allowed in title field.";     
-        $arr = array("status"=>2,"msg"=> $titleErr);
-        $str = implode(',', $arr);
-        echo $str;
+        $arr1 = array("status"=>2,"msg"=> $titleErr);
+       echo json_encode($arr1);
         return;   
         }
 }else{
-    $arr = array("status"=>2,"msg"=>"title  field is required.");
-    $str = implode(',', $arr);
-    echo $str;
+    $arr1 = array("status"=>2,"msg"=>"title  field is required.");
+    echo json_encode($arr1);
     return;
 }
     
@@ -42,22 +51,12 @@ if(isset($title) && !empty($title)){
     `title`=='$title',  
     `file`=='$FILE'";
    }
-
- 
-
-     
      $result=mysqli_query($connection,$sql)or die("Query Failed.");
     if ($result){
-        $status = 1;
-        $message = "File Inserted Successfully...";
-        header('location:../download.php?status='.$status.'&msg='.$message);
-        exit();
+        $arry = array("status"=>1,"msg"=>"Your file has been Uploaded. ");
+        echo json_encode($arry);
     }else{
-        $status = 2;
-        $message = "Something went wrong!!!";
-        header('location:../download.php?status='.$status.'&msg='.$message);
-        exit();
+        $arry = array("status"=>2,"msg"=>"Try again");
+        echo json_encode($arry);
     }
-}
-
 ?>

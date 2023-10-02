@@ -96,17 +96,8 @@ if(!isLoggedIn()){
                                     <h4 class="card-title mb-0 flex-grow-1">Manage Video</h4>
                                   
                                 </div><!-- end card header -->
-                        <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){
-                            ?>
-                                <div class="card-body">
-                                <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>" role="alert">
-                                   
-                                <?php  echo $_GET['msg'];?>
-                                   
-                                </div>
-                                <?php    } ?>
                                     <div class="live-preview">
-                                        <form action="process/manage_video.php" enctype="multipart/form-data" method="POST">
+                                        <form>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
@@ -128,7 +119,7 @@ if(!isLoggedIn()){
                                                 <!--end col-->
                                                 <div class="col-lg-12">
                                                     <div class="text-end">
-                                                        <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+                                                        <button class="btn btn-primary" onclick="submitform()" >Submit</button>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -143,10 +134,40 @@ if(!isLoggedIn()){
                                 </div>
                             </div>
                         </div> <!-- end col -->
-
-
                     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script  type="text/javascript" src="/process/JQUERY.js"></script>                
+    <!-- form AJAX -->
+                    <script>
+                        function submitform(){
+                            event.preventDefault();
+                            var Video = document.getElementById("video").value;
+                            var Remark= document.getElementById("remark").value;
 
+                            var dataString='video='+Video+
+                                            "&remark="+Remark;
+                                           
+                                            console.log(dataString);
+                                            $.ajax({
+                                                url:"process/manage_video.php",
+                                                type:"POST",
+                                                enctype="multipart/form-data",
+                                                cache:false,
+                                                data:dataString,
+                                                success:function(result){
+                                                     console.log(result);
+                                                    var d = $.parseJSON(result);
+                                if(d.status == 1){
+                                   swal('', d.msg, 'success'); 
+                                   location.reload();
+                                }else{
+                                    swal('', d.msg, 'error');  
+                                }
+                                                }
+                                            });
+                        }
+                    </script>
                     <!-- Show table Start -->
 
                     <div class="row">

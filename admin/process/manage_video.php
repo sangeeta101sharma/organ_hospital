@@ -1,27 +1,49 @@
 <?php
 include("connection.php");
-if($_SERVER["REQUEST_METHOD"]="POST"){
-    
-   $VIDEO = $_POST['video'];
-  
-    $remark = $_POST['remark'];
 
- 
+   $VIDEO = $_POST['video'];
+    $remark = $_POST['remark'];
+/* Video link validation */
+
+    if(isset($VIDEO) && !empty($VIDEO)){
+        if (preg_match("/((http\:\/\/){0,}(www\.){0,}(youtube\.com){1} || (youtu\.be){1}(\/watch\?v\=[^\s]){1})/", $youtube_url) == 1)
+{
+    $arr = array("status"=>2,"msg"=>" Upload valid video link.");
+    echo json_encode($arr);
+    return;
+}
+}
+else{
+        $arr = array("status"=>2,"msg"=>"Video link,  field is required.");
+        echo json_encode($arr);
+        return;
+    }
+
+        /* remark validation */
+
+if(isset($remark) && !empty($remark)){  
+    if(!preg_match("/^['a-zA-Z-' ]*$/",$remark)) {
+        $titleErr = "Only letters and white space are allowed in remark field.";     
+        $arr1 = array("status"=>2,"msg"=> $titleErr);
+       echo json_encode($arr1);
+        return;   
+        }
+}else{
+    $arr1 = array("status"=>2,"msg"=>"title  field is required.");
+    echo json_encode($arr1);
+    return;
+}
 
     $sql = "INSERT INTO `video_tbl` (`video`, `remark`) VALUES ('$VIDEO', '$remark')";
     $result=mysqli_query($connection,$sql) or die("Query Failed.");
     if ($result){
-        $status = 1;
-        $message = "Data Inserted...";
-        header('location:../manage_video.php?status='.$status.'&msg='.$message);
-        exit();
+        $arry = array("status"=>1,"msg"=>"Your Video file has been Uploaded. ");
+        echo json_encode($arry);
     }else{
-        $status = 2;
-        $message = "Something went wrong!!!";
-        header('location:../manage_video.php?status='.$status.'&msg='.$message);
-        exit();
+        $arry = array("status"=>2,"msg"=>"Try again");
+        echo json_encode($arry);
     
     }
-}
 
+    
 ?>

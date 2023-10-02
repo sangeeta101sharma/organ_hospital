@@ -56,7 +56,6 @@
                 <i class="fa fa-bars menubar_mobile" aria-hidden="true"></i>
                 <div class="logoarea">
                     <a href="index.php">
-                            <?php //print_r($line); ?>
                         <img alt="<?php echo $line['web_name'];?>" src="admin/process/<?php echo $line['logo']; ?>" width="100" height="20" class="img-fluid" />
                     </a>
                 </div>

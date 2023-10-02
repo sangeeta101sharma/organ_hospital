@@ -44,6 +44,10 @@
                             <i class="ri-archive-fill"></i> Appointment </a>
                         </li>
                         <li class="nav-item">
+                            <a href="doctor_list.php" class="nav-link" data-key="t-analytics">
+                            <i class="ri-nurse-fill"></i> Doctor List </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="site_setting.php" class="nav-link" data-key="t-analytics">
                             <i class="ri-pages-line"></i> Site Setting </a>
                         </li>

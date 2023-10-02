@@ -119,7 +119,7 @@ if(!isLoggedIn()){
                                                         </label>
                                                         <input type="file" class="form-control" id="gallery"
                                                             name="gallery" required>
-                                                            <p> Only JPG, JPEG and PNG type images are accepted.</p>
+                                                            <p style="color:red;"> Only JPG, JPEG and PNG type images are accepted.</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->

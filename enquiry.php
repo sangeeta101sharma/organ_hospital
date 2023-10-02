@@ -10,9 +10,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="<?php echo $row['favicon'] ;?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $line['favicon'] ;?>" type="image/x-icon">
 
-    <link rel="icon" href="<?php echo $row['favicon'] ;?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo $line['favicon'] ;?>" type="image/x-icon">
 
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
@@ -529,11 +529,9 @@
         href="wp-json/oembed/1.0/embedd3aa?url=https%3A%2F%2Forganhospital.com%2Fcontact-us%2F&amp;format=xml" />
     <meta name="generator" content="Site Kit by Google 1.108.0" />
     <link rel="apple-touch-icon" sizes="180x180" href="wp-content/uploads/fbrfg/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $row['logo'] ;?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $row['logo'] ;?>">
     <link rel="manifest" href="wp-content/uploads/fbrfg/site.webmanifest">
     <link rel="mask-icon" href="wp-content/uploads/fbrfg/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="<?php echo $row['favicon'] ;?>">
+    <link rel="shortcut icon" href="<?php echo $line['favicon'] ;?>">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/wp-content/uploads/fbrfg/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
@@ -574,14 +572,9 @@
                 <div class="clearfix"></div>
                 <div class="contact-us">
                     <div class="contactus_new">
-                    <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
-                                <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>" role="alert">
-                                   <?php echo $_GET['msg'];?>
-                                </div>
-                                <?php } ?>
                         <h2 class="title-3">Enquiry Now</h2>
                         <div class="">
-                            <form action="admin/process/enquiry.php" method="POST" >
+                            <form  >
                                 <div class="">
                                     <div class="row">
                                         <div class=" col-xs-12  col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -665,7 +658,7 @@
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <button value="Submit"
-                                           class="submit"  id="submit" >Submit</button>
+                                           class="submit"  id="submit" onclick="submitform()" >Submit</button>
                                 </div>
                         </div>
                     </form>
@@ -676,7 +669,45 @@
         </div>
         <div class="clearfix"></div>
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script  type="text/javascript" src="JQUERY.js"></script>                
+    <!-- form AJAX -->
+                    <script>
+                        function submitform(){
+                            event.preventDefault();
+                            var Name = document.getElementById("name").value;
+                            var Address= document.getElementById("address").value;
+                            var Email= document.getElementById("email").value;
+                            var Phone=document.getElementById("phone").value;
+                            var Medicine=document.getElementById("medicine").value;
+                            var Query=document.getElementById("query").value;
 
+                            var dataString='name='+Name+
+                                            "&address="+Address+
+                                            "&email="+Email+
+                                            "&phone="+Phone+
+                                            "&medicine="+Medicine+
+                                            "&query="+Query;
+                                            //console.log(dataString);
+                                            $.ajax({
+                                                url:"admin/process/enquiry.php",
+                                                type:"POST",
+                                                cache:false,
+                                                data:dataString,
+                                                success:function(result){
+                                                     console.log(result);
+                                                    var d = $.parseJSON(result);
+                                if(d.status == 1){
+                                   swal('', d.msg, 'success'); 
+                                   location.reload();
+                                }else{
+                                    swal('', d.msg, 'error');  
+                                }
+                                                }
+                                            });
+                        }
+                    </script>
     <!-- Footer  -->
     <?php include_once('include/footer.php');?>
 

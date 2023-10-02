@@ -104,7 +104,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                         <label for="phonenumberInput" class="form-label">Contact
                                                             Number</label>
                                                         <input type="tel" class="form-control" id="contact" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['contact'] : ""; ?>" required>
-                                                        <span id="error"></span>
+                                                       
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -159,8 +159,9 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 
                     </div>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-                    <!-- form AJAX -->
+                     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script  type="text/javascript" src="JQUERY.js"></script>
+                     <!-- form AJAX -->
                     <script>
                         function submitform(){
                             event.preventDefault();
@@ -185,7 +186,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                             "&action="+action+
                             "&id="+id
                             ;
-                            console.log(dataStringer);
+                            //console.log(dataStringer);
                              $.ajax({
                                 url:"process/admin_details.php",
                                 type:"POST",
@@ -203,16 +204,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                 }
                             }) ;
                         }
-                        var error = document.getElementById("error")
-        if (isNaN(document.getElementById("contact").value))
-        {
-             
-            // Changing content and color of content
-            error.textContent = "Please enter a valid number"
-            error.style.color = "red"
-        } else {
-            error.textContent = ""
-        }
+                       
                     </script>
                     <!-- Show table Start -->
                   

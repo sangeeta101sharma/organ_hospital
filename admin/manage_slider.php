@@ -76,7 +76,7 @@ if(!isLoggedIn()){
                                                     <div class="mb-3">
                                                         <label for="uploadSlider" class="form-label"> Upload Slider</label>
                                                         <input type="file" class="form-control" id="slider" name="slider">
-                                                        <p> Only JPG, JPEG and PNG type images are accepted.</p>
+                                                        <p style="color:red;"> Only JPG, JPEG and PNG type images are accepted.</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->

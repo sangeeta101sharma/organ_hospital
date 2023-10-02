@@ -431,11 +431,8 @@
         href="wp-json/oembed/1.0/embed87fb?url=https%3A%2F%2Forganhospital.com%2F&amp;format=xml" />
     <meta name="generator" content="Site Kit by Google 1.108.0" />
     <link rel="apple-touch-icon" sizes="180x180" href="wp-content/uploads/fbrfg/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $line['logo'];?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $line['logo'];?>">
     <link rel="manifest" href="wp-content/uploads/fbrfg/site.webmanifest">
     <link rel="mask-icon" href="wp-content/uploads/fbrfg/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="<?php echo $line['logo'];?>">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/wp-content/uploads/fbrfg/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
@@ -490,7 +487,7 @@
                         <ul>
                             <li class="loca_ico_usp"><strong><u style="color:yellow;">Latest News</u></strong></li>
                            
-                            <marquee behavior="up" direction="up" scrollamount="2">
+                            <marquee behavior="up" direction="up" scrollamount="2" onmouseover="this.stop();" onmouseout="this.start()">
                             <li class="loca_ico_usp">
                             <?php
 $sql= "SELECT * FROM latest_news_tbl";
@@ -505,10 +502,6 @@ while($row = mysqli_fetch_array($result)){
                             </marquee>
                             
                         </ul>
-                        
-                        <a data-toggle="modal" data-target="#AppoModal" class="book_btn_usp">Book your appointment
-                            today
-                        </a>
                     </div>
                     <div class="right_usp_area">
                         <h1 class="usptitle">Organ Hospital is provide many more services on affordable price.</h1>

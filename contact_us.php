@@ -16,9 +16,9 @@ $result= mysqli_query($connection, $sql) or die("Query Failed.");
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="<?php echo $row['favicon'] ;?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $line['favicon'] ;?>" type="image/x-icon">
 
-    <link rel="icon" href="<?php echo $row['favicon'] ;?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo $line['favicon'] ;?>" type="image/x-icon">
 
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
@@ -535,11 +535,9 @@ $result= mysqli_query($connection, $sql) or die("Query Failed.");
         href="wp-json/oembed/1.0/embedd3aa?url=https%3A%2F%2Forganhospital.com%2Fcontact-us%2F&amp;format=xml" />
     <meta name="generator" content="Site Kit by Google 1.108.0" />
     <link rel="apple-touch-icon" sizes="180x180" href="wp-content/uploads/fbrfg/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $row['logo'] ;?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $row['logo'] ;?>">
     <link rel="manifest" href="wp-content/uploads/fbrfg/site.webmanifest">
     <link rel="mask-icon" href="wp-content/uploads/fbrfg/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="<?php echo $row['favicon'] ;?>">
+    <link rel="shortcut icon" href="<?php echo $line['favicon'] ;?>">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/wp-content/uploads/fbrfg/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
