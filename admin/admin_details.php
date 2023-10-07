@@ -27,10 +27,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
-    data-sidebar-image="none" data-preloader="disable">
-
+data-sidebar-image="none" data-preloader="disable">
 <head>
-
     <meta charset="utf-8" />
     <title><?php echo $title;?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,9 +36,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo $favicone;?>">
-
-    <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
+    <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet"
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -53,32 +49,22 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
 </head>
-
 <body>
-
     <!-- Begin page -->
     <div id="layout-wrapper">
         <!-- header start -->
         <?php include("include/header.php");?>
         <!-- header end -
-        <!-- ========== App Menu ========== -->
+
         <!-- menu start -->
         <?php include("include/menu.php");?>
         <!-- menu end -->
-        <!-- Left Sidebar End -->
-        <!-- Vertical Overlay-->
+   
         <div class="vertical-overlay"></div>
-
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
-
                     <!-- content  start here -->
-
                     <div class="row">
                         <div class="col-xxl-6">
                             <div class="card">
@@ -285,25 +271,6 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     ?>
                                                 </tbody>
                                             </table>
-                                            <div class="noresult" style="display: none">
-                                                <div class="text-center">
-                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                    <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end">
-                                            <div class="pagination-wrap hstack gap-2">
-                                                <a class="page-item pagination-prev disabled" href="javascrpit:void(0)">
-                                                    Previous
-                                                </a>
-                                                <ul class="pagination listjs-pagination mb-0"></ul>
-                                                <a class="page-item pagination-next" href="javascrpit:void(0)">
-                                                    Next
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div><!-- end card -->
@@ -329,14 +296,6 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 
     </div>
     <!-- END layout-wrapper -->
-
-
-
-    <!--start back-to-top-->
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <!--end back-to-top-->
 
     <!--preloader-->
     <?php

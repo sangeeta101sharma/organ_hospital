@@ -100,9 +100,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                                         </div>
 
                                         <div class="mb-3">
-                                            <div class="float-end">
+                                           <!--  <div class="float-end">
                                                 <a href="forgot.php" class="text-muted">Forgot password?</a>
-                                            </div>
+                                            </div> -->
                                             <label class="form-label" for="password-input">Password</label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">
                                                 <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password" name="password" required>
@@ -110,10 +110,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                                             </div>
                                         </div>
 
-                                        <div class="form-check">
+                                        <!-- <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
                                             <label class="form-check-label" for="auth-remember-check">Remember me</label>
-                                        </div>
+                                        </div> -->
 
                                         <div class="mt-4">
                                             <button class="btn btn-success w-100" type="submit" value="submit">Sign In</button>

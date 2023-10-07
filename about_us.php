@@ -497,23 +497,14 @@
         </div>
 
         <div class="clearfix"></div>
-
-
-
-    </section>
-
-
-    <!---->
-
-
-    <!---->
-    <section>
+</section>
+ <section>
         <div class="content_area bg_grey padding-top-50 padding-bottom-50">
             <div class="container">
                 <div class="text-center">
                     <h1 class="title-1">Welcome To Organ Hospital</h1>
                     <div class="title-img-1"><img src="wp-content/themes/organhospital/images/title-img-1.png"
-                            alt="organ Hospital" title="organ Hospital"></div>
+                            alt="Organ Hospital" title="Organ Hospital"></div>
                 </div>
 
                 <p class="p-title-1">At the Organ Hospital, the focus is on organ transplantation and advanced surgical
@@ -532,14 +523,12 @@
 $sql= "SELECT * FROM doctor_list_tbl";
 $result= mysqli_query($connection, $sql) or die("Query Failed.");
 while($row = mysqli_fetch_array($result)){
-
-
 ?>
                     <div class="about-organhospital">
                         <div class="about-organhospital-1">
                             <div class="about-organhospital-1a"><img
-                                    src="admin/process/<?php echo $row['image'];?>" alt="organ Hospital"
-                                    title="organ Hospital"></div>
+                                    src="admin/process/<?php echo $row['image'];?>" alt="Organ Hospital"
+                                    title="Organ Hospital"></div>
                             <div class="about-organhospital-1b">
                                 <h3 class="title-2"><?php echo $row['doctor'];?></h3>
                                 <p><strong><?php echo $row['specialist'];?></strong></p>
@@ -548,12 +537,13 @@ while($row = mysqli_fetch_array($result)){
                             <p><strong>In Morning (Time) : </strong><?php echo $row['morning'];?></p>
                             <p><strong>In Evening (Time) : </strong><?php echo $row['evening'];?></p>
                             <p><strong>Weekly : </strong>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['weekly'];?></p>
+                            <p><strong>Contact : </strong>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['contact'];?></p>
                         </div>
                     </div>
                     <?php } ?>
                 </div>
                 <div class="clearfix"></div><br />
-                <p>organ hospital in any location would offer a range of services related to organ transplantation and
+                <p>Organ Hospital in any location would offer a range of services related to organ transplantation and
                     related medical care. These services may include:
 
                     Organ Transplantation: Specialized departments for various organ transplants, such as kidney, liver,
@@ -577,7 +567,7 @@ while($row = mysqli_fetch_array($result)){
                 <div class="text-center opdtitle">
                     <h2 class="title-4">OPD Timings</h2>
                 </div>
-                <div class="OPD-Timings-sec owl-carousel owl-theme">
+                <div class="OPD-Timings-sec owl-carousel owl-theme" style="height:330px !important;">
                     <div class="item wow zoomIn" data-wow-duration="0.8s" data-wow-delay="0.4s">
                         <div class="OPD-Timings">
                             <div class="OPD-Timings-1">
@@ -666,7 +656,7 @@ while($row = mysqli_fetch_array($result)){
             </div>
         </div>
         </div>
-        <div class="clearfix"></div>
+        
     </section>
     <!---->
     <!---->
@@ -676,15 +666,15 @@ while($row = mysqli_fetch_array($result)){
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <div class="images-1"><img src="images/sl1.jpg" alt="organ Hospital" title="organ Hospital">
+                            <div class="images-1"><img src="images/sl1.jpg" alt="Organ Hospital" title="Organ Hospital">
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6"style="padding-top:60px;">
                             <button class="accordion">
                                 <h6>Patient Satisfaction</h6>
                             </button>
                             <div class="panel">
-                                <p>Patient satisfaction in an organ hospital, specifically focused on the experiences of
+                                <p>Patient satisfaction in an Organ Hospital, specifically focused on the experiences of
                                     organ transplant recipients and donors, is of utmost importance Our supporting staff
                                     takes complete care of the sufferer throughout his treatment and ensure about his
                                     health round the clock. Besides, even after the discharge of the patients, we
@@ -704,7 +694,7 @@ while($row = mysqli_fetch_array($result)){
                                 <h6>Hospital Team</h6>
                             </button>
                             <div class="panel">
-                                <p>When you are a patient at organ Hospital you may have multiple team
+                                <p>When you are a patient at Organ Hospital you may have multiple team
                                     members providing care for you during your stay. We strive to provide compassionate
                                     care that focuses on the individual needs of patients and their families.</p>
                                 <p><strong>Hospitalists:</strong> A Hospitalist is a physician who specializes in

@@ -1,6 +1,6 @@
 <?php
 include("connection.php");
-
+//print_r($_REQUEST);
     $id = $_POST['id'];
     $title = $_POST['title'];
     //upload filefile
@@ -14,7 +14,7 @@ include("connection.php");
 
     if(isset($FILE) && !empty($FILE)){
         if (!in_array($ext, $allowed)) {
-            $fileErr= 'Invalid file type. Only .DOC and .PDF types are accepted.';
+            $fileErr= 'Invalid file type, Only .DOC and .PDF types are accepted.';
             $arr=array("status"=>2, "msg"=>$fileErr);
             echo json_encode($arr);
             return;
@@ -25,7 +25,7 @@ else{
         echo json_encode($arr);
         return;
     }
-   
+    
     
 
     /* title validation */
@@ -49,7 +49,7 @@ if(isset($title) && !empty($title)){
    if(isset($_POST['action'])=="UPDATE"){
     $sql = "UPDATE  `download_tbl`set 
     `title`=='$title',  
-    `file`=='$FILE'";
+    `file`=='$FILE' where id=$id";
    }
      $result=mysqli_query($connection,$sql)or die("Query Failed.");
     if ($result){

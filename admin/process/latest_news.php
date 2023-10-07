@@ -10,13 +10,13 @@ include("connection.php");
 
 if(isset($title) && !empty($title)){  
     if(!preg_match("/^['a-zA-Z-' ]*$/",$title)) {
-        $titleErr = "Only letters and white space are allowed in title field.";     
+        $titleErr = "Only letters and white space are allowed in Title field.";     
         $arr = array("status"=>2,"msg"=> $titleErr);
         echo json_encode($arr);
         return;   
         }
 }else{
-    $arr = array("status"=>2,"msg"=>"title  field is required.");
+    $arr = array("status"=>2,"msg"=>"Title  field is required.");
    echo json_encode($arr);
     return;
 }
@@ -24,7 +24,7 @@ if(isset($title) && !empty($title)){
 
    if(isset($description) && !empty($description)){  
     if(!preg_match("/^['a-zA-Z0-9  \b % # . , ?' ]*$/",$description)) {
-        $descriptionErr = "Only letters , white space and some special symbols  are allowed";     
+        $descriptionErr = "Only letters , white space and some special symbols  are allowed in Description field.";     
         $arr1 = array("status"=>2,"msg"=> $descriptionErr);
         echo json_encode($arr1);
         return;   
@@ -60,7 +60,7 @@ if($_POST['action']=="UPDATE"){
     $result=mysqli_query($connection,$sql) or die("Query Failed.");
     if ($result){
         $arry = array("status"=>1,"msg"=>"Your data has been Inserted. ");
-    echo json_encode($arry);
+        echo json_encode($arry);
     }else{
         $arry = array("status"=>2,"msg"=>"Try again");
         echo json_encode($arry);

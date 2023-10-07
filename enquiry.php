@@ -583,6 +583,10 @@
                                                     Name:</label> <input class="contact_text_1" placeholder=""
                                                     name="name" id="name" value="" type="text" required>
                                             </div>
+                                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="name">General Physician
+                                                    </label> <input class="contact_text_1" placeholder=""
+                                                    name="physician" id="physician" value="" type="text" required>
+                                            </div>
                                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="name">Your
                                                     Address:</label> <input class="contact_text_1" placeholder=""
                                                     name="address" id="address" value="" type="text" required>
@@ -598,7 +602,7 @@
                                                 <input class="contact_text_1" placeholder="" type="tel" minlength="10"
                                                     maxlength="10" name="phone"   id="phone"    value="" required>
                                             </div>
-                                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <!-- <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                                 <select name="medicine" id="medicine" class="contact_text_1">
                                                     <option value="">--- Choose Speciality---</option>
                                                     <option value="Institute of Bariatric and Metabolic Surgery">
@@ -648,13 +652,13 @@
                                                         Surgery &amp; Hair Transplant Surgery</option>
                                                     <option value="Gastroenterology">Gastroenterology</option>
                                                 </select>
-                                            </div>
+                                            </div> -->
                                         </div>
 
                                         <div class=" col-xs-12  col-sm-12 col-md-6 col-lg-6 col-xl-6"><label
                                                 for="message">Your Query:</label> <textarea
                                                 placeholder="Type the text here" class="contact_text_3"
-                                                style="resize: none;" name="query" id="query" ></textarea></div>
+                                                style="resize: none;" cols="50" rows="17"  name="query" id="query" ></textarea></div>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <button value="Submit"
@@ -677,17 +681,17 @@
                         function submitform(){
                             event.preventDefault();
                             var Name = document.getElementById("name").value;
+                            var Physician = document.getElementById("physician").value;
                             var Address= document.getElementById("address").value;
                             var Email= document.getElementById("email").value;
                             var Phone=document.getElementById("phone").value;
-                            var Medicine=document.getElementById("medicine").value;
                             var Query=document.getElementById("query").value;
 
                             var dataString='name='+Name+
+                                            "&physician="+Physician+
                                             "&address="+Address+
                                             "&email="+Email+
                                             "&phone="+Phone+
-                                            "&medicine="+Medicine+
                                             "&query="+Query;
                                             //console.log(dataString);
                                             $.ajax({

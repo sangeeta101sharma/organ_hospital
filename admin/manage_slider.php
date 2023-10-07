@@ -1,22 +1,22 @@
-
-<?php include("include/config.php");?>
+<?php 
+session_start();
+include("include/config.php");?>
 <?php include("process/connection.php");?>
 <?php include("include/function.php");?>
+
 <?php
-session_start();
+/*  print_r($_SESSION);
+ die();  */
 
 if(!isLoggedIn()){
     
     header("location:login.php?status=2&msg=Login First");
     exit();
 }
-
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
-
 <head>
-
     <meta charset="utf-8" />
     <title><?php echo $title;?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,9 +24,7 @@ if(!isLoggedIn()){
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo $favicon;?>">
-
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -37,12 +35,8 @@ if(!isLoggedIn()){
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-
 </head>
-
 <body>
-
-    <!-- Begin page -->
     <div id="layout-wrapper">
 <!-- header start -->
 <?php include("include/header.php");?>
@@ -64,9 +58,12 @@ if(!isLoggedIn()){
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
-                                <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
-                                <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>" role="alert">
-                                   <?php echo $_GET['msg'];?>
+                                <?php if(isset($_SESSION['msg']) && !empty($_SESSION['msg'])){?>
+                                <div class="alert <?php echo ($_SESSION['status']== 1) ? 'alert-success' : 'alert-danger' ?>" role="alert">
+                                   <?php echo $_SESSION['msg'];
+                                   unset($_SESSION['status']);
+                                   unset($_SESSION['msg']);
+                                   ?>
                                 </div>
                                 <?php } ?>
                                     <div class="live-preview">
@@ -75,7 +72,7 @@ if(!isLoggedIn()){
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="uploadSlider" class="form-label"> Upload Slider</label>
-                                                        <input type="file" class="form-control" id="slider" name="slider">
+                                                        <input type="file" class="form-control" id="slider" name="slider" required>
                                                         <p style="color:red;"> Only JPG, JPEG and PNG type images are accepted.</p>
                                                     </div>
                                                 </div>
@@ -83,7 +80,7 @@ if(!isLoggedIn()){
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="Remarks" class="form-label">Remarks</label>
-                                                        <input type="text" class="form-control" id="remark" name="remark">
+                                                        <input type="text" class="form-control" id="remark" name="remark" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -122,7 +119,6 @@ if(!isLoggedIn()){
                                     <div class="listjs-table" id="customerList">
                                         <div class="row g-4 mb-3">
                                             <div class="col-sm-auto">
-                                              
                                             </div>
                                             <div class="col-sm">
                                                 <div class="d-flex justify-content-sm-end">
@@ -133,7 +129,6 @@ if(!isLoggedIn()){
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="table-responsive table-card mt-3 mb-1">
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
@@ -145,7 +140,6 @@ if(!isLoggedIn()){
                                                         Upload Slider</th>
                                                         <th class="sort" data-sort="customer_name">
                                                         Remarks </th>
-                                                     
                                                         <th class="sort" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
@@ -163,44 +157,22 @@ if(!isLoggedIn()){
                                                         <td class="customer_name">
                                                         <?php echo $row['remark'];?>
                                                         </td>
-
-                                                   
                                                         <td>
                                                             <div class="d-flex gap-2">
                                                                 <!-- <div class="edit">
                                                                     <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">View</button>
                                                                 </div> -->
                                                                 <div class="remove">
-                                                                
                                                                     <a href="process/remove_slider.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure you want to delete?')";  class="btn btn-sm btn-danger remove-item-btn">Remove</a>
                                                                 </div>
                                                             </div>
                                                         </td>
                                                     </tr>
                                                     <?php
-}
+                                                    }
                                                     ?>
                                                 </tbody>
                                             </table>
-                                            <div class="noresult" style="display: none">
-                                                <div class="text-center">
-                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                    <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end">
-                                            <div class="pagination-wrap hstack gap-2">
-                                                <a class="page-item pagination-prev disabled" href="javascrpit:void(0)">
-                                                    Previous
-                                                </a>
-                                                <ul class="pagination listjs-pagination mb-0"></ul>
-                                                <a class="page-item pagination-next" href="javascrpit:void(0)">
-                                                    Next
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div><!-- end card -->
@@ -226,24 +198,14 @@ if(!isLoggedIn()){
     </div>
     <!-- END layout-wrapper -->
 
-
-
-    <!--start back-to-top-->
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <!--end back-to-top-->
-
     <!--preloader-->
     <?php
     include("include/preloader_custome.php");
     ?>
-
     <!-- Theme Settings -->
     <?php
     include("include/theme_setting.php");
     ?>
-
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
@@ -251,20 +213,13 @@ if(!isLoggedIn()){
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
-
     <!-- apexcharts -->
     <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
-
     <!-- Swiper Js -->
     <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
-
     <!-- CRM js -->
     <script src="assets/js/pages/dashboard-crypto.init.js"></script>
-
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>
-
-
-<!-- Mirrored from themesbrand.com/velzon/html/default/dashboard-crypto.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 May 2023 08:45:13 GMT -->
 </html>

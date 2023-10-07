@@ -17,9 +17,11 @@ if(!isLoggedIn()){
     $id=$_GET['id'];
     $sql="SELECT * FROM download_tbl where id=$id";
     $result=mysqli_query($connection,$sql) or die("Query Failed.");
-    if(mysqli_num_rows($result)>0){
-        $row= mysqli_fetch_array($result);
+    if(mysqli_num_rows($result)==0){
+        header("location:download.php?status=2&msg=Oops! Record not found..");
+       
     }
+    $row= mysqli_fetch_array($result);
  }
  ?>
 <!doctype html>
@@ -49,77 +51,38 @@ if(!isLoggedIn()){
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script  type="text/javascript" src="process/JQUERY.js"></script>
+ 
 </head>
 
 <body>
-
-    <!-- Begin page -->
     <div id="layout-wrapper">
 <!-- header start -->
 <?php include("include/header.php");?>
 <!-- header end -->
-<!-- removeNotificationModal -->
-<div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="NotificationModalbtn-close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mt-2 text-center">
-                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                        <h4>Are you sure ?</h4>
-                        <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
-                    </div>
-                </div>
-                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                    <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete It!</button>
-                </div>
-            </div>
 
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-        <!-- ========== App Menu ========== -->
         <!-- menu start -->
         <?php include("include/menu.php");?>
         <!-- menu end -->
-        <!-- Left Sidebar End -->
-        <!-- Vertical Overlay-->
+       
         <div class="vertical-overlay"></div>
-
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
-
+ <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
-
                <!-- content  start here -->
-
                <div class="row">
                         <div class="col-xxl-6">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Download</h4>
-                                  
                                 </div><!-- end card header -->
-
                                 <div class="card-body">
                                     <div class="live-preview">
-                                        <form>
+                                        <form id="fupForm" enctype="multipart/form-data">
                                             <div class="row">
                                             <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="lastNameinput" class="form-label">Title</label>
                                                         <input type="text" class="form-control" id="title" name="title"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['title'] : ""; ?>" required>
-                                                        
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -131,14 +94,13 @@ if(!isLoggedIn()){
                                                     </div>
                                                 </div>
                                                 <!--end col-->
-                                               
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-12">
                                                     <div class="text-end">
                                                     <input type="hidden" id="action" name="action" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? "UPDATE" : "INSERT" ;?>">
                                                     <input type="hidden" id="id" name="id" value="<?php echo (isset($_GET['id']) && !empty($_GET['id']))? $_GET['id'] :0 ;?>">
-                                                        <button onclick="submitform()" class="btn btn-primary">Upload</button>
+                                                        <input type="submit" name="submit" class="btn btn-primary submitBtn" value="SUBMIT"/>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -148,48 +110,41 @@ if(!isLoggedIn()){
                                     </div>
                                     <div class="d-none code-view">
                                         <pre class="language-markup" style="height: 375px;">
-
                                     </div>
                                 </div>
                             </div>
                         </div> <!-- end col -->
                     </div>
-
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script  type="text/javascript" src="process/JQUERY.js"></script>
                      <!-- form AJAX -->
-                    <script>
-                        function submitform(){
-                            event.preventDefault();                            
-                            var Title = document.getElementById("title").value; 
-                            var File = document.getElementById("file").value;
-                            console.log(File);
-                            var Action = document.getElementById("action").value;
-                            var Id = document.getElementById("id").value;
-                           
-                           var dataStringer = 
-                            "&title="+Title+
-                            "&file="+File+
-                            "&action="+Action+
-                            "&id="+Id;
-//console.log(dataStringer);
-                             $.ajax({
-                                url:"process/download.php",
-                                type:"POST",
-                                enctype="multipart/form-data",
-                                cache:false,
-                                data:dataStringer,
-                                success:function(result){
-//console.log(result);
-                                  var d = $.parseJSON(result);
-                                if(d.status == 1){
-                                   swal('', d.msg, 'success'); 
+                    <script>                        
+$("#fupForm").on('submit',function(e){
+        e.preventDefault();        
+        $.ajax({
+            type: 'POST',
+            url: "process/download.php",
+            data: new FormData(this),
+            dataType: 'json',
+            contentType: false,
+            cache: false,
+            processData:false, 
+            success: function(result){
+                                  var data = result; //JSON.parse(result);
+                                 if(data.status==1){
+                                   swal('', data.msg, 'success'); 
                                    location.reload();
                                 }else{
-                                    swal('', d.msg, 'error');  
-                                } 
-                                }
-                            }) ;
-                        }
-                       
+                                    swal('', data.msg, 'error');  
+                                }  
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    });
+                     
                     </script>
 
                     
@@ -248,7 +203,13 @@ while($row = mysqli_fetch_array($result)){
                                                         <td class="customer_name"> 
                                                         <?php echo $row['title'];?>
                                                         </td>
-                                                        <td class="customer_name"><a href="process/<?php echo $row['file'];?>" target="_blank"><img src="admin/process/<?php echo $row['file'];?>" style="width:50px;height:50px;border-radius:50px;" alt=""></a>  </td>
+                                                        <td class="customer_name">
+                                                            <a href="process/<?php echo $row['file'];?>" target="_blank">
+                                                            <button style="background:gray;color:black;border-radius:5px;">
+                                                            <?php echo $row['file'];?>
+                                                            </button>
+                                                        </a> 
+                                                         </td>
                                                        
 
                                                   
@@ -264,29 +225,10 @@ while($row = mysqli_fetch_array($result)){
                                                         </td>
                                                     </tr>
                                                     <?php
-}
+                                                    }
                                                     ?>
                                                 </tbody>
                                             </table>
-                                            <div class="noresult" style="display: none">
-                                                <div class="text-center">
-                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                    <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end">
-                                            <div class="pagination-wrap hstack gap-2">
-                                                <a class="page-item pagination-prev disabled" href="javascrpit:void(0)">
-                                                    Previous
-                                                </a>
-                                                <ul class="pagination listjs-pagination mb-0"></ul>
-                                                <a class="page-item pagination-next" href="javascrpit:void(0)">
-                                                    Next
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div><!-- end card -->
@@ -298,7 +240,7 @@ while($row = mysqli_fetch_array($result)){
                     <!-- end row -->
                     <!-- Show table end -->
 
-<!-- content end here -->
+                <!-- content end here -->
                 </div>
                 <!-- container-fluid -->
             </div>
@@ -309,28 +251,16 @@ while($row = mysqli_fetch_array($result)){
             <!-- footer end -->
         </div>
         <!-- end main content-->
-
     </div>
     <!-- END layout-wrapper -->
-
-
-
-    <!--start back-to-top-->
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <!--end back-to-top-->
-
     <!--preloader-->
     <?php
     include("include/preloader_custome.php");
     ?>
-
     <!-- Theme Settings -->
     <?php
     include("include/theme_setting.php");
     ?>
-
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
@@ -338,20 +268,13 @@ while($row = mysqli_fetch_array($result)){
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
-
     <!-- apexcharts -->
     <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
-
     <!-- Swiper Js -->
     <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
-
     <!-- CRM js -->
     <script src="assets/js/pages/dashboard-crypto.init.js"></script>
-
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>
-
-
-<!-- Mirrored from themesbrand.com/velzon/html/default/dashboard-crypto.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 May 2023 08:45:13 GMT -->
 </html>

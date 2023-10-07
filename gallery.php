@@ -589,156 +589,156 @@
     </section>
 
     <!-- Gallery Start -->
-    <style>
-        * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-
-.gallery-image {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
- 
-}
-
-.gallery-image img {
-  height: 250px;
-  width: 350px;
-  transform: scale(1.0);
-  transition: transform 0.4s ease;
-  
-}
-
-.img-box {
-  box-sizing: content-box;
-  margin: 10px;
-  height: 250px;
-  width: 350px;
-  overflow: hidden;
+<style>
+.contner__img-holder {
+  max-width: 280px;
   display: inline-block;
-  color: white;
-  position: relative;
-  background-color: white;
- 
-}
-
-.caption {
-  position: absolute;
-  bottom: 5px;
-  left: 20px;
-  opacity: 0.0;
-  color:white;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.caption p{
-    color:white;
-    font-size:15px;
-}
-
-.transparent-box {
-  height: 250px;
-  width: 350px;
-  background-color:rgba(0, 0, 0, 0);
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: background-color 0.3s ease;
-}
-
-.img-box:hover img { 
-  transform: scale(1.1);
-}
-
-.img-box:hover .transparent-box {
-  background-color:rgba(0, 0, 0, 0.5);
-}
-
-.img-box:hover .caption {
-  transform: translateY(-20px);
-  opacity: 1.0;
-}
-
-.img-box:hover {
+  vertical-align: top;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 45px;
   cursor: pointer;
 }
-
-.caption > p:nth-child(2) {
-  font-size: 0.8em;
+.contner .container__img-holder:nth-child(3n+1) {
+  margin-left: 0;
 }
-
-.opacity-low {
-  opacity: 0.5;
+.contner__img-holder img {
+  width: 100%;
+  height: 220px !important;
+  display: block;
 }
-    </style>
+/* Popup Styling */
+.img-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.img-popup img {
+  max-width: 900px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(-100px);
+  -webkit-transform: translateY(-100px);
+  -moz-transform: translateY(-100px);
+  -ms-transform: translateY(-100px);
+  -o-transform: translateY(-100px);
+}
+.close-btn {
+  width: 35px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.close-btn .bar {
+  height: 4px;
+  background: #333;
+}
+.close-btn .bar:nth-child(1) {
+  transform: rotate(45deg);
+}
+.close-btn .bar:nth-child(2) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+.opened {
+  display: flex;
+}
+.opened img {
+  animation: animatepopup 1s ease-in-out .8s;
+  -webkit-animation: animatepopup .3s ease-in-out forwards;
+}
+@keyframes animatepopup {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:600,900" rel="stylesheet">
+}
+@media screen and (max-width: 880px) {
 
-  <div class="gallery-image">
-  <?php
+  .contner .contner__img-holder:nth-child(3n+1) {
+    margin-left: 16px;
+  }
+}
+</style>
+<div class="contner">
+<?php
 $sql= "SELECT * FROM gallery_tbl";
 $result= mysqli_query($connection, $sql) or die("Query Failed.");
 while($row = mysqli_fetch_array($result)){
 ?>
-    <div class="img-box">
-      <img src="admin/process/<?php echo $row['gallery'];?>" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-          <p> <?php echo $row['remark'];?></p>
-        </div>
-      </div> 
-    </div>
-    <?php }?>
-<!--     <div class="img-box">
-      <img src="https://picsum.photos/350/250/?image=232" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-          <p>Night Sky</p>
-          <p class="opacity-low">Cinematic</p>
-        </div>
-      </div>
-    </div>
-    <div class="img-box">
-      <img src="https://picsum.photos/350/250/?image=431" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-          <p>Tea Talk</p>
-          <p class="opacity-low">Composite</p>
-        </div>
-      </div>
-    </div>
-    <div class="img-box">
-      <img src="https://picsum.photos/350/250?image=474" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-          <p>Road</p>
-          <p class="opacity-low">Landscape</p>
-        </div>
-      </div> 
-    </div>
-    <div class="img-box">
-      <img src="https://picsum.photos/350/250?image=344" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-          <p>Sea</p>
-          <p class="opacity-low">Cityscape</p>
-        </div>
-      </div> 
-    </div>
-    <div class="img-box">
-      <img src="https://picsum.photos/350/250?image=494" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-          <p>Vintage</p>
-          <p class="opacity-low">Cinematic</p>
-        </div>
-      </div> 
-    </div> -->
+  <div class="contner__img-holder">
+    <img src="admin/process/<?php echo $row['gallery'];?>" alt="Image">
+    <h3><?php echo $row['remark'];?></h3>
   </div>
+<?php }?>
 
+<!--   <div class="container__img-holder">
+    <img src="images/3.jpg" alt="Image">
+  </div>
+  <div class="container__img-holder">
+    <img src="https://images.pexels.com/photos/258109/pexels-photo-258109.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Image">
+  </div>
+  <div class="container__img-holder">
+    <img src="https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Image">
+  </div>
+  <div class="container__img-holder">
+    <img src="https://images.pexels.com/photos/1903702/pexels-photo-1903702.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Image">
+  </div>
+  <div class="container__img-holder">
+    <img src="https://images.pexels.com/photos/589697/pexels-photo-589697.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Image">
+  </div>
+</div> -->
+
+<div class="img-popup">
+  <img src="" alt="Popup Image">
+  <div class="close-btn">
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
+<script>
+    $(document).ready(function() {
+
+// required elements
+var imgPopup = $('.img-popup');
+var imgCont  = $('.contner__img-holder');
+var popupImage = $('.img-popup img');
+var closeBtn = $('.close-btn');
+
+// handle events
+imgCont.on('click', function() {
+  var img_src = $(this).children('img').attr('src');
+  imgPopup.children('img').attr('src', img_src);
+  imgPopup.addClass('opened');
+});
+
+$(imgPopup, closeBtn).on('click', function() {
+  imgPopup.removeClass('opened');
+  imgPopup.children('img').attr('src', '');
+});
+
+popupImage.on('click', function(e) {
+  e.stopPropagation();
+});
+
+});
+</script>
     <!-- Gallery End -->
     <!-- Footer -->
     <?php 
@@ -748,120 +748,7 @@ while($row = mysqli_fetch_array($result)){
     <?php
         include_once('include/appointment_form.php');
     ?>
-    <!-- Appointment Modal -->
-
-    <!-- Enquiry Modal -->
-    <div class="modal fade" id="enquiryModal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content enquiry_form_modal">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <h4 class="modal-title col-md-12">Enquiry Form</h4>
-                            <p class=" col-md-12">You can also call @ <strong>+91-9555-059-059</strong> for assistance
-                            </p>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="">
-                    <form name="contactus" action="#" id="contactusForm">
-                        <div class="">
-                            <div class="row">
-                                <div class=" col-xs-12  col-sm-12 col-md-6 col-lg-6 col-xl-6">
-
-                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="name">Your
-                                            Name:</label> <input class="contact_text_1" placeholder="Sujit Kumar"
-                                            name="firstname" id="name" value="" type="text" required>
-                                    </div>
-
-                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="emailid">Your
-                                            E-mail:</label>
-                                        <input placeholder="xyz@email.com" class="contact_text_1" type="text"
-                                            name="email" value="" required>
-                                    </div>
-
-                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><label for="phone">Your Phone
-                                            Number:</label>
-                                        <input class="contact_text_1" placeholder="+91 90*** ***52" type="tel"
-                                            minlength="10" maxlength="10" name="phone" value="" required>
-                                    </div>
-
-                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                        <select name="speciality" class="contact_text_1">
-                                            <option value="">--- Choose Speciality---</option>
-                                            <option value="Institute of Bariatric and Metabolic Surgery">Institute of
-                                                Bariatric and Metabolic Surgery</option>
-                                            <option value="Minimal Access, Bariatric &amp; General Surgery">Minimal
-                                                Access, Bariatric &amp; General Surgery</option>
-                                            <option value="Gynaecology">Gynaecology</option>
-                                            <option
-                                                value="Maternity Services &amp; Luxurious Labour Delivery Room (LDR)">
-                                                Maternity Services &amp; Luxurious Labour Delivery Room (LDR)</option>
-                                            <option value="Paediatrics &amp; Neonatology">Paediatrics &amp; Neonatology
-                                            </option>
-                                            <option value="Peadiatric Surgery">Peadiatric Surgery</option>
-                                            <option value="New Born Intensive Care (NICU)">New Born Intensive Care
-                                                (NICU)</option>
-                                            <option value="Orthopaedics">Orthopaedics</option>
-                                            <option value="Internal Medicine">Internal Medicine</option>
-                                            <option value="IVF Clinic managed by Southend Fertility &amp; IVF">IVF
-                                                Clinic managed by Southend Fertility &amp; IVF</option>
-                                            <option value="Endocrinology &amp; Diabetes">Endocrinology &amp; Diabetes
-                                            </option>
-                                            <option value="Urology">Urology</option>
-                                            <option value="ENT">ENT</option>
-                                            <option value="Pulmonology &amp; Sleep Disorders">Pulmonology &amp; Sleep
-                                                Disorders</option>
-                                            <option value="Nephrology">Nephrology</option>
-                                            <option value="Neurosurgery">Neurosurgery</option>
-                                            <option value="Ophthalmology">Ophthalmology</option>
-                                            <option value="Cardiology">Cardiology</option>
-                                            <option value="Anaesthesia">Anaesthesia</option>
-                                            <option value="Oncology">Oncology</option>
-                                            <option value="Hematologist">Hematologist</option>
-                                            <option value="Psychiatry">Psychiatry</option>
-                                            <option value="Physiotherapy">Physiotherapy</option>
-                                            <option value="Neurology">Neurology</option>
-                                            <option value="Interventional Pain Management">Interventional Pain
-                                                Management</option>
-                                            <option value="Dental Clinic managed by Aashray Green Dental Practice">
-                                                Dental Clinic managed by Aashray Green Dental Practice</option>
-                                            <option value="Rheumatology">Rheumatology</option>
-                                            <option value="Vein Clinic">Vein Clinic</option>
-                                            <option
-                                                value="Department of Dermatology, Plastic, Reconstructive, Aesthetic Surgery &amp; Hair Transplant Surgery">
-                                                Department of Dermatology, Plastic, Reconstructive, Aesthetic Surgery
-                                                &amp; Hair Transplant Surgery</option>
-                                            <option value="Gastroenterology">Gastroenterology</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class=" col-xs-12  col-sm-12 col-md-6 col-lg-6 col-xl-6"><label for="message">Your
-                                        Query:</label> <textarea placeholder="Type the text here" class="contact_text_3"
-                                        style="resize: none;" name="query"></textarea></div>
-                            </div>
-                            <!--<div class="col-md-6"><input placeholder="What is the value of 14 + 16?" type="text" name="captchacode" value=""  class="contact_text_2"></div>-->
-                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><input value="Submit" type="submit"
-                                    class="submit"></div>
-
-                        </div>
-                </div>
-
-
-                </form>
-            </div>
-        </div>
-    </div>
-    </div>
-    <!-- Enquiry Modal -->
-
-    <!-- back to top -->
-    <a href="#" id="back-to-top" title="Back to top" class="show"><i class="fa fa-chevron-up"></i></a>
     <!-- jq -->
-
     <script type='text/javascript' src='wp-content/themes/organhospital/js/bootstrap.min68c3.js?ver=20151811'
         id='custom-bootstrap-min-js'></script>
     <script type='text/javascript' src='wp-content/themes/organhospital/js/owl.carousel.min68c3.js?ver=20151811'

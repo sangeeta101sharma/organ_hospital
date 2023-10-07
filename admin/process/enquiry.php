@@ -3,14 +3,14 @@
 include("connection.php");
 
     $name = $_POST['name'];
+    $physician = $_POST['physician'];
     $address = $_POST['address'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $medicine = $_POST['medicine'];
     $query = $_POST['query'];
     $date = date('Y-m-d H:i:s');
   
-        /*name validation */
+/*name validation */
 
 if(isset($name) && !empty($name)){  
     if(!preg_match("/^['a-zA-Z-' ]*$/",$name)) {
@@ -22,6 +22,20 @@ if(isset($name) && !empty($name)){
 }else{
     $array = array("status"=>2,"msg"=>"Name  field is required.");
     echo json_encode($array);
+    return;
+}
+        /*physician validation */
+
+if(isset($physician) && !empty($physician)){  
+    if(!preg_match("/^['a-zA-Z-' ]*$/",$physician)) {
+        $physicianErr = "Only letters and white space are allowed";     
+        $aray = array("status"=>2,"msg"=> $physicianErr);
+        echo json_encode($aray);
+        return;   
+        }
+}else{
+    $aray = array("status"=>2,"msg"=>"Physician  field is required.");
+    echo json_encode($aray);
     return;
 }
 /* Address validation */
@@ -86,7 +100,8 @@ else{
     return;
 }
 
-       $sql = "INSERT INTO `enquiry_tbl`( `name`,`address`, `email`, `phone`, `medicine`, `query`, `updated_at`) VALUES ('$name','$address',' $email','$phone',' $medicine','$query','  $date ')";
+       $sql = "INSERT INTO `enquiry_tbl`( `name`,`physician`,`address`, `email`, `phone`, `query`, `updated_at`) 
+       VALUES ('$name','$physician','$address',' $email','$phone','$query','  $date ')";
      $result=mysqli_query($connection,$sql)or die("Query Failed.");
      if ($result)
      {
@@ -97,6 +112,4 @@ else{
      $arr = array("status"=>2,"msg"=>"Enquiry Failed.");
      echo json_encode($arr);
      }
-
-
 ?>

@@ -375,6 +375,10 @@
         font-size: 1.5em;
         line-height: 1.6;
     }
+    .bannersec{
+        width:100%;
+        height:470px !important;
+    }
     </style>
     <link rel='stylesheet' id='custom-bootstrap-css'
         href='wp-content/themes/organhospital/css/bootstrap.min3781.css?ver=6.2.2' type='text/css' media='all' />
@@ -494,8 +498,11 @@ $sql= "SELECT * FROM latest_news_tbl";
 $result= mysqli_query($connection, $sql) or die("Query Failed.");
 while($row = mysqli_fetch_array($result)){
 ?>
-                            <h6 style="color:lightgreen;"><?php echo $row['title'];?></h6>
-                            <p style="color:white;">*&nbsp;&nbsp;<?php echo $row['description'];?><br>
+                        
+                            <p style="color:white;"><b style="color:lightgreen;">
+                            <img src="images/news_gif.gif" alt="" height="45" width="45">
+                            <?php echo $row['title'];?></b><br>
+                            *&nbsp;&nbsp;<?php echo $row['description'];?><br>
                             *&nbsp;&nbsp;<b><?php echo $row['date'];?></b></p>
                             <?php } ?>
                             </li>

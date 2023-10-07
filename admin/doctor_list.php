@@ -1,15 +1,16 @@
-<?php include("include/config.php");?>
+<?php 
+session_start();
+include("include/config.php");?>
 <?php include("process/connection.php");?>
 <?php include("include/function.php");?>
 <?php
-session_start();
+
 
 if(!isLoggedIn()){
     
     header("location:login.php?status=2&msg=Login First");
     exit();
 }
-
 ?>
 <?php 
 if(isset($_GET['id']) && !empty($_GET['id'])){
@@ -21,14 +22,11 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     }
     $row = mysqli_fetch_array($result);
 }
-
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
-    data-sidebar-image="none" data-preloader="disable">
-
+data-sidebar-image="none" data-preloader="disable">
 <head>
-
     <meta charset="utf-8" />
     <title><?php echo $title;?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,9 +34,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo $favicon;?>">
-
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -49,49 +45,18 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-
 </head>
-
 <body>
-
     <!-- Begin page -->
     <div id="layout-wrapper">
         <!-- header start -->
         <?php include("include/header.php");?>
         <!-- header end -->
-        <!-- removeNotificationModal -->
-        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                            id="NotificationModalbtn-close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mt-2 text-center">
-                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
-                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                <h4>Are you sure ?</h4>
-                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
-                            </div>
-                        </div>
-                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
-                                It!</button>
-                        </div>
-                    </div>
 
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-        <!-- ========== App Menu ========== -->
         <!-- menu start -->
         <?php include("include/menu.php");?>
         <!-- menu end -->
-        <!-- Left Sidebar End -->
-        <!-- Vertical Overlay-->
+
         <div class="vertical-overlay"></div>
 
         <!-- ============================================================== -->
@@ -113,11 +78,14 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
-                                    <?php if(isset($_GET['msg']) && !empty($_GET['msg'])){?>
-                                    <div class="alert <?php echo ($_GET['status']== 1) ? 'alert-success' : 'alert-danger' ?>"
+                                    <?php if(isset($_SESSION['msg']) && !empty($_SESSION['msg'])){?>
+                                    <div class="alert <?php echo ($_SESSION['status']== 1) ? 'alert-success' : 'alert-danger' ?>"
                                         role="alert">
 
-                                        <?php echo $_GET['msg'];?>
+                                        <?php echo $_SESSION['msg'];
+                                        unset($_SESSION['msg']);
+                                        unset($_SESSION['status']);
+                                        ?>
 
                                     </div>
                                     <?php } ?>
@@ -139,7 +107,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="dr_name" class="form-label">Dr. Name</label>
                                                         <input type="text" class="form-control" id="doctor"
-                                                            name="doctor" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['doctor'] : ""; ?>" required>
+                                                            name="doctor" value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['doctor'] : ""; ?>" >
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -147,7 +115,15 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="specialist" class="form-label">Specialist</label>
                                                         <input type="text" class="form-control" id="specialist"
-                                                            name="specialist"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['specialist'] : ""; ?>" required>
+                                                            name="specialist"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['specialist'] : ""; ?>" >
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="specialist" class="form-label">Contact</label>
+                                                        <input type="number" class="form-control" id="contact"
+                                                            name="contact"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['contact'] : ""; ?>" >
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -163,7 +139,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="morning" class="form-label">Morning</label>
                                                         <input type="text" class="form-control" id="morning"
-                                                            name="morning"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['morning'] : ""; ?>" >
+                                                            name="morning"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['morning'] : ""; ?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -171,7 +147,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                     <div class="mb-3">
                                                         <label for="evening" class="form-label">Evening</label>
                                                         <input type="text" class="form-control" id="evening"
-                                                            name="evening"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['evening'] : ""; ?>" >
+                                                            name="evening"  value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? $row['evening'] : ""; ?>" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -180,6 +156,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                             <!--end col-->
                                             <div class="col-lg-12">
                                                 <div class="text-end">
+                                                <input type="hidden" id="action" name="action" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ? "UPDATE":"INSERT";?>">
+                                                 <input type="hidden" id="id" name="id" value="<?php echo(isset($_GET['id']) && !empty($_GET['id'])) ? $_GET['id']:0 ;?>">
                                                     <button type="submit" class="btn btn-primary"
                                                         value="submit">Submit</button>
                                                 </div>
@@ -237,6 +215,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                                         <th class="sort" data-sort="customer_name">
                                                         Specialist </th>
                                                         <th class="sort" data-sort="customer_name">
+                                                        Contact &nbsp;&nbsp;&nbsp;</th>
+                                                        <th class="sort" data-sort="customer_name">
                                                         Weekly </th>
                                                         <th class="sort" data-sort="customer_name">
                                                         Morning </th>
@@ -251,10 +231,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 $sql= "SELECT * FROM doctor_list_tbl";
 $result= mysqli_query($connection, $sql) or die("Query Failed.");
 while($row = mysqli_fetch_array($result)){
-
-
 ?>
-
                                                     <tr>
                                                     <td scope="row">
                                                         <?php echo $row['id'];?>
@@ -266,6 +243,9 @@ while($row = mysqli_fetch_array($result)){
                                                         </td>
                                                         <td class="customer_name"> 
                                                         <?php echo $row['specialist'];?>
+                                                        </td>
+                                                        <td class="customer_name"> 
+                                                        <?php echo $row['contact'];?>
                                                         </td>
                                                         <td class="customer_name"> 
                                                         <?php echo $row['weekly'];?>
@@ -288,29 +268,10 @@ while($row = mysqli_fetch_array($result)){
                                                         </td>
                                                     </tr>
                                                     <?php
-}
+                                                    }
                                                     ?>
                                                 </tbody>
                                             </table>
-                                            <div class="noresult" style="display: none">
-                                                <div class="text-center">
-                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                    <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end">
-                                            <div class="pagination-wrap hstack gap-2">
-                                                <a class="page-item pagination-prev disabled" href="javascrpit:void(0)">
-                                                    Previous
-                                                </a>
-                                                <ul class="pagination listjs-pagination mb-0"></ul>
-                                                <a class="page-item pagination-next" href="javascrpit:void(0)">
-                                                    Next
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div><!-- end card -->
@@ -336,14 +297,6 @@ while($row = mysqli_fetch_array($result)){
     </div>
     <!-- END layout-wrapper -->
 
-
-
-    <!--start back-to-top-->
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <!--end back-to-top-->
-
     <!--preloader-->
     <?php
     include("include/preloader_custome.php");
@@ -361,20 +314,13 @@ while($row = mysqli_fetch_array($result)){
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
-
     <!-- apexcharts -->
     <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
-
     <!-- Swiper Js -->
     <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
-
     <!-- CRM js -->
     <script src="assets/js/pages/dashboard-crypto.init.js"></script>
-
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>
-
-
-<!-- Mirrored from themesbrand.com/velzon/html/default/dashboard-crypto.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 May 2023 08:45:13 GMT -->
 </html>

@@ -495,7 +495,7 @@
     <!-- Header  -->
     <?php
 include_once('include/header.php');
-?>
+?>   
     <section>
         <div class="inner-banner">
             <img src="images/top_img3.jpeg" alt="About Us" title="Organ Hospital">
@@ -708,7 +708,7 @@ a:hover {
     <div class="col-lg-4 col-md-6 d-flex">
       <div class="blog-card w-100">
         <div class="meta">
-          <div class="photo" style="background-image: url(images/slider_img2.jpg);height:400px;width:200px;background-size: cover; background-repeat: no-repeat; background-position: left;"></div>
+          <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/emrgency1.png);height:400px;width:200px;background-size: cover; background-repeat: no-repeat; background-position: left;"></div>
         </div>
         <div class="description">
           <h1>Emergency Department (ED)</h1>
@@ -722,7 +722,7 @@ a:hover {
     <div class="col-lg-4 col-md-6 d-flex">
       <div class="blog-card w-100">
         <div class="meta">
-          <div class="photo" style="background-image: url(images/slider_img4.jpg)"></div>
+          <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/slider_img4.jpg);opacity: 0.9;"></div>
         </div>
         <div class="description">
           <h1>Intensive Care Unit (ICU)</h1>
@@ -736,7 +736,7 @@ a:hover {
     <div class="col-lg-4 col-md-6 d-flex">
       <div class="blog-card w-100">
         <div class="meta">
-          <div class="photo" style="background-image: url(images/slider_size2.jpeg)"></div>
+          <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/slider_size2.jpeg)"></div>
         </div>
         <div class="description">
           <h1>Medical-Surgical Units</h1>
@@ -750,7 +750,7 @@ a:hover {
     <div class="col-lg-4 col-md-6 d-flex">
       <div class="blog-card w-100">
         <div class="meta">
-          <div class="photo" style="background-image: url(images/dept1.jpeg)"></div>
+          <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/dept1.jpeg)"></div>
         </div>
         <div class="description">
           <h1>Pediatrics</h1>
@@ -764,7 +764,7 @@ a:hover {
     <div class="col-lg-4 col-md-6 d-flex">
       <div class="blog-card w-100">
         <div class="meta">
-          <div class="photo" style="background-image: url(images/dpt2.jpg)"></div>
+          <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/dpt2.jpg)"></div>
         </div>
         <div class="description">
           <h1>Neurology</h1>
@@ -778,7 +778,7 @@ a:hover {
     <div class="col-lg-4 col-md-6 d-flex">
       <div class="blog-card w-100">
         <div class="meta">
-          <div class="photo" style="background-image: url(images/dept3.jpg)"></div>
+          <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/dept3.jpg)"></div>
         </div>
         <div class="description">
           <h1>Radiology</h1>
@@ -792,7 +792,7 @@ a:hover {
     <div class="col-lg-4 col-md-6 d-flex">
       <div class="blog-card w-100">
         <div class="meta">
-          <div class="photo" style="background-image: url(images/dept4.jpeg)"></div>
+          <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/dept4.jpeg)"></div>
         </div>
         <div class="description">
           <h1>Pharmacy </h1>
@@ -806,7 +806,7 @@ a:hover {
     <div class="col-lg-4 col-md-6 d-flex">
       <div class="blog-card w-100">
         <div class="meta">
-          <div class="photo" style="background-image: url(images/dept5.jpeg)"></div>
+          <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/dept5.jpeg)"></div>
         </div>
         <div class="description">
           <h1>Respiratory Therapy</h1>
@@ -822,7 +822,7 @@ a:hover {
     <div class="col-lg-4 col-md-6 d-flex">
       <div class="blog-card w-100">
         <div class="meta">
-          <div class="photo" style="background-image: url(images/dept6.jpg)"></div>
+          <div class="photo" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/dept6.jpg)"></div>
         </div>
         <div class="description">
           <h1>Infection Control</h1>

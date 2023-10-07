@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         <h4 class="modal-title col-md-12">Appointment Request Form</h4>
-                        <p class=" col-md-12">You can also call @ <strong>+91-9555-059-059</strong> for assistance
+                        <p class=" col-md-12">You can also call @ <strong>+91-9415-235-157</strong> for assistance
                         </p>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>

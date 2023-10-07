@@ -158,20 +158,20 @@ gtag("config", "G-K4GRHNQQM8");
             <h2 class="title-3">Medical Services </h2>
             <div class="nav-link-1">
                 <ul>
-                                <li><a href="services/critical-care/index.html">Critical Care</a></li>
-                                <li><a href="services/internal-medicine/index.html">Internal Medicine</a></li>
-                                <li><a href="services/respiratory-medicine/index.html">Respiratory Medicine</a></li>
-                                <li><a href="services/rheumatology/index.html">Rheumatology</a></li>
-                                <li><a href="services/dermatology/index.html">Dermatology</a></li>
-                                <li><a href="services/psychiatry-and-deaddiction/index.html">Psychiatry and Deaddiction</a></li>
-                                <li><a href="services/cardiology/index.html">Cardiology</a></li>
-                                <li><a href="services/gallbladder-surgeon-gastroenterology/index.html">Gallbladder Surgeon Gastroenterology</a></li>
-                                <li><a href="services/endocrinology/index.html">Endocrinology</a></li>
-                                <li><a href="services/neurology/index.html">Neurology</a></li>
-                                <li><a href="services/kidney-stone-surgeon-nephrology/index.html">Kidney Stone Surgeon Nephrology</a></li>
-                                <li><a href="services/orthopedics/index.html">Orthopedics</a></li>
-                                <li><a href="services/urology/index.html">Urology</a></li>
-                                <li><a href="services/radiology/index.html">Radiology</a></li>
+                                <li><a href="">Critical Care</a></li>
+                                <li><a href="">Internal Medicine</a></li>
+                                <li><a href="">Respiratory Medicine</a></li>
+                                <li><a href="">Rheumatology</a></li>
+                                <li><a href="">Dermatology</a></li>
+                                <li><a href="">Psychiatry and Deaddiction</a></li>
+                                <li><a href="">Cardiology</a></li>
+                                <li><a href="">Gallbladder Surgeon Gastroenterology</a></li>
+                                <li><a href="">Endocrinology</a></li>
+                                <li><a href="">Neurology</a></li>
+                                <li><a href="">Kidney Stone Surgeon Nephrology</a></li>
+                                <li><a href="">Orthopedics</a></li>
+                                <li><a href="">Urology</a></li>
+                                <li><a href="">Radiology</a></li>
                             </ul>
             </div>
             <div class="clearfix"></div>
@@ -185,19 +185,19 @@ gtag("config", "G-K4GRHNQQM8");
             <h2 class="title-3">Surgical Services </h2>
             <div class="nav-link-1">
                 <ul>
-                                <li><a href="services/laparoscopic-surgery/index.html">Laparoscopic Surgery</a></li>
-                                <li><a href="services/neuro-surgery/index.html">Neuro surgery</a></li>
-                                <li><a href="services/uro-surgery/index.html">URO surgery</a></li>
-                                <li><a href="services/ent-specialist/index.html">ENT Specialist</a></li>
-                                <li><a href="services/eye-surgery/index.html">Eye Surgery</a></li>
-                                <li><a href="services/cosmetic-surgery/index.html">Cosmetic Surgery</a></li>
-                                <li><a href="services/gi-surgery/index.html">GI surgery</a></li>
-                                <li><a href="services/onco-surgery/index.html">ONCO surgery</a></li>
-                                <li><a href="services/interventional-cardiology/index.html">Interventional Cardiology</a></li>
-                                <li><a href="services/general-surgery/index.html">General Surgery</a></li>
-                                <li><a href="services/orthopedic-surgeon/index.html">Orthopedic Surgeon</a></li>
-                                <li><a href="services/paediatric-surgery/index.html">Paediatric Surgery</a></li>
-                                <li><a href="services/eye-hospital/index.html">Eye Hospital</a></li>
+                                <li><a href="">Laparoscopic Surgery</a></li>
+                                <li><a href="">Neuro surgery</a></li>
+                                <li><a href="">URO surgery</a></li>
+                                <li><a href="">ENT Specialist</a></li>
+                                <li><a href="">Eye Surgery</a></li>
+                                <li><a href="">Cosmetic Surgery</a></li>
+                                <li><a href="">GI surgery</a></li>
+                                <li><a href="">ONCO surgery</a></li>
+                                <li><a href="">Interventional Cardiology</a></li>
+                                <li><a href="">General Surgery</a></li>
+                                <li><a href="">Orthopedic Surgeon</a></li>
+                                <li><a href="">Paediatric Surgery</a></li>
+                                <li><a href="">Eye Hospital</a></li>
                             </ul>
             </div>
             <div class="clearfix"></div>
@@ -211,9 +211,9 @@ gtag("config", "G-K4GRHNQQM8");
             <h2 class="title-3">Mother and Child Care </h2>
             <div class="nav-link-1">
                 <ul>
-                                <li><a href="services/obstetrics-and-gynecology/index.html">Obstetrics and Gynecology</a></li>
-                                <li><a href="services/best-gynecologist/index.html">Best Gynecologist</a></li>
-                                <li><a href="services/child-specialist/index.html">Child Specialist</a></li>
+                                <li><a href="">Obstetrics and Gynecology</a></li>
+                                <li><a href="">Best Gynecologist</a></li>
+                                <li><a href="">Child Specialist</a></li>
                             </ul>
             </div>
             <div class="clearfix"></div>

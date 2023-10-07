@@ -1,4 +1,3 @@
-
 <?php include("include/config.php");?>
 <?php include("process/connection.php");?>
 <?php include("include/function.php");?>
@@ -10,13 +9,12 @@ if(!isLoggedIn()){
     header("location:login.php?status=2&msg=Login First");
     exit();
 }
-
 ?>
 <!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none" data-preloader="disable">
 
 <head>
-
     <meta charset="utf-8" />
     <title><?php echo $title;?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,9 +22,7 @@ if(!isLoggedIn()){
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo $favicone;?>">
-
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -38,98 +34,69 @@ if(!isLoggedIn()){
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
+    <style>
+        iframe{
+            width: 242px;
+    height: 139px;
+ 
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Begin page -->
     <div id="layout-wrapper">
-<!-- header start -->
-<?php include("include/header.php");?>
-<!-- header end -->
-<!-- removeNotificationModal -->
-<div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="NotificationModalbtn-close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mt-2 text-center">
-                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                        <h4>Are you sure ?</h4>
-                        <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
-                    </div>
-                </div>
-                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                    <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete It!</button>
-                </div>
-            </div>
-
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-        <!-- ========== App Menu ========== -->
+        <!-- header start -->
+        <?php include("include/header.php");?>
+        <!-- header end -->
         <!-- menu start -->
         <?php include("include/menu.php");?>
         <!-- menu end -->
-        <!-- Left Sidebar End -->
-        <!-- Vertical Overlay-->
+
         <div class="vertical-overlay"></div>
-
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
-
-               <!-- content  start here -->
-
-               <div class="row">
+                    <!-- content  start here -->
+                    <div class="row">
                         <div class="col-xxl-6">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Manage Video</h4>
-                                  
                                 </div><!-- end card header -->
-                                    <div class="live-preview">
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="uploadVedio" class="form-label"> Upload Video</label>
-                                                        <textarea   class="form-control" name="video" id="video" cols="50" rows="6" required></textarea>
-                                                        <!-- <input type="file" class="form-control" id="video" name="video"> -->
-                                                    </div>
+                                <div class="live-preview">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label for="uploadVideo" class="form-label"> Copy Youtube Embed
+                                                        Code</label>
+                                                    <textarea class="form-control" name="video" id="video" cols="50"
+                                                        rows="6" required></textarea>
+                                                    <!-- <input type="file" class="form-control" id="video" name="video"> -->
                                                 </div>
-                                                <!--end col-->
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="remark" class="form-label">Remarks</label>
-                                                        <input type="text" class="form-control" id="remark" name="remark" required>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                               
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-lg-12">
-                                                    <div class="text-end">
-                                                        <button class="btn btn-primary" onclick="submitform()" >Submit</button>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
                                             </div>
-                                            <!--end row-->
-                                        </form>
-                                    </div>
-                                    <div class="d-none code-view">
-                                        <pre class="language-markup" style="height: 375px;">
-
+                                            <!--end col-->
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label for="remark" class="form-label">Remarks</label>
+                                                    <input type="text" class="form-control" id="remark" name="remark"
+                                                        required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <div class="col-lg-12">
+                                            <div class="text-end">
+                                                <button class="btn btn-primary" onclick="submitform()">Upload</button>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                </div>
+                                <!--end row-->
+                                </form>
+                            </div>
+                            <div class="d-none code-view">
+                                <pre class="language-markup" style="height:375px;">
                                     </div>
                                 </div>
                             </div>
@@ -143,21 +110,22 @@ if(!isLoggedIn()){
                         function submitform(){
                             event.preventDefault();
                             var Video = document.getElementById("video").value;
+                            console.log(Video);
                             var Remark= document.getElementById("remark").value;
+                            console.log(Remark);
 
-                            var dataString='video='+Video+
+                             var dataString='video='+Video+
                                             "&remark="+Remark;
                                            
                                             console.log(dataString);
-                                            $.ajax({
+                                          $.ajax({
                                                 url:"process/manage_video.php",
                                                 type:"POST",
-                                                enctype="multipart/form-data",
                                                 cache:false,
                                                 data:dataString,
                                                 success:function(result){
                                                      console.log(result);
-                                                    var d = $.parseJSON(result);
+                                                     var d = $.parseJSON(result);
                                 if(d.status == 1){
                                    swal('', d.msg, 'success'); 
                                    location.reload();
@@ -165,18 +133,16 @@ if(!isLoggedIn()){
                                     swal('', d.msg, 'error');  
                                 }
                                                 }
-                                            });
+                                            }); 
                         }
                     </script>
                     <!-- Show table Start -->
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title mb-0">VIEW VIDEO DETAILS</h4>
                                 </div><!-- end card header -->
-
                                 <div class="card-body">
                                     <div class="listjs-table" id="customerList">
                                         <div class="row g-4 mb-3">
@@ -189,7 +155,6 @@ if(!isLoggedIn()){
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="table-responsive table-card mt-3 mb-1">
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
@@ -201,7 +166,6 @@ if(!isLoggedIn()){
                                                         Upload Video</th>
                                                         <th class="sort" data-sort="customer_name">
                                                         Remarks </th>
-                                                        
                                                         <th class="sort" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
@@ -218,7 +182,9 @@ while($row = mysqli_fetch_array($result)){
                                                         <?php echo $row['id'];?>
                                                         </td>
                                                         <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary"></a></td>
-                                                        <td class="customer_name">  <a href="process/<?php echo $row['video'];?>" target="_blank"><img src="process/<?php echo $row['video'];?>" style="width:50px;height:50px;border-radius:50px;" alt=""></a>  </td>
+                                                        <td class="customer_name">
+                                                            <?php echo $row['video'];?>
+                                                        </td>
                                                         <td class="customer_name">
                                                         <?php echo $row['remark'];?>
                                                         </td>
@@ -232,29 +198,10 @@ while($row = mysqli_fetch_array($result)){
                                                         </td>
                                                     </tr>
                                                     <?php
-}
+                                                    }
                                                     ?>
                                                 </tbody>
                                             </table>
-                                            <div class="noresult" style="display: none">
-                                                <div class="text-center">
-                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                    <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end">
-                                            <div class="pagination-wrap hstack gap-2">
-                                                <a class="page-item pagination-prev disabled" href="javascrpit:void(0)">
-                                                    Previous
-                                                </a>
-                                                <ul class="pagination listjs-pagination mb-0"></ul>
-                                                <a class="page-item pagination-next" href="javascrpit:void(0)">
-                                                    Next
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div><!-- end card -->
@@ -280,24 +227,14 @@ while($row = mysqli_fetch_array($result)){
     </div>
     <!-- END layout-wrapper -->
 
-
-
-    <!--start back-to-top-->
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <!--end back-to-top-->
-
     <!--preloader-->
     <?php
     include("include/preloader_custome.php");
     ?>
-
     <!-- Theme Settings -->
     <?php
     include("include/theme_setting.php");
     ?>
-
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
@@ -305,20 +242,13 @@ while($row = mysqli_fetch_array($result)){
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
-
     <!-- apexcharts -->
     <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
-
     <!-- Swiper Js -->
     <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
-
     <!-- CRM js -->
     <script src="assets/js/pages/dashboard-crypto.init.js"></script>
-
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>
-
-
-<!-- Mirrored from themesbrand.com/velzon/html/default/dashboard-crypto.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 May 2023 08:45:13 GMT -->
 </html>
